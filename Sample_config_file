@@ -1,0 +1,6 @@
+{
+    "composio_api_key": "YOUR-COMPOSIO-API-KEY-HERE",
+    "groq_api_keys": [
+        "GROQ-API-KEYS-HERE"
+    ]
+}

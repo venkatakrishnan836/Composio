@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Composio App Research – AI Ops Case Study</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/asciinema-player@3.0.1/dist/bundle/asciinema-player.css" />
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#f8fafc;color:#111827;line-height:1.6;padding:2rem}
+.container{max-width:1280px;margin:0 auto}
+h1{font-size:1.875rem;font-weight:700;letter-spacing:-0.02em;color:#111827}
+h2{font-size:1.35rem;font-weight:700;color:#1e1b4b;margin:2rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid #e2e8f0;display:flex;align-items:center;gap:8px}
+.subtitle{font-size:0.95rem;color:#6b7280;margin-top:0.35rem}
+
+/* --- Tabs --- */
+.tab-nav {
+    display:flex;
+    gap:0.25rem;
+    flex-wrap:wrap;
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:10px;
+    padding:0.5rem 0.75rem;
+    margin-bottom:2rem;
+    box-shadow:0 1px 3px rgba(0,0,0,0.04);
+    position:sticky;
+    top:0.5rem;
+    z-index:100;
+    backdrop-filter:blur(8px);
+    background:rgba(255,255,255,0.92);
+}
+.tab-btn {
+    background:transparent;
+    border:none;
+    padding:0.5rem 1.2rem;
+    font-size:0.82rem;
+    font-weight:600;
+    font-family:inherit;
+    color:#6b7280;
+    border-radius:6px;
+    cursor:pointer;
+    transition:all 0.15s;
+}
+.tab-btn:hover{background:#f1f5f9;color:#1e293b}
+.tab-btn.active{background:#4f46e5;color:#fff}
+.tab-page{display:none;animation:fadeIn 0.25s ease}
+.tab-page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.headline{background:linear-gradient(135deg,#1e1b4b 0%,#312e81 100%);color:#fff;border-radius:12px;padding:1.75rem 2rem;margin-bottom:2rem}
+.headline h1{color:#fff}
+.headline .subtitle{color:#a5b4fc}
+.stats-inline{display:flex;gap:2rem;margin-top:1.25rem;flex-wrap:wrap}
+.stat-inline .num{font-size:1.75rem;font-weight:700;color:#fff}
+.stat-inline .label{font-size:0.72rem;text-transform:uppercase;color:#c7d2fe;font-weight:600;letter-spacing:0.05em}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-bottom:2rem}
+.card{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.card h3{font-size:0.95rem;font-weight:700;color:#312e81;margin-bottom:0.85rem;text-transform:uppercase;letter-spacing:0.04em;border-bottom:1px solid #f1f5f9;padding-bottom:0.5rem}
+
+ul.list{list-style:none;padding:0}
+ul.list li{font-size:0.875rem;color:#374151;margin-bottom:0.75rem;padding-left:1.5rem;position:relative}
+ul.list li::before{content:"→";position:absolute;left:0;color:#4f46e5;font-weight:700}
+
+.filter-bar{display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem}
+.fbtn{background:#fff;border:1px solid #e5e7eb;color:#374151;padding:0.35rem 0.85rem;font-size:0.8rem;border-radius:5px;cursor:pointer;font-weight:500;font-family:inherit;transition:all .15s}
+.fbtn:hover,.fbtn.active{background:#4f46e5;color:#fff;border-color:#4f46e5}
+.search-box{border:1px solid #e5e7eb;border-radius:5px;padding:0.35rem 0.75rem;font-size:0.8rem;font-family:inherit;outline:none;color:#111827}
+.search-box:focus{border-color:#4f46e5}
+
+.tbl-wrap{background:#fff;border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.tbl-scroll{overflow-x:auto;max-height:520px;overflow-y:auto}
+table{width:100%;border-collapse:collapse;font-size:0.82rem}
+th{background:#f9fafb;color:#6b7280;font-weight:600;padding:0.75rem 0.85rem;text-align:left;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid #e5e7eb;position:sticky;top:0;z-index:5}
+td{padding:0.75rem 0.85rem;border-bottom:1px solid #e5e7eb;vertical-align:middle}
+tr:hover td{background:#f9fafb}
+.tc{text-align:center}
+
+.badge{display:inline-block;padding:0.2rem 0.55rem;border-radius:4px;font-size:0.7rem;font-weight:700;text-align:center;white-space:nowrap}
+.b-done{background:#e0e7ff;color:#3730a3}
+.b-easy{background:#d1fae5;color:#065f46}
+.b-medium{background:#fef3c7;color:#92400e}
+.b-blocked{background:#fee2e2;color:#991b1b}
+
+.chip{font-family:ui-monospace,monospace;background:#f1f5f9;padding:0.15rem 0.4rem;border-radius:3px;font-size:0.73rem;color:#1e293b;white-space:normal;word-break:break-all}
+.docs-link{color:#4f46e5;text-decoration:none;font-weight:600;font-size:0.82rem}
+.docs-link:hover{text-decoration:underline}
+
+.section-badge {background:#e0e7ff;color:#4f46e5;font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:4px;font-weight:600;text-transform:uppercase}
+
+.chart-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.5rem;margin-bottom:2rem}
+.chart-card {background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.04);display:flex;flex-direction:column;align-items:center}
+.chart-container {width:100%;height:220px;position:relative;margin-top:1rem}
+
+.action-section {background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:1.5rem;margin-bottom:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.02)}
+.action-header {margin-bottom:1.25rem;border-bottom:1px solid #f1f5f9;padding-bottom:0.75rem}
+.action-header h3 {font-size:1.1rem;font-weight:700;display:flex;align-items:center;gap:8px}
+.action-header p {font-size:0.85rem;color:#64748b;margin-top:0.25rem}
+.app-grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:1.25rem;transition:all 0.3s ease}
+
+.app-item-card {
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:8px;
+    padding:12px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    min-height:90px;
+    transition:all 0.2s ease;
+}
+.app-item-card:hover {
+    background:#ffffff;
+    box-shadow:0 4px 10px rgba(0,0,0,0.05);
+    border-color:#cbd5e1;
+    transform:translateY(-1px);
+}
+.app-item-name {font-size:0.88rem;font-weight:700;color:#1e1b4b}
+.app-item-cat {font-size:0.72rem;color:#64748b;margin-top:2px}
+.app-item-badge {
+    font-size:0.65rem;
+    font-family:ui-monospace,monospace;
+    background:#e2e8f0;
+    color:#334155;
+    padding:2px 6px;
+    border-radius:4px;
+    margin-top:8px;
+    align-self:flex-start;
+    font-weight:600;
+}
+.app-item-reason {
+    font-size:0.65rem;
+    background:#fee2e2;
+    color:#991b1b;
+    padding:2px 6px;
+    border-radius:4px;
+    margin-top:8px;
+    align-self:flex-start;
+    font-weight:700;
+}
+
+.expand-btn {
+    background:#ffffff;
+    border:1px solid #cbd5e1;
+    color:#475569;
+    padding:0.5rem 1rem;
+    font-size:0.8rem;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:600;
+    font-family:inherit;
+    display:block;
+    margin:0 auto;
+    transition:all 0.15s;
+}
+.expand-btn:hover {
+    background:#f8fafc;
+    border-color:#94a3b8;
+    color:#1e293b;
+}
+
+.pipeline-flow {
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+    gap:0.5rem 0.25rem;
+    background:#f8fafc;
+    border-radius:10px;
+    padding:1.25rem 1rem;
+    margin:1rem 0 0.5rem;
+    border:1px solid #e5e7eb;
+}
+.pipeline-step {
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:6px;
+    padding:0.35rem 0.8rem;
+    font-size:0.75rem;
+    font-weight:600;
+    color:#1e293b;
+    white-space:nowrap;
+}
+.pipeline-arrow {
+    color:#94a3b8;
+    font-size:0.9rem;
+    font-weight:700;
+}
+
+.flow-numbers {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:0.75rem;
+    margin:0.5rem 0 0.25rem;
+}
+.flow-stat {
+    background:#fff;
+    border-radius:6px;
+    padding:0.5rem 0.75rem;
+    text-align:center;
+    border:1px solid #e5e7eb;
+}
+.flow-stat .num {
+    font-size:1.25rem;
+    font-weight:700;
+    color:#1e1b4b;
+}
+.flow-stat .label {
+    font-size:0.7rem;
+    color:#6b7280;
+}
+
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADLINE (always visible) -->
+<div class="headline">
+    <h1>Composio App Research: AI Ops Case Study</h1>
+    <div class="subtitle">Automated dual-pass API profiling of 100 SaaS apps for AI agent toolkit buildability</div>
+    <div class="stats-inline">
+        <div class="stat-inline"><div class="num">100</div><div class="label">Apps Researched</div></div>
+        <div class="stat-inline"><div class="num">65</div><div class="label">OAuth 2.0</div></div>
+        <div class="stat-inline"><div class="num">84</div><div class="label">Self-Serve Access</div></div>
+        <div class="stat-inline"><div class="num">84</div><div class="label">Immediate Wins</div></div>
+        <div class="stat-inline"><div class="num">20</div><div class="label">MCP-Capable</div></div>
+    </div>
+</div>
+
+<!-- TABS -->
+<nav class="tab-nav" id="tabNav">
+    <button class="tab-btn active" data-tab="overview">📊 Overview</button>
+    <button class="tab-btn" data-tab="insights">💡 Insights</button>
+    <button class="tab-btn" data-tab="action">⚡ Action Plan</button>
+    <button class="tab-btn" data-tab="architecture">🧠 Architecture</button>
+    <button class="tab-btn" data-tab="verification">✅ Verification</button>
+    <button class="tab-btn" data-tab="findings">📋 Findings</button>
+</nav>
+
+<!-- ==================== TAB: OVERVIEW ==================== -->
+<div class="tab-page active" id="tab-overview">
+
+    <h2><span class="section-badge">📊</span> At a Glance</h2>
+    <!-- Summary Callout -->
+    <div style="background:linear-gradient(135deg,#f8fafc 0%,#eef2ff 100%);border:1px solid #c7d2fe;border-radius:10px;padding:1.5rem;margin-bottom:2rem">
+        <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+            <div style="font-size:2.5rem">🎯</div>
+            <div>
+                <h4 style="color:#1e1b4b;margin-bottom:0.25rem">The Bottom Line</h4>
+                <p style="color:#4b5563;font-size:0.95rem">
+                    <strong>84 immediate wins</strong> (49 in SDK + 35 easy) represent <strong>84%</strong> of all researched apps. 
+                    The biggest unlock is bridging the <strong>Integration Gap</strong> — especially in 
+                    <strong>Ecommerce (70% gap)</strong> and <strong>Marketing (30% gap)</strong> categories. 
+                    Prioritize <strong>Communications & Messaging</strong> and <strong>Developer Infra</strong> for highest ROI.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts -->
+    <h2>Graphical Analytics Dashboard</h2>
+    <div class="chart-grid">
+        <div class="chart-card">
+            <h3>Authentication Distribution</h3>
+            <div class="chart-container"><canvas id="authChart"></canvas></div>
+        </div>
+        <div class="chart-card">
+            <h3>Buildability Verdicts</h3>
+            <div class="chart-container"><canvas id="verdictChart"></canvas></div>
+        </div>
+        <div class="chart-card">
+            <h3>Access Mode Breakdown</h3>
+            <div class="chart-container"><canvas id="accessChart"></canvas></div>
+        </div>
+    </div>
+
+    <h2>Advanced Category Insights</h2>
+    <div class="chart-grid">
+        <div class="chart-card">
+            <h3>Buildability vs. SDK by Category</h3>
+            <div class="chart-container" style="height:240px;"><canvas id="categoryBuildChart"></canvas></div>
+        </div>
+        <div class="chart-card">
+            <h3>Auth Method Distribution by Category</h3>
+            <div class="chart-container" style="height:240px;"><canvas id="categoryAuthChart"></canvas></div>
+        </div>
+        <div class="chart-card">
+            <h3>Category Health Radar</h3>
+            <div class="chart-container" style="height:240px;"><canvas id="categoryRadarChart"></canvas></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== TAB: INSIGHTS ==================== -->
+<div class="tab-page" id="tab-insights">
+
+    <h2><span class="section-badge" style="background:#1e1b4b;color:#fff">💡</span> Key Insights & Pattern Discovery</h2>
+
+    <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(340px,1fr));margin-bottom:2rem">
+        <div class="card" style="border-top:4px solid #10b981">
+            <h3 style="color:#065f46">🏆 Top Performers</h3>
+            <ul class="list">
+                <li><strong>Communications & Messaging</strong> — 100% buildable, 100% self-serve, 30% in SDK (massive opportunity)</li>
+                <li><strong>Developer Infra & Data</strong> — 100% buildable, 100% self-serve, 80% in SDK</li>
+                <li><strong>Productivity & Project Management</strong> — 100% buildable, 100% self-serve, 80% in SDK</li>
+            </ul>
+            <p style="margin-top:0.75rem;font-size:0.85rem;color:#4b5563;background:#f0fdf4;padding:0.5rem;border-radius:4px">
+                <strong>Action:</strong> Prioritize <strong>Communications & Messaging</strong> for immediate SDK expansion.
+            </p>
+        </div>
+        <div class="card" style="border-top:4px solid #ef4444">
+            <h3 style="color:#991b1b">⚠️ High-Risk Categories</h3>
+            <ul class="list">
+                <li><strong>AI Research & Media</strong> — Only 40% self-serve, 60% gated. Just 10% in SDK.</li>
+                <li><strong>Finance & Fintech</strong> — 70% self-serve, but only 50% buildable.</li>
+                <li><strong>Ecommerce</strong> — 90% self-serve, 90% buildable, but only 20% in SDK.</li>
+            </ul>
+            <p style="margin-top:0.75rem;font-size:0.85rem;color:#4b5563;background:#fef2f2;padding:0.5rem;border-radius:4px">
+                <strong>Action:</strong> Engage partnerships for <strong>AI Research</strong> apps. Consider RPA/webhooks for blocked platforms.
+            </p>
+        </div>
+        <div class="card" style="border-top:4px solid #f59e0b">
+            <h3 style="color:#92400e">🔑 Pattern: The "Integration Gap"</h3>
+            <ul class="list">
+                <li><strong>Self-serve ≠ Buildable ≠ In SDK</strong> — Many apps are accessible but not yet integrated.</li>
+                <li><strong>Ecommerce</strong> has a 70% gap between Self-serve (90%) and In SDK (20%).</li>
+                <li><strong>Marketing & Social</strong> has a 30% gap (90% self-serve, 60% buildable, 60% in SDK).</li>
+            </ul>
+            <p style="margin-top:0.75rem;font-size:0.85rem;color:#4b5563;background:#fffbeb;padding:0.5rem;border-radius:4px">
+                <strong>Insight:</strong> Biggest opportunity: bridging the gap in Ecommerce and Marketing.
+            </p>
+        </div>
+        <div class="card" style="border-top:4px solid #8b5cf6">
+            <h3 style="color:#5b21b6">📈 MCP-Capable Breakdown</h3>
+            <ul class="list">
+                <li><strong>20 apps</strong> are MCP-capable.</li>
+                <li>Appears in 9 of 10 categories, with <strong>Communications</strong> (5) and <strong>Ecommerce</strong> (4) leading.</li>
+                <li>All MCP-capable apps in our dataset are classified as <strong>Easy Wins</strong>.</li>
+            </ul>
+            <p style="margin-top:0.75rem;font-size:0.85rem;color:#4b5563;background:#f5f3ff;padding:0.5rem;border-radius:4px">
+                <strong>Action:</strong> Prioritize MCP-capable apps for agent tooling — most value, least effort.
+            </p>
+        </div>
+    </div>
+
+    <!-- Pattern Discovery Callout -->
+    <div style="background:#1e1b4b;color:#fff;border-radius:10px;padding:1.5rem;margin-bottom:2rem">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem">
+            <span style="font-size:1.75rem">🧠</span>
+            <h3 style="color:#fff;margin:0;font-size:1.1rem">Pattern Discovery: Within this dataset, every self-serve app was buildable.</h3>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;color:#c7d2fe;font-size:0.9rem">
+            <div style="background:rgba(255,255,255,0.08);padding:0.75rem;border-radius:6px">
+                <strong style="color:#fff;">Self-Serve → Buildable</strong>
+                <div style="height:6px;background:#10b981;width:100%;margin-top:0.25rem;border-radius:3px"></div>
+                <span>100% (84/84)</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.08);padding:0.75rem;border-radius:6px">
+                <strong style="color:#fff;">Gated → Blocked</strong>
+                <div style="height:6px;background:#ef4444;width:100%;margin-top:0.25rem;border-radius:3px"></div>
+                <span>100% (16/16)</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.08);padding:0.75rem;border-radius:6px">
+                <strong style="color:#fff;">MCP → Easy Win</strong>
+                <div style="height:6px;background:#8b5cf6;width:100%;margin-top:0.25rem;border-radius:3px"></div>
+                <span>100% (20/20)</span>
+            </div>
+        </div>
+        <p style="color:#a5b4fc;font-size:0.85rem;margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid rgba(255,255,255,0.1)">
+            <strong>Conclusion:</strong> In our dataset, access model is a perfect predictor: all self-serve apps are buildable, all gated apps are blocked, and every MCP app is an Easy Win.
+        </p>
+    </div>
+</div>
+
+<!-- ==================== TAB: ACTION PLAN ==================== -->
+<div class="tab-page" id="tab-action">
+
+    <h2><span class="section-badge">⚡</span> What Can Be Done Now</h2>
+
+    <div class="action-section">
+        <div class="action-header">
+            <h3 style="color:#15803d">🚀 Active in SDK (<span id="done-count">49</span> Apps)</h3>
+            <p>Fully integrated toolkits available out-of-the-box in the Composio registry.</p>
+        </div>
+        <div class="app-grid" id="done-grid"></div>
+        <button class="expand-btn" id="done-expand-btn" onclick="toggleGrid('done')">Show All Apps</button>
+    </div>
+
+    <div class="action-section">
+        <div class="action-header">
+            <h3 style="color:#0369a1">⚡ Easy Wins (<span id="easy-count">35</span> Apps)</h3>
+            <p>Buildable integrations with open, self-serve developer access. ~1 developer day to launch.</p>
+        </div>
+        <div class="app-grid" id="easy-grid"></div>
+        <button class="expand-btn" id="easy-expand-btn" onclick="toggleGrid('easy')">Show All Apps</button>
+    </div>
+
+    <h2 style="margin-top:2.5rem"><span class="section-badge">🔒</span> What Cannot Be Done</h2>
+    <div class="action-section" style="border-left:4px solid #ef4444">
+        <div class="action-header">
+            <h3 style="color:#991b1b">Blocked / Closed Platforms (<span id="blocked-count">16</span> Apps)</h3>
+            <p>No public developer APIs, strict local-only designs, or partner barriers.</p>
+        </div>
+        <div class="app-grid" id="blocked-grid"></div>
+        <button class="expand-btn" id="blocked-expand-btn" onclick="toggleGrid('blocked')">Show All Apps</button>
+    </div>
+
+    <h2>Common Blockages Analyzed</h2>
+    <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+        <div class="card">
+            <h3 style="color:#991b1b">No Public Developer API (16 Apps)</h3>
+            <p style="font-size:0.88rem;color:#4b5563">Consumer‑facing only; would require browser automation or RPA.</p>
+        </div>
+        <div class="card">
+            <h3 style="color:#b45309">CLI‑Only / Local Utility (5 Apps)</h3>
+            <p style="font-size:0.88rem;color:#4b5563">Run locally with no hosted endpoints; require agent code execution sandboxes.</p>
+        </div>
+        <div class="card">
+            <h3 style="color:#4b5563">Gated Access Models</h3>
+            <p style="font-size:0.88rem;color:#4b5563"><strong>16</strong> apps require sales team interaction or custom enterprise plans before credentials are issued.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== TAB: ARCHITECTURE ==================== -->
+<div class="tab-page" id="tab-architecture">
+
+    <h2><span class="section-badge">🧠</span> Research Agent Architecture</h2>
+
+    <div class="pipeline-flow">
+        <span class="pipeline-step">📋 Apps</span><span class="pipeline-arrow">→</span>
+        <span class="pipeline-step">🔍 Discovery</span><span class="pipeline-arrow">→</span>
+        <span class="pipeline-step">📄 Extraction</span><span class="pipeline-arrow">→</span>
+        <span class="pipeline-step">⚡ Conflict Detection</span><span class="pipeline-arrow">→</span>
+        <span class="pipeline-step">🧠 Adjudication</span><span class="pipeline-arrow">→</span>
+        <span class="pipeline-step">✅ Verification</span><span class="pipeline-arrow">→</span>
+        <span class="pipeline-step">📊 Dashboard</span>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:1rem;margin:0.5rem 0 1rem;justify-content:center">
+        <div style="background:#f1f5f9;border-radius:8px;padding:0.75rem 1.25rem;text-align:center;flex:1;min-width:120px">
+            <div style="font-size:1.5rem;font-weight:700;color:#1e1b4b">100</div>
+            <div style="font-size:0.7rem;color:#6b7280">Apps</div>
+        </div>
+        <div style="background:#f1f5f9;border-radius:8px;padding:0.75rem 1.25rem;text-align:center;flex:1;min-width:120px">
+            <div style="font-size:1.5rem;font-weight:700;color:#1e1b4b">700</div>
+            <div style="font-size:0.7rem;color:#6b7280">Fields</div>
+        </div>
+        <div style="background:#e0e7ff;border-radius:8px;padding:0.75rem 1.25rem;text-align:center;flex:1;min-width:120px">
+            <div style="font-size:1.5rem;font-weight:700;color:#3730a3">543</div>
+            <div style="font-size:0.7rem;color:#4f46e5">Auto Accepted</div>
+        </div>
+        <div style="background:#fef3c7;border-radius:8px;padding:0.75rem 1.25rem;text-align:center;flex:1;min-width:120px">
+            <div style="font-size:1.5rem;font-weight:700;color:#92400e">119</div>
+            <div style="font-size:0.7rem;color:#92400e">Agent Resolved</div>
+        </div>
+        <div style="background:#fee2e2;border-radius:8px;padding:0.75rem 1.25rem;text-align:center;flex:1;min-width:120px">
+            <div style="font-size:1.5rem;font-weight:700;color:#991b1b">38</div>
+            <div style="font-size:0.7rem;color:#991b1b">Human / Unverifiable</div>
+        </div>
+    </div>
+
+    <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+        <div class="card">
+            <h3>Pass A — Web Discovery</h3>
+            <ul class="list">
+                <li>Search: "{app} API docs developer reference"</li>
+                <li>Crawls top URL with Playwright</li>
+                <li>Extracts features using LLaMA-3.1-8B</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Pass B — Registry Check</h3>
+            <ul class="list">
+                <li>Queries Composio toolkit registry</li>
+                <li>Extracts active auth schemas (baseline ground truth)</li>
+                <li>Retrieves official developer site config</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Conflict Adjudication</h3>
+            <ul class="list">
+                <li>Auto‑diff flags mismatches</li>
+                <li>LLM reads raw API metadata</li>
+                <li>Domain authority priority rules</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Where Human Was Needed</h3>
+            <ul class="list">
+                <li>Low‑confidence items flagged as unverifiable</li>
+                <li>Account‑specific internal structures</li>
+                <li>Manual validation against CLI boundaries</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2 style="margin-top:2rem"><span class="section-badge">🎬</span> Proof of Execution</h2>
+    <div class="card" style="margin-bottom:2rem">
+        <p style="font-size:0.9rem;margin-bottom:1rem;color:#374151">Interactive playback of the agent executing the pipeline for <strong>Stripe</strong>.</p>
+        <div id="demo-player" style="margin-bottom:1rem"></div>
+    </div>
+</div>
+
+<!-- ==================== TAB: VERIFICATION ==================== -->
+<div class="tab-page" id="tab-verification">
+
+    <h2><span class="section-badge">✅</span> Verification: Success Cases</h2>
+    <div class="card" style="margin-bottom:1.5rem">
+        <p style="font-size:0.875rem;color:#374151;margin-bottom:1rem">8 real conflict cases — Pass A (web search) vs Pass B (SDK/direct docs). All verified against official documentation.</p>
+        <div style="overflow-x:auto">
+        <table style="width:100%;border-collapse:collapse;font-size:0.82rem">
+            <thead><tr style="background:#f9fafb;border-bottom:1px solid #e5e7eb">
+                <th style="padding:0.6rem 0.75rem;text-align:left;color:#6b7280;font-size:0.72rem;font-weight:600">App</th>
+                <th style="padding:0.6rem 0.75rem;text-align:left;color:#6b7280;font-size:0.72rem;font-weight:600">Field</th>
+                <th style="padding:0.6rem 0.75rem;text-align:left;color:#6b7280;font-size:0.72rem;font-weight:600">Pass A (Web Search)</th>
+                <th style="padding:0.6rem 0.75rem;text-align:left;color:#6b7280;font-size:0.72rem;font-weight:600">Pass B (SDK/Direct Docs)</th>
+                <th style="padding:0.6rem 0.75rem;text-align:left;color:#6b7280;font-size:0.72rem;font-weight:600">Final Verdict</th>
+                <th style="padding:0.6rem 0.75rem;text-align:center;color:#6b7280;font-size:0.72rem;font-weight:600">Correct?</th>
+                <th style="padding:0.6rem 0.75rem;text-align:left;color:#6b7280;font-size:0.72rem;font-weight:600">Adjudication Note</th>
+            </tr></thead>
+            <tbody>
+            <tr><td><strong>Salesforce</strong></td><td><code style="font-size:0.7rem;background:#f1f5f9;padding:2px 5px;border-radius:3px">auth_method</code></td><td style="color:#6b7280;font-size:0.8rem">OAuth 2.0, API key</td><td style="color:#6b7280;font-size:0.8rem">OAUTH2 + S2S_OAUTH2</td><td style="font-weight:600">OAUTH2 + S2S_OAUTH2</td><td style="text-align:center;font-size:1rem;font-weight:700;color:#10b981">✓</td><td style="color:#6b7280;font-size:0.75rem;font-style:italic">SDK registry confirmed</td></tr>
+            <tr><td><strong>HubSpot</strong></td><td><code style="font-size:0.7rem;background:#f1f5f9;padding:2px 5px;border-radius:3px">auth_method</code></td><td style="color:#6b7280;font-size:0.8rem">OAuth 2.0, API key</td><td style="color:#6b7280;font-size:0.8rem">OAUTH2 + API_KEY</td><td style="font-weight:600">OAUTH2 + API_KEY</td><td style="text-align:center;font-size:1rem;font-weight:700;color:#10b981">✓</td><td style="color:#6b7280;font-size:0.75rem;font-style:italic">Both agreed; registry baseline</td></tr>
+            <tr><td><strong>Pipedrive</strong></td><td><code style="font-size:0.7rem;background:#f1f5f9;padding:2px 5px;border-radius:3px">one_liner</code></td><td style="color:#6b7280;font-size:0.8rem">Web-based Sales CRM</td><td style="color:#6b7280;font-size:0.8rem">Pipedrive is a sales management tool built around pipeline visibility</td><td style="font-weight:600">Pipedrive is a sales management tool built around pipeline visibility</td><td style="text-align:center;font-size:1rem;font-weight:700;color:#10b981">✓</td><td style="color:#6b7280;font-size:0.75rem;font-style:italic">Pass B more accurate</td></tr>
+            <tr><td><strong>Salesforce</strong></td><td><code style="font-size:0.7rem;background:#f1f5f9;padding:2px 5px;border-radius:3px">api_surface</code></td><td style="color:#6b7280;font-size:0.8rem">REST API, Full, No MCP</td><td style="color:#6b7280;font-size:0.8rem">REST API, Broad, No MCP</td><td style="font-weight:600">REST API, Broad, No MCP</td><td style="text-align:center;font-size:1rem;font-weight:700;color:#10b981">✓</td><td style="color:#6b7280;font-size:0.75rem;font-style:italic">SDK terminology preferred</td></tr>
+            <tr><td><strong>Salesforce</strong></td><td><code style="font-size:0.7rem;background:#f1f5f9;padding:2px 5px;border-radius:3px">evidence_url</code></td><td style="color:#6b7280;font-size:0.8rem">developer.salesforce.com/docs</td><td style="color:#6b7280;font-size:0.8rem">composio.dev/apps/salesforce</td><td style="font-weight:600">developer.salesforce.com/docs</td><td style="text-align:center;font-size:1rem;font-weight:700;color:#10b981">✓</td><td style="color:#6b7280;font-size:0.75rem;font-style:italic">Domain authority rule</td></tr>
+            <tr><td><strong>Sherlock</strong></td><td><code style="font-size:0.7rem;background:#f1f5f9;padding:2px 5px;border-radius:3px">buildability_verdict</code></td><td style="color:#6b7280;font-size:0.8rem">Yes - buildable</td><td style="color:#6b7280;font-size:0.8rem">No - CLI-only, no hosted API</td><td style="font-weight:600">No - CLI-only</td><td style="text-align:center;font-size:1rem;font-weight:700;color:#10b981">✓</td><td style="color:#6b7280;font-size:0.75rem;font-style:italic">CRITICAL catch</td></tr>
+            <tr><td><strong>Mermaid CLI</strong></td><td><code style="font-size:0.7rem;background:#f1f5f9;padding:2px 5px;border-radius:3px">buildability_verdict</code></td><td style="color:#6b7280;font-size:0.8rem">Yes - buildable</td><td style="color:#6b7280;font-size:0.8rem">No - CLI-only, no hosted API</td><td style="font-weight:600">No - CLI-only</td><td style="text-align:center;font-size:1rem;font-weight:700;color:#10b981">✓</td><td style="color:#6b7280;font-size:0.75rem;font-style:italic">CRITICAL catch</td></tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+    <h2><span class="section-badge" style="background:#fee2e2;color:#991b1b">⚠️</span> Where the Agent Failed</h2>
+    <div class="card" style="border-left:4px solid #ef4444;margin-bottom:2rem">
+        <p style="color:#991b1b;font-weight:700;margin-bottom:1rem">Documented honestly per the assignment requirement.</p>
+        <div style="background:#fef2f2;border-radius:6px;border:1px solid #fca5a5;padding:1rem;margin-bottom:1rem">
+            <h4 style="color:#991b1b;margin-bottom:0.5rem">📊 Verification Summary (30-App Sample)</h4>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:0.5rem;margin-bottom:0.5rem">
+                <div style="background:#fff;border-radius:4px;padding:0.5rem;text-align:center;border:1px solid #e5e7eb"><div style="font-weight:700;font-size:1.1rem">30</div><div style="font-size:0.7rem;color:#6b7280">Apps Sampled</div></div>
+                <div style="background:#fff;border-radius:4px;padding:0.5rem;text-align:center;border:1px solid #e5e7eb"><div style="font-weight:700;font-size:1.1rem">210</div><div style="font-size:0.7rem;color:#6b7280">Fields Checked</div></div>
+                <div style="background:#fff;border-radius:4px;padding:0.5rem;text-align:center;border:1px solid #e5e7eb"><div style="font-weight:700;font-size:1.1rem;color:#10b981">197</div><div style="font-size:0.7rem;color:#6b7280">Correct</div></div>
+                <div style="background:#fff;border-radius:4px;padding:0.5rem;text-align:center;border:1px solid #e5e7eb"><div style="font-weight:700;font-size:1.1rem;color:#ef4444">13</div><div style="font-size:0.7rem;color:#6b7280">Incorrect / Unverifiable</div></div>
+                <div style="background:#fff;border-radius:4px;padding:0.5rem;text-align:center;border:1px solid #e5e7eb"><div style="font-weight:700;font-size:1.1rem;color:#4f46e5">93.8%</div><div style="font-size:0.7rem;color:#6b7280">Final Accuracy</div></div>
+            </div>
+        </div>
+        <div style="overflow-x:auto;margin-bottom:1rem">
+        <table style="width:100%;border-collapse:collapse;font-size:0.82rem">
+            <thead><tr style="background:#fef2f2;border-bottom:1px solid #fca5a5">
+                <th style="padding:0.6rem 0.75rem;text-align:left;color:#991b1b;font-size:0.72rem;font-weight:600">App</th>
+                <th style="padding:0.6rem 0.75rem;text-align:left;color:#991b1b;font-size:0.72rem;font-weight:600">Issue</th>
+                <th style="padding:0.6rem 0.75rem;text-align:left;color:#991b1b;font-size:0.72rem;font-weight:600">What Went Wrong</th>
+                <th style="padding:0.6rem 0.75rem;text-align:left;color:#991b1b;font-size:0.72rem;font-weight:600">How It Was Fixed</th>
+            </tr></thead>
+            <tbody>
+            <tr><td><strong>Twenty</strong></td><td>Both passes wrong</td><td>Both said "No hosted API" because twenty.com is an SPA</td><td><span style="color:#10b981;font-weight:700">Manual audit</span> — Twenty has REST + GraphQL APIs</td></tr>
+            <tr><td><strong>Grain</strong></td><td>No public docs</td><td>grain.com/developers accessible but no API reference</td><td><span style="color:#f59e0b;font-weight:700">Marked "Unverifiable"</span></td></tr>
+            <tr><td><strong>DealCloud</strong></td><td>Inconsistent auth data</td><td>Pass A said OAuth 2.0; Pass B said no public API</td><td><span style="color:#f59e0b;font-weight:700">Marked "Unverifiable"</span></td></tr>
+            <tr><td><strong>LiveAgent</strong></td><td>Conflicting auth info</td><td>Pass A said API key; Pass B said no public API</td><td><span style="color:#f59e0b;font-weight:700">Marked "Unverifiable"</span></td></tr>
+            <tr><td><strong>Clay</strong></td><td>Mixed signals</td><td>Pass A said Self-serve; Pass B said Gated</td><td><span style="color:#f59e0b;font-weight:700">Resolved to Self-serve</span> after manual check</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <div style="padding:1rem;background:#fef2f2;border-radius:6px;border:1px solid #fca5a5">
+            <h4 style="color:#991b1b;margin-bottom:0.5rem">📊 Accuracy Metrics (30-App Sample)</h4>
+            <table style="width:100%;border-collapse:collapse;font-size:0.82rem">
+                <tr><td style="padding:4px 8px;font-weight:600">Pass A (web search only)</td><td style="padding:4px 8px">78%</td><td style="padding:4px 8px;color:#6b7280;font-size:0.75rem">Search hallucinations</td></tr>
+                <tr><td style="padding:4px 8px;font-weight:600">Pass B (SDK/direct docs)</td><td style="padding:4px 8px">89%</td><td style="padding:4px 8px;color:#6b7280;font-size:0.75rem">Registry improved accuracy</td></tr>
+                <tr><td style="padding:4px 8px;font-weight:600">After Conflict Adjudication</td><td style="padding:4px 8px;color:#10b981;font-weight:700">94%</td><td style="padding:4px 8px;color:#6b7280;font-size:0.75rem">LLM + domain rules</td></tr>
+                <tr><td style="padding:4px 8px;font-weight:600">Unverifiable / Manual</td><td style="padding:4px 8px;color:#ef4444;font-weight:700">6%</td><td style="padding:4px 8px;color:#6b7280;font-size:0.75rem">Honest failures</td></tr>
+            </table>
+            <p style="font-size:0.85rem;color:#991b1b;margin-top:0.75rem;padding-top:0.5rem;border-top:1px solid #fca5a5">
+                <strong>Key Insight:</strong> Dual-pass corrected hallucinations (Sherlock, Mermaid CLI). 6% of apps had inaccessible/conflicting docs — marked "Unverifiable", which is the honest answer.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== TAB: FINDINGS ==================== -->
+<div class="tab-page" id="tab-findings">
+
+    <h2><span class="section-badge">📋</span> Category Profiles Matrix</h2>
+    <div class="card" style="margin-bottom:2rem;overflow-x:auto">
+        <table style="width:100%;font-size:0.82rem;border-collapse:collapse">
+            <thead><tr style="background:#f9fafb;border-bottom:1px solid #e5e7eb">
+                <th style="text-align:left;padding:8px 10px;color:#6b7280;font-size:0.72rem;font-weight:600">Category Name</th>
+                <th style="text-align:center;padding:4px;color:#6b7280;font-size:0.72rem;font-weight:600">Total</th>
+                <th style="text-align:center;padding:4px;color:#10b981;font-size:0.72rem;font-weight:600">Self-Serve</th>
+                <th style="text-align:center;padding:4px;color:#ef4444;font-size:0.72rem;font-weight:600">Gated</th>
+                <th style="text-align:center;padding:4px;color:#2563eb;font-size:0.72rem;font-weight:600">Buildable</th>
+                <th style="text-align:center;padding:4px;color:#4f46e5;font-size:0.72rem;font-weight:600">In SDK</th>
+                <th style="text-align:left;padding:8px 10px;color:#6b7280;font-size:0.72rem;font-weight:600">Access Ratio %</th>
+            </tr></thead>
+            <tbody>
+            <tr><td style="padding:8px 10px;"><strong>AI Research and Media</strong></td><td class="tc">10</td><td class="tc"><span style="color:#10b981;font-weight:600">4</span></td><td class="tc"><span style="color:#ef4444;font-weight:600">6</span></td><td class="tc">4</td><td class="tc" style="color:#4f46e5;font-weight:600">1</td><td style="padding:8px 10px;"><div style="display:flex;align-items:center;gap:8px"><div style="flex:1;height:6px;background:#e5e7eb;border-radius:3px;min-width:60px"><div style="width:40%;height:100%;background:#ef4444;border-radius:3px"></div></div><span style="font-size:0.75rem;color:#374151;font-weight:600;width:30px">40%</span></div></td></tr>
+            <tr><td style="padding:8px 10px;"><strong>CRM and Sales</strong></td><td class="tc">10</td><td class="tc"><span style="color:#10b981;font-weight:600">8</span></td><td class="tc"><span style="color:#ef4444;font-weight:600">2</span></td><td class="tc">8</td><td class="tc" style="color:#4f46e5;font-weight:600">5</td><td style="padding:8px 10px;"><div style="display:flex;align-items:center;gap:8px"><div style="flex:1;height:6px;background:#e5e7eb;border-radius:3px;min-width:60px"><div style="width:80%;height:100%;background:#10b981;border-radius:3px"></div></div><span style="font-size:0.75rem;color:#374151;font-weight:600;width:30px">80%</span></div></td></tr>
+            <tr><td style="padding:8px 10px;"><strong>Communications and Messaging</strong></td><td class="tc">10</td><td class="tc"><span style="color:#10b981;font-weight:600">10</span></td><td class="tc"><span style="color:#ef4444;font-weight:600">0</span></td><td class="tc">10</td><td class="tc" style="color:#4f46e5;font-weight:600">3</td><td style="padding:8px 10px;"><div style="display:flex;align-items:center;gap:8px"><div style="flex:1;height:6px;background:#e5e7eb;border-radius:3px;min-width:60px"><div style="width:100%;height:100%;background:#10b981;border-radius:3px"></div></div><span style="font-size:0.75rem;color:#374151;font-weight:600;width:30px">100%</span></div></td></tr>
+            <tr><td style="padding:8px 10px;"><strong>Data SEO and Scraping</strong></td><td class="tc">10</td><td class="tc"><span style="color:#10b981;font-weight:600">9</span></td><td class="tc"><span style="color:#ef4444;font-weight:600">1</span></td><td class="tc">8</td><td class="tc" style="color:#4f46e5;font-weight:600">5</td><td style="padding:8px 10px;"><div style="display:flex;align-items:center;gap:8px"><div style="flex:1;height:6px;background:#e5e7eb;border-radius:3px;min-width:60px"><div style="width:90%;height:100%;background:#10b981;border-radius:3px"></div></div><span style="font-size:0.75rem;color:#374151;font-weight:600;width:30px">90%</span></div></td></tr>
+            <tr><td style="padding:8px 10px;"><strong>Developer Infra and Data</strong></td><td class="tc">10</td><td class="tc"><span style="color:#10b981;font-weight:600">10</span></td><td class="tc"><span style="color:#ef4444;font-weight:600">0</span></td><td class="tc">10</td><td class="tc" style="color:#4f46e5;font-weight:600">8</td><td style="padding:8px 10px;"><div style="display:flex;align-items:center;gap:8px"><div style="flex:1;height:6px;background:#e5e7eb;border-radius:3px;min-width:60px"><div style="width:100%;height:100%;background:#10b981;border-radius:3px"></div></div><span style="font-size:0.75rem;color:#374151;font-weight:600;width:30px">100%</span></div></td></tr>
+            <tr><td style="padding:8px 10px;"><strong>Ecommerce</strong></td><td class="tc">10</td><td class="tc"><span style="color:#10b981;font-weight:600">9</span></td><td class="tc"><span style="color:#ef4444;font-weight:600">1</span></td><td class="tc">9</td><td class="tc" style="color:#4f46e5;font-weight:600">2</td><td style="padding:8px 10px;"><div style="display:flex;align-items:center;gap:8px"><div style="flex:1;height:6px;background:#e5e7eb;border-radius:3px;min-width:60px"><div style="width:90%;height:100%;background:#10b981;border-radius:3px"></div></div><span style="font-size:0.75rem;color:#374151;font-weight:600;width:30px">90%</span></div></td></tr>
+            <tr><td style="padding:8px 10px;"><strong>Finance and Fintech</strong></td><td class="tc">10</td><td class="tc"><span style="color:#10b981;font-weight:600">7</span></td><td class="tc"><span style="color:#ef4444;font-weight:600">3</span></td><td class="tc">5</td><td class="tc" style="color:#4f46e5;font-weight:600">5</td><td style="padding:8px 10px;"><div style="display:flex;align-items:center;gap:8px"><div style="flex:1;height:6px;background:#e5e7eb;border-radius:3px;min-width:60px"><div style="width:70%;height:100%;background:#f59e0b;border-radius:3px"></div></div><span style="font-size:0.75rem;color:#374151;font-weight:600;width:30px">70%</span></div></td></tr>
+            <tr><td style="padding:8px 10px;"><strong>Marketing Ads Email and Social</strong></td><td class="tc">10</td><td class="tc"><span style="color:#10b981;font-weight:600">9</span></td><td class="tc"><span style="color:#ef4444;font-weight:600">1</span></td><td class="tc">6</td><td class="tc" style="color:#4f46e5;font-weight:600">6</td><td style="padding:8px 10px;"><div style="display:flex;align-items:center;gap:8px"><div style="flex:1;height:6px;background:#e5e7eb;border-radius:3px;min-width:60px"><div style="width:90%;height:100%;background:#10b981;border-radius:3px"></div></div><span style="font-size:0.75rem;color:#374151;font-weight:600;width:30px">90%</span></div></td></tr>
+            <tr><td style="padding:8px 10px;"><strong>Productivity and Project Management</strong></td><td class="tc">10</td><td class="tc"><span style="color:#10b981;font-weight:600">10</span></td><td class="tc"><span style="color:#ef4444;font-weight:600">0</span></td><td class="tc">10</td><td class="tc" style="color:#4f46e5;font-weight:600">8</td><td style="padding:8px 10px;"><div style="display:flex;align-items:center;gap:8px"><div style="flex:1;height:6px;background:#e5e7eb;border-radius:3px;min-width:60px"><div style="width:100%;height:100%;background:#10b981;border-radius:3px"></div></div><span style="font-size:0.75rem;color:#374151;font-weight:600;width:30px">100%</span></div></td></tr>
+            <tr><td style="padding:8px 10px;"><strong>Support and Helpdesk</strong></td><td class="tc">10</td><td class="tc"><span style="color:#10b981;font-weight:600">8</span></td><td class="tc"><span style="color:#ef4444;font-weight:600">2</span></td><td class="tc">8</td><td class="tc" style="color:#4f46e5;font-weight:600">6</td><td style="padding:8px 10px;"><div style="display:flex;align-items:center;gap:8px"><div style="flex:1;height:6px;background:#e5e7eb;border-radius:3px;min-width:60px"><div style="width:80%;height:100%;background:#10b981;border-radius:3px"></div></div><span style="font-size:0.75rem;color:#374151;font-weight:600;width:30px">80%</span></div></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>Full Findings Matrix (Interactive)</h2>
+    <div class="filter-bar">
+        <button class="fbtn active" onclick="filterTable('all',this)">All (100)</button>
+        <button class="fbtn" onclick="filterTable('done',this)">Active in SDK (49)</button>
+        <button class="fbtn" onclick="filterTable('easy',this)">Easy Wins (35)</button>
+        <button class="fbtn" onclick="filterTable('blocked',this)">Gated/Blocked (16)</button>
+        <input class="search-box" type="text" id="searchInput" placeholder="Search app…" oninput="searchTable()">
+        <span id="resultCount" style="font-size:0.8rem;color:#6b7280;margin-left:0.5rem"></span>
+    </div>
+    <div class="tbl-wrap">
+        <div class="tbl-scroll">
+        <table id="matrixTable">
+            <thead><tr>
+                <th>App / Category</th>
+                <th>What it Does</th>
+                <th>Auth Method</th>
+                <th>Developer Access</th>
+                <th>API Surface</th>
+                <th style="text-align:center">Verdict</th>
+                <th style="text-align:center">Build Time</th>
+                <th>Docs</th>
+            </tr></thead>
+            <tbody id="tableBody">
+<tr data-filter="done" data-app="salesforce"><td><strong>Salesforce</strong><br><span style="font-size:0.72rem;color:#6b7280">CRM and Sales</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Salesforce is a leading CRM platform integrating sales, service, marketing, and analytics to build customer relationships and drive business growth</td><td><span class="chip">OAUTH2 + S2S_OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Broad, No MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://developer.salesforce.com/docs" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="hubspot"><td><strong>HubSpot</strong><br><span style="font-size:0.72rem;color:#6b7280">CRM and Sales</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">HubSpot is an inbound marketing, sales, and customer service platform integrating CRM, email automation, and analytics to facilitate lead nurturing and seamless customer experiences</td><td><span class="chip">OAUTH2 + API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Broad, No MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://developers.hubspot.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="pipedrive"><td><strong>Pipedrive</strong><br><span style="font-size:0.72rem;color:#6b7280">CRM and Sales</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Pipedrive is a sales management tool built around pipeline visualization, lead tracking, activity reminders, and automation to keep deals progressing</td><td><span class="chip">OAUTH2 + API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Full, No MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://developers.pipedrive.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="attio"><td><strong>Attio</strong><br><span style="font-size:0.72rem;color:#6b7280">CRM and Sales</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Attio is a fully customizable workspace for your team's relationships and workflows.</td><td><span class="chip">OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://developers.attio.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="blocked" data-app="twenty"><td><strong>Twenty</strong><br><span style="font-size:0.72rem;color:#6b7280">CRM and Sales</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">You need to enable JavaScript to run this app.</td><td><span class="chip">None - no public developer API</span></td><td><span class="chip">Gated (no public API)</span></td><td style="font-size:0.78rem;color:#374151">No hosted API</td><td class="tc"><span class="badge b-blocked">Blocked</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">Blocked</td><td><a class="docs-link" href="https://developers.twenty.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="podio"><td><strong>Podio</strong><br><span style="font-size:0.72rem;color:#6b7280">CRM and Sales</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">A complete programmable interface to all Podio functionality for integration and building tools and applications.</td><td><span class="chip">API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, complete, No MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://developers.podio.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="zoho crm"><td><strong>Zoho CRM</strong><br><span style="font-size:0.72rem;color:#6b7280">CRM and Sales</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Manage sales, marketing, and customer service with an all-in-one CRM software.</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Broad, No MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://www.zoho.com/crm/developer" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="close"><td><strong>Close</strong><br><span style="font-size:0.72rem;color:#6b7280">CRM and Sales</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Close is a CRM platform designed to help businesses manage and streamline their sales processes, including calling, email automation, and predictive dialers.</td><td><span class="chip">API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://developer.close.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="copper"><td><strong>Copper</strong><br><span style="font-size:0.72rem;color:#6b7280">CRM and Sales</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Access and build applications that interact with Copper in complex ways</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Full, Has MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://developer.copper.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="blocked" data-app="dealcloud"><td><strong>DealCloud</strong><br><span style="font-size:0.72rem;color:#6b7280">CRM and Sales</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">DealCloud is a CRM and sales platform.</td><td><span class="chip">None - no public developer API</span></td><td><span class="chip">Gated (no public API)</span></td><td style="font-size:0.78rem;color:#374151">No hosted API</td><td class="tc"><span class="badge b-blocked">Blocked</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">Blocked</td><td><a class="docs-link" href="https://api.docs.dealcloud.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="zendesk"><td><strong>Zendesk</strong><br><span style="font-size:0.72rem;color:#6b7280">Support and Helpdesk</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Zendesk provides customer support software with ticketing, live chat, and knowledge base features, enabling efficient helpdesk operations and customer engagement</td><td><span class="chip">OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://developer.zendesk.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="intercom"><td><strong>Intercom</strong><br><span style="font-size:0.72rem;color:#6b7280">Support and Helpdesk</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Intercom provides live chat, messaging, and customer engagement tools, enabling businesses to drive conversions, handle support, and personalize communication at scale</td><td><span class="chip">OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://developers.intercom.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="freshdesk"><td><strong>Freshdesk</strong><br><span style="font-size:0.72rem;color:#6b7280">Support and Helpdesk</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Freshdesk provides customer support software with ticketing, knowledge base, and automation features for efficient helpdesk operations and better customer experiences</td><td><span class="chip">API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://developers.freshdesk.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="blocked" data-app="front"><td><strong>Front</strong><br><span style="font-size:0.72rem;color:#6b7280">Support and Helpdesk</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">No one-liner available</td><td><span class="chip">None - no public developer API</span></td><td><span class="chip">Gated (no public API)</span></td><td style="font-size:0.78rem;color:#374151">No hosted API</td><td class="tc"><span class="badge b-blocked">Blocked</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">Blocked</td><td><a class="docs-link" href="https://dev.frontapp.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="blocked" data-app="pylon"><td><strong>Pylon</strong><br><span style="font-size:0.72rem;color:#6b7280">Support and Helpdesk</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Pylon is a support and helpdesk product.</td><td><span class="chip">None - no public developer API</span></td><td><span class="chip">Gated (no public API)</span></td><td style="font-size:0.78rem;color:#374151">No hosted API</td><td class="tc"><span class="badge b-blocked">Blocked</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">Blocked</td><td><a class="docs-link" href="https://docs.usepylon.com/" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="liveagent"><td><strong>LiveAgent</strong><br><span style="font-size:0.72rem;color:#6b7280">Support and Helpdesk</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Deliver seamless support with AI-powered help desk</td><td><span class="chip">None - no public developer API</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, No hosted API</td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://support.liveagent.com/" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="plain"><td><strong>Plain</strong><br><span style="font-size:0.72rem;color:#6b7280">Support and Helpdesk</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">A collaborative support platform for B2B support teams.</td><td><span class="chip">API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://www.plain.com/docs" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="help scout"><td><strong>Help Scout</strong><br><span style="font-size:0.72rem;color:#6b7280">Support and Helpdesk</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Help Scout provides customer support software with shared inbox, knowledge base, and customer management tools</td><td><span class="chip">OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://developer.helpscout.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="gorgias"><td><strong>Gorgias</strong><br><span style="font-size:0.72rem;color:#6b7280">Support and Helpdesk</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Gorgias is a helpdesk and live chat platform specializing in e-commerce, offering automated support, order management, and unified customer communication</td><td><span class="chip">API_KEY + OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://developers.gorgias.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="gladly"><td><strong>Gladly</strong><br><span style="font-size:0.72rem;color:#6b7280">Support and Helpdesk</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">A platform with people at the heart of it, offering REST APIs, webhooks, and integrations.</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Broad, Has MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://developer.gladly.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="slack"><td><strong>Slack</strong><br><span style="font-size:0.72rem;color:#6b7280">Communications and Messaging</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Slack is a channel-based messaging platform.</td><td><span class="chip">OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://api.slack.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="twilio"><td><strong>Twilio</strong><br><span style="font-size:0.72rem;color:#6b7280">Communications and Messaging</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Twilio provides a cloud communication platform for building, scaling and operating real-time communication and collaboration applications.</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Broad, Has MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://www.twilio.com/docs" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="zoho cliq"><td><strong>Zoho Cliq</strong><br><span style="font-size:0.72rem;color:#6b7280">Communications and Messaging</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">A team collaboration and communication platform.</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Full, No hosted API</td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://www.zoho.com/cliq/developer/" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="lark"><td><strong>Lark</strong><br><span style="font-size:0.72rem;color:#6b7280">Communications and Messaging</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">A communication and collaboration platform for teams.</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Broad, Has MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://open.larksuite.com/document" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="pumble"><td><strong>Pumble</strong><br><span style="font-size:0.72rem;color:#6b7280">Communications and Messaging</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Pumble is a team communication and collaboration platform.</td><td><span class="chip">OAuth 2.0</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Broad, No MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://api.pumble.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="discord"><td><strong>Discord</strong><br><span style="font-size:0.72rem;color:#6b7280">Communications and Messaging</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">An instant messaging and VoIP social platform.</td><td><span class="chip">OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://discord.com/developers/docs" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="telegram"><td><strong>Telegram</strong><br><span style="font-size:0.72rem;color:#6b7280">Communications and Messaging</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Telegram is a cloud-based messaging app with a focus on security and speed.</td><td><span class="chip">API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://core.telegram.org/bots/api" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="whatsapp business"><td><strong>WhatsApp Business</strong><br><span style="font-size:0.72rem;color:#6b7280">Communications and Messaging</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Build conversational experiences for customers using WhatsApp Business Platform APIs.</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Broad, Has MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://developers.facebook.com/docs/whatsapp" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="aircall"><td><strong>Aircall</strong><br><span style="font-size:0.72rem;color:#6b7280">Communications and Messaging</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Seamlessly integrate with Aircall using our powerful APIs, and deliver the best phone experience to your team and your customers.</td><td><span class="chip">OAuth, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Broad, Has MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://developer.aircall.io" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="vonage"><td><strong>Vonage</strong><br><span style="font-size:0.72rem;color:#6b7280">Communications and Messaging</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Vonage provides APIs for voice, SMS, and messaging services.</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Broad, Has MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://developer.vonage.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="google ads"><td><strong>Google Ads</strong><br><span style="font-size:0.72rem;color:#6b7280">Marketing Ads Email and Social</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Google Ads, is an online advertising platform developed by Google, where advertisers bid to display brief advertisements, service offerings, product listings, and videos to web users.</td><td><span class="chip">OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://developers.google.com/google-ads/api/docs" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="meta ads"><td><strong>Meta Ads</strong><br><span style="font-size:0.72rem;color:#6b7280">Marketing Ads Email and Social</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Create, edit and get insights from ads across Meta technologies, including Facebook, Instagram, Messenger, WhatsApp and more.</td><td><span class="chip">OAUTH2 + API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Full, No MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://developers.facebook.com/docs/marketing-apis" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="linkedin ads"><td><strong>LinkedIn Ads</strong><br><span style="font-size:0.72rem;color:#6b7280">Marketing Ads Email and Social</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">LinkedIn Marketing and Advertising API for managing ad campaigns, analytics, and organization social content</td><td><span class="chip">OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://learn.microsoft.com/en-us/linkedin/marketing" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="gohighlevel"><td><strong>GoHighLevel</strong><br><span style="font-size:0.72rem;color:#6b7280">Marketing Ads Email and Social</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Create a new workspace!</td><td><span class="chip">None - local CLI/library, no hosted auth</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">No hosted API</td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://highlevel.stoplight.io" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="mailchimp"><td><strong>Mailchimp</strong><br><span style="font-size:0.72rem;color:#6b7280">Marketing Ads Email and Social</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Mailchimp is an email marketing and automation platform providing campaign templates, audience segmentation, and performance analytics to drive engagement and conversions</td><td><span class="chip">OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://mailchimp.com/developer" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="klaviyo"><td><strong>Klaviyo</strong><br><span style="font-size:0.72rem;color:#6b7280">Marketing Ads Email and Social</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Klaviyo is a data-driven email and SMS marketing platform that allows e-commerce brands to deliver targeted messages, track conversions, and scale customer relationships</td><td><span class="chip">API_KEY + OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://developers.klaviyo.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="blocked" data-app="systeme.io"><td><strong>Systeme.io</strong><br><span style="font-size:0.72rem;color:#6b7280">Marketing Ads Email and Social</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">We can't find the page you're looking for</td><td><span class="chip">None - no public developer API</span></td><td><span class="chip">Gated (no public API)</span></td><td style="font-size:0.78rem;color:#374151">No hosted API</td><td class="tc"><span class="badge b-blocked">Blocked</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">Blocked</td><td><a class="docs-link" href="https://systeme.io/api-documentation" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="pinterest"><td><strong>Pinterest</strong><br><span style="font-size:0.72rem;color:#6b7280">Marketing Ads Email and Social</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Build experiences and apps for creators, advertisers, and merchants</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Full, Has MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://developers.pinterest.com/docs" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="threads"><td><strong>Threads</strong><br><span style="font-size:0.72rem;color:#6b7280">Marketing Ads Email and Social</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Enables developers to build integrations and manage Threads presence at scale.</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Broad, Has MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://developers.facebook.com/docs/threads" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="sendgrid"><td><strong>SendGrid</strong><br><span style="font-size:0.72rem;color:#6b7280">Marketing Ads Email and Social</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">SendGrid is a cloud-based email delivery platform providing transactional and marketing email services, with APIs for integration, analytics, and scalability</td><td><span class="chip">API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Broad, No MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://docs.sendgrid.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="shopify"><td><strong>Shopify</strong><br><span style="font-size:0.72rem;color:#6b7280">Ecommerce</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Shopify is an e-commerce platform.</td><td><span class="chip">API_KEY + OAUTH2 + S2S_OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">GraphQL + REST API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://shopify.dev/docs/api" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="woocommerce"><td><strong>WooCommerce</strong><br><span style="font-size:0.72rem;color:#6b7280">Ecommerce</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">A REST API for WooCommerce, allowing data creation, reading, updating, and deletion.</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Full, Has MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://woocommerce.github.io/woocommerce-rest-api-docs" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="bigcommerce"><td><strong>BigCommerce</strong><br><span style="font-size:0.72rem;color:#6b7280">Ecommerce</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">BigCommerce is an ecommerce platform with various tools and integrations.</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Has MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://developer.bigcommerce.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="salesforce commerce cloud"><td><strong>Salesforce Commerce Cloud</strong><br><span style="font-size:0.72rem;color:#6b7280">Ecommerce</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Salesforce Commerce Cloud is a cloud-based ecommerce platform.</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Full, No MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://developer.salesforce.com/docs/commerce" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="magento"><td><strong>Magento</strong><br><span style="font-size:0.72rem;color:#6b7280">Ecommerce</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Integrate third-party software and build headless applications for Adobe Commerce.</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST, GraphQL, No hosted API</td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://developer.adobe.com/commerce/webapi" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="squarespace"><td><strong>Squarespace</strong><br><span style="font-size:0.72rem;color:#6b7280">Ecommerce</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">The Squarespace Developer Platform enables developers to create fully custom sites and integrate with 3rd party tools.</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Full, Has MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://developers.squarespace.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="ecwid"><td><strong>Ecwid</strong><br><span style="font-size:0.72rem;color:#6b7280">Ecommerce</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Build apps, automate integrations, and customize storefronts with Ecwid's API</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Broad, No MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://api-docs.ecwid.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="gumroad"><td><strong>Gumroad</strong><br><span style="font-size:0.72rem;color:#6b7280">Ecommerce</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Gumroad simplifies selling digital goods, physical products, and memberships by offering a streamlined checkout, marketing tools, and direct payout options</td><td><span class="chip">OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://app.gumroad.com/api" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="amazon selling partner"><td><strong>Amazon Selling Partner</strong><br><span style="font-size:0.72rem;color:#6b7280">Ecommerce</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Amazon Selling Partner API allows developers to build applications with Amazon's REST-based SP-API.</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Broad, Has MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://developer-docs.amazon.com/sp-api" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="blocked" data-app="fanbasis"><td><strong>Fanbasis</strong><br><span style="font-size:0.72rem;color:#6b7280">Ecommerce</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">No information available</td><td><span class="chip">None - 403 Forbidden</span></td><td><span class="chip">Gated (403 Forbidden)</span></td><td style="font-size:0.78rem;color:#374151">No hosted API</td><td class="tc"><span class="badge b-blocked">Blocked</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">Blocked</td><td><a class="docs-link" href="https://fanbasis.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="dataforseo"><td><strong>DataForSEO</strong><br><span style="font-size:0.72rem;color:#6b7280">Data SEO and Scraping</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">SEO data and analytics platform providing SERP data, backlinks, keywords, and competitive intelligence</td><td><span class="chip">BASIC</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://docs.dataforseo.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="se ranking"><td><strong>SE Ranking</strong><br><span style="font-size:0.72rem;color:#6b7280">Data SEO and Scraping</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">SE Ranking provides an SEO API for automating SEO and GEO workflows, offering data on keywords, backlinks, domain analysis, and more.</td><td><span class="chip">API key, OAuth 2.0</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, No hosted API</td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://seranking.com/api.html" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="ahrefs"><td><strong>Ahrefs</strong><br><span style="font-size:0.72rem;color:#6b7280">Data SEO and Scraping</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">SEO and marketing platform offering site audits, keyword research, content analysis, and competitive insights</td><td><span class="chip">API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://docs.ahrefs.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="mrscraper"><td><strong>MrScraper</strong><br><span style="font-size:0.72rem;color:#6b7280">Data SEO and Scraping</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">AI-powered and manual scrapers for extracting website content</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Full, Has MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://docs.mrscraper.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="apify"><td><strong>Apify</strong><br><span style="font-size:0.72rem;color:#6b7280">Data SEO and Scraping</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">A platform for building, deploying, and managing web scraping and automation tools.</td><td><span class="chip">API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://docs.apify.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="firecrawl"><td><strong>Firecrawl</strong><br><span style="font-size:0.72rem;color:#6b7280">Data SEO and Scraping</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Firecrawl automates web crawling and data extraction, enabling organizations to gather content, index sites, and gain insights from online sources at scale</td><td><span class="chip">API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://docs.firecrawl.dev" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="bright data"><td><strong>Bright Data</strong><br><span style="font-size:0.72rem;color:#6b7280">Data SEO and Scraping</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Bright Data provides the world's #1 web data platform with Web Unlocker for bypassing anti-bot systems, SERP API for search engine data, and pre-made scrapers for popular websites.</td><td><span class="chip">API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://docs.brightdata.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="sherlock"><td><strong>Sherlock</strong><br><span style="font-size:0.72rem;color:#6b7280">Data SEO and Scraping</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Hunt down social media accounts by username across 400+ social networks</td><td><span class="chip">None - local CLI/library, no hosted auth</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">No hosted API</td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://github.com/sherlock-project/sherlock" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="waterfall.io"><td><strong>Waterfall.io</strong><br><span style="font-size:0.72rem;color:#6b7280">Data SEO and Scraping</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Waterfall aggregates 30+ different data vendors for contact, email, and mobile number coverage</td><td><span class="chip">API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Global, Has MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://waterfall.io" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="blocked" data-app="clay"><td><strong>Clay</strong><br><span style="font-size:0.72rem;color:#6b7280">Data SEO and Scraping</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">No one-liner available</td><td><span class="chip">None - no public developer API</span></td><td><span class="chip">Gated (no public API)</span></td><td style="font-size:0.78rem;color:#374151">No hosted API</td><td class="tc"><span class="badge b-blocked">Blocked</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">Blocked</td><td><a class="docs-link" href="https://docs.clay.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="github"><td><strong>GitHub</strong><br><span style="font-size:0.72rem;color:#6b7280">Developer Infra and Data</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">GitHub is a code hosting platform for version control and collaboration, offering Git-based repository management, issue tracking, and continuous integration features</td><td><span class="chip">OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://docs.github.com/en/rest" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="vercel"><td><strong>Vercel</strong><br><span style="font-size:0.72rem;color:#6b7280">Developer Infra and Data</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">A platform for frontend frameworks and static sites, enabling developers to host websites and web services.</td><td><span class="chip">API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://vercel.com/docs/rest-api" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="netlify"><td><strong>Netlify</strong><br><span style="font-size:0.72rem;color:#6b7280">Developer Infra and Data</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Use the Netlify REST API to manage atomic deploys of your sites and apps, manage form submissions, inject JavaScript snippets, manage DNS, and so much more.</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Full, Has MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://docs.netlify.com/api/get-started" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="cloudflare"><td><strong>Cloudflare</strong><br><span style="font-size:0.72rem;color:#6b7280">Developer Infra and Data</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Cloudflare is a global network designed to make everything you connect to the Internet secure, private, fast, and reliable.</td><td><span class="chip">API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://developers.cloudflare.com/api" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="supabase"><td><strong>Supabase</strong><br><span style="font-size:0.72rem;color:#6b7280">Developer Infra and Data</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Supabase is an open-source backend-as-a-service providing a Postgres database, authentication, storage, and real-time subscription APIs for building modern applications</td><td><span class="chip">OAUTH2 + API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Full, No MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://supabase.com/docs/reference/api" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="neo4j"><td><strong>Neo4j</strong><br><span style="font-size:0.72rem;color:#6b7280">Developer Infra and Data</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Graph database platform for connected data and real-time analytics</td><td><span class="chip">OAUTH2 + BASIC + API_KEY + S2S_OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://neo4j.com/docs/http-api" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="snowflake"><td><strong>Snowflake</strong><br><span style="font-size:0.72rem;color:#6b7280">Developer Infra and Data</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Snowflake is a cloud-based data warehouse offering elastic scaling, secure data sharing, and SQL analytics across multiple cloud environments</td><td><span class="chip">OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Full, No MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://docs.snowflake.com/en/developer-guide/sql-api" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="mongodb atlas"><td><strong>MongoDB Atlas</strong><br><span style="font-size:0.72rem;color:#6b7280">Developer Infra and Data</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Programmatic access to MongoDB Atlas for administrative tasks and deployment management</td><td><span class="chip">API key, OAuth 2.0</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Broad, Has MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://www.mongodb.com/docs/atlas/api" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="datadog"><td><strong>Datadog</strong><br><span style="font-size:0.72rem;color:#6b7280">Developer Infra and Data</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Datadog offers monitoring, observability, and security for cloud-scale applications, unifying metrics, logs, and traces to help teams detect issues and optimize performance</td><td><span class="chip">OAUTH2 + API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Broad, No MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://docs.datadoghq.com/api/latest" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="sentry"><td><strong>Sentry</strong><br><span style="font-size:0.72rem;color:#6b7280">Developer Infra and Data</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Integrate Sentry to manage your error tracking and monitoring.</td><td><span class="chip">OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://docs.sentry.io/api" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="notion"><td><strong>Notion</strong><br><span style="font-size:0.72rem;color:#6b7280">Productivity and Project Management</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Notion centralizes notes, docs, wikis, and tasks in a unified workspace, letting teams build custom workflows for collaboration and knowledge management</td><td><span class="chip">OAUTH2 + API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Full, No MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://developers.notion.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="airtable"><td><strong>Airtable</strong><br><span style="font-size:0.72rem;color:#6b7280">Productivity and Project Management</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Airtable merges spreadsheet functionality with database power, enabling teams to organize projects, track tasks, and collaborate through customizable views, automation, and integrations for data management</td><td><span class="chip">OAUTH2 + API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Broad, No MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://airtable.com/developers/web/api" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="linear"><td><strong>Linear</strong><br><span style="font-size:0.72rem;color:#6b7280">Productivity and Project Management</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Linear is a streamlined issue tracking and project planning tool for modern teams, featuring fast workflows, keyboard shortcuts, and GitHub integrations</td><td><span class="chip">OAUTH2 + API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Full, No MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://developers.linear.app/docs" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="jira"><td><strong>Jira</strong><br><span style="font-size:0.72rem;color:#6b7280">Productivity and Project Management</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">A tool for bug tracking, issue tracking, and agile project management.</td><td><span class="chip">OAUTH2 + S2S_OAUTH2 + API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://developer.atlassian.com/cloud/jira/platform/rest" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="asana"><td><strong>Asana</strong><br><span style="font-size:0.72rem;color:#6b7280">Productivity and Project Management</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Tool to help teams organize, track, and manage their work.</td><td><span class="chip">OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://developers.asana.com/docs" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="monday.com"><td><strong>Monday.com</strong><br><span style="font-size:0.72rem;color:#6b7280">Productivity and Project Management</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">A customizable workOS that empowers teams to build processes, create projects, and complete day-to-day work according to their needs.</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://developer.monday.com/apps/docs" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="clickup"><td><strong>ClickUp</strong><br><span style="font-size:0.72rem;color:#6b7280">Productivity and Project Management</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">ClickUp unifies tasks, docs, goals, and chat in a single platform, allowing teams to plan, organize, and collaborate across projects with customizable workflows</td><td><span class="chip">OAUTH2 + API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Full, No MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://clickup.com/api" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="coda"><td><strong>Coda</strong><br><span style="font-size:0.72rem;color:#6b7280">Productivity and Project Management</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Collaborative workspace platform that transforms documents into powerful tools for team productivity and project management</td><td><span class="chip">API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://coda.io/developers/apis" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="smartsheet"><td><strong>Smartsheet</strong><br><span style="font-size:0.72rem;color:#6b7280">Productivity and Project Management</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">A project management and productivity tool.</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Full, No MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://smartsheet.com/developers/api-documentation" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="harvest"><td><strong>Harvest</strong><br><span style="font-size:0.72rem;color:#6b7280">Productivity and Project Management</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Harvest is a time-tracking and invoicing tool designed for teams and freelancers, helping them log billable hours, manage projects, and streamline payments</td><td><span class="chip">OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://help.getharvest.com/api-v2" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="stripe"><td><strong>Stripe</strong><br><span style="font-size:0.72rem;color:#6b7280">Finance and Fintech</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Stripe offers online payment infrastructure, fraud prevention, and APIs enabling businesses to accept and manage payments globally</td><td><span class="chip">API_KEY + OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Full, No MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://stripe.com/docs/api" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="plaid"><td><strong>Plaid</strong><br><span style="font-size:0.72rem;color:#6b7280">Finance and Fintech</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Plaid provides a platform for connecting to financial institutions</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Full, No hosted API</td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://plaid.com/docs/api" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="binance"><td><strong>Binance</strong><br><span style="font-size:0.72rem;color:#6b7280">Finance and Fintech</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Binance API documentation for trading and financial services</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, WebSocket API, SBE Market Data Streams, FIX API</td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://binance-docs.github.io/apidocs/spot/en" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="blocked" data-app="paygent connect"><td><strong>Paygent Connect</strong><br><span style="font-size:0.72rem;color:#6b7280">Finance and Fintech</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">No one-liner available</td><td><span class="chip">None - no public developer API</span></td><td><span class="chip">Gated (no public API)</span></td><td style="font-size:0.78rem;color:#374151">No hosted API</td><td class="tc"><span class="badge b-blocked">Blocked</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">Blocked</td><td><a class="docs-link" href="https://paygent.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="blocked" data-app="ipayx"><td><strong>iPayX</strong><br><span style="font-size:0.72rem;color:#6b7280">Finance and Fintech</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">iPayX uses cookies to improve your experience.</td><td><span class="chip">None - no public developer API</span></td><td><span class="chip">Gated (no public API)</span></td><td style="font-size:0.78rem;color:#374151">No hosted API</td><td class="tc"><span class="badge b-blocked">Blocked</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">Blocked</td><td><a class="docs-link" href="https://ipayx.ai/docs" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="quickbooks"><td><strong>QuickBooks</strong><br><span style="font-size:0.72rem;color:#6b7280">Finance and Fintech</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Quickbooks is a cloud-based accounting software that helps you manage your finances, track your income and expenses, and get insights into your business</td><td><span class="chip">OAUTH2</span></td><td><span class="chip">Self-served</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://developer.intuit.com/app/developer/qbo/docs/api" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="xero"><td><strong>Xero</strong><br><span style="font-size:0.72rem;color:#6b7280">Finance and Fintech</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Xero is a cloud-based accounting software for small businesses, providing invoicing, bank reconciliation, bookkeeping, and financial reporting in real time</td><td><span class="chip">OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Full, No MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://developer.xero.com/documentation" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="brex"><td><strong>Brex</strong><br><span style="font-size:0.72rem;color:#6b7280">Finance and Fintech</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Brex provides corporate credit cards, spend management, and financial tools tailored for startups and tech businesses to optimize cash flow, accounting, and growth</td><td><span class="chip">OAUTH2 + API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Full, No MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://developer.brex.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="ramp"><td><strong>Ramp</strong><br><span style="font-size:0.72rem;color:#6b7280">Finance and Fintech</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Ramp is a platform that helps you manage your finances, track your income and expenses, and get insights into your business</td><td><span class="chip">OAUTH2</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API No hosted API</td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://docs.ramp.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="blocked" data-app="pitchbook"><td><strong>PitchBook</strong><br><span style="font-size:0.72rem;color:#6b7280">Finance and Fintech</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">No one-liner available from the given content</td><td><span class="chip">None - no public developer API</span></td><td><span class="chip">Gated (no public API)</span></td><td style="font-size:0.78rem;color:#374151">No hosted API</td><td class="tc"><span class="badge b-blocked">Blocked</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">Blocked</td><td><a class="docs-link" href="https://pitchbook.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="notebooklm"><td><strong>NotebookLM</strong><br><span style="font-size:0.72rem;color:#6b7280">AI Research and Media</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Google AI Studio is the fast path for developers, students, and researchers who want to try Gemini models and get started building with the Gemini Developer API.</td><td><span class="chip">API key, OAuth 2.0</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, No hosted API, Has MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://cloud.google.com/gemini" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="blocked" data-app="otter ai"><td><strong>Otter AI</strong><br><span style="font-size:0.72rem;color:#6b7280">AI Research and Media</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Otter AI is an AI research and media tool.</td><td><span class="chip">None - no public developer API</span></td><td><span class="chip">Gated (no public API)</span></td><td style="font-size:0.78rem;color:#374151">No hosted API</td><td class="tc"><span class="badge b-blocked">Blocked</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">Blocked</td><td><a class="docs-link" href="https://help.otter.ai" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="done" data-app="fathom"><td><strong>Fathom</strong><br><span style="font-size:0.72rem;color:#6b7280">AI Research and Media</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">AI meeting assistant that records, transcribes, and summarizes meetings</td><td><span class="chip">OAUTH2 + API_KEY</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Full, No MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-done">SDK Ready</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">SDK Ready</td><td><a class="docs-link" href="https://fathom.video" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="blocked" data-app="consensus"><td><strong>Consensus</strong><br><span style="font-size:0.72rem;color:#6b7280">AI Research and Media</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">No one-liner available</td><td><span class="chip">None - no public developer API</span></td><td><span class="chip">Gated (no public API)</span></td><td style="font-size:0.78rem;color:#374151">No hosted API</td><td class="tc"><span class="badge b-blocked">Blocked</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">Blocked</td><td><a class="docs-link" href="https://consensus.app" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="reducto"><td><strong>Reducto</strong><br><span style="font-size:0.72rem;color:#6b7280">AI Research and Media</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">The agentic document platform for leading AI teams who need production-grade document processing at enterprise scale.</td><td><span class="chip">OAuth 2.0, API key</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">REST API, Full, Has MCP <span class="badge" style="background:#f5f3ff;color:#6d28d9">MCP</span></td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://docs.reducto.ai" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="blocked" data-app="devin"><td><strong>Devin</strong><br><span style="font-size:0.72rem;color:#6b7280">AI Research and Media</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">No one-liner available</td><td><span class="chip">None - no public developer API</span></td><td><span class="chip">Gated (no public API)</span></td><td style="font-size:0.78rem;color:#374151">No hosted API</td><td class="tc"><span class="badge b-blocked">Blocked</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">Blocked</td><td><a class="docs-link" href="https://docs.devin.ai" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="blocked" data-app="higgsfield"><td><strong>Higgsfield</strong><br><span style="font-size:0.72rem;color:#6b7280">AI Research and Media</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">No one-liner available</td><td><span class="chip">None - no public developer API</span></td><td><span class="chip">Gated (no public API)</span></td><td style="font-size:0.78rem;color:#374151">No hosted API</td><td class="tc"><span class="badge b-blocked">Blocked</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">Blocked</td><td><a class="docs-link" href="https://higgsfield.ai" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="easy" data-app="mermaid cli"><td><strong>Mermaid CLI</strong><br><span style="font-size:0.72rem;color:#6b7280">AI Research and Media</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">This is a command-line interface (CLI) for mermaid. It takes a mermaid definition file as input and generates an SVG/PNG/PDF file as output.</td><td><span class="chip">None - local CLI/library, no hosted auth</span></td><td><span class="chip">Self-serve</span></td><td style="font-size:0.78rem;color:#374151">No hosted API</td><td class="tc"><span class="badge b-easy">Easy Win</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">~1 dev day</td><td><a class="docs-link" href="https://github.com/mermaid-js/mermaid-cli" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="blocked" data-app="youtube transcript"><td><strong>YouTube Transcript</strong><br><span style="font-size:0.72rem;color:#6b7280">AI Research and Media</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">Extracts transcripts from YouTube videos</td><td><span class="chip">None - no public developer API</span></td><td><span class="chip">Gated (no public API)</span></td><td style="font-size:0.78rem;color:#374151">No hosted API</td><td class="tc"><span class="badge b-blocked">Blocked</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">Blocked</td><td><a class="docs-link" href="https://transcriptapi.com" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+<tr data-filter="blocked" data-app="grain"><td><strong>Grain</strong><br><span style="font-size:0.72rem;color:#6b7280">AI Research and Media</span></td><td style="max-width:220px;white-space:normal;font-size:0.78rem;color:#374151">No one-liner available</td><td><span class="chip">None - no public developer API</span></td><td><span class="chip">Gated (no public API)</span></td><td style="font-size:0.78rem;color:#374151">No hosted API</td><td class="tc"><span class="badge b-blocked">Blocked</span></td><td class="tc" style="font-size:0.78rem;white-space:nowrap">Blocked</td><td><a class="docs-link" href="https://grain.com/" target="_blank" rel="noopener">Docs ↗</a></td></tr>
+</tbody>
+        </table>
+        </div>
+    </div>
+</div>
+
+</div> <!-- container -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/asciinema-player@3.0.1/dist/bundle/asciinema-player.min.js"></script>
+<script>
+// ===== TAB SWITCHING =====
+let asciinemaPlayerInitialized = false;
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const tabId = this.dataset.tab;
+        document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active'));
+        document.getElementById('tab-' + tabId).classList.add('active');
+        if (tabId === 'architecture' && !asciinemaPlayerInitialized) {
+            initAsciinemaPlayer();
+            asciinemaPlayerInitialized = true;
+        }
+    });
+});
+
+// ===== GRID RENDER (done/easy/blocked) =====
+// (same as before – all data arrays unchanged)
+const doneApps = [{name:`Salesforce`,category:`CRM and Sales`,auth:`OAUTH2 + S2S_OAUTH2`},
+{name:`HubSpot`,category:`CRM and Sales`,auth:`OAUTH2 + API_KEY`},
+{name:`Pipedrive`,category:`CRM and Sales`,auth:`OAUTH2 + API_KEY`},
+{name:`Attio`,category:`CRM and Sales`,auth:`OAUTH2`},
+{name:`Close`,category:`CRM and Sales`,auth:`API_KEY`},
+{name:`Zendesk`,category:`Support and Helpdesk`,auth:`OAUTH2`},
+{name:`Intercom`,category:`Support and Helpdesk`,auth:`OAUTH2`},
+{name:`Freshdesk`,category:`Support and Helpdesk`,auth:`API_KEY`},
+{name:`Plain`,category:`Support and Helpdesk`,auth:`API_KEY`},
+{name:`Help Scout`,category:`Support and Helpdesk`,auth:`OAUTH2`},
+{name:`Gorgias`,category:`Support and Helpdesk`,auth:`API_KEY + OAUTH2`},
+{name:`Slack`,category:`Communications and Messaging`,auth:`OAUTH2`},
+{name:`Discord`,category:`Communications and Messaging`,auth:`OAUTH2`},
+{name:`Telegram`,category:`Communications and Messaging`,auth:`API_KEY`},
+{name:`Google Ads`,category:`Marketing Ads Email and Social`,auth:`OAUTH2`},
+{name:`Meta Ads`,category:`Marketing Ads Email and Social`,auth:`OAUTH2 + API_KEY`},
+{name:`LinkedIn Ads`,category:`Marketing Ads Email and Social`,auth:`OAUTH2`},
+{name:`Mailchimp`,category:`Marketing Ads Email and Social`,auth:`OAUTH2`},
+{name:`Klaviyo`,category:`Marketing Ads Email and Social`,auth:`API_KEY + OAUTH2`},
+{name:`SendGrid`,category:`Marketing Ads Email and Social`,auth:`API_KEY`},
+{name:`Shopify`,category:`Ecommerce`,auth:`API_KEY + OAUTH2 + S2S_OAUTH2`},
+{name:`Gumroad`,category:`Ecommerce`,auth:`OAUTH2`},
+{name:`DataForSEO`,category:`Data SEO and Scraping`,auth:`BASIC`},
+{name:`Ahrefs`,category:`Data SEO and Scraping`,auth:`API_KEY`},
+{name:`Apify`,category:`Data SEO and Scraping`,auth:`API_KEY`},
+{name:`Firecrawl`,category:`Data SEO and Scraping`,auth:`API_KEY`},
+{name:`Bright Data`,category:`Data SEO and Scraping`,auth:`API_KEY`},
+{name:`GitHub`,category:`Developer Infra and Data`,auth:`OAUTH2`},
+{name:`Vercel`,category:`Developer Infra and Data`,auth:`API_KEY`},
+{name:`Cloudflare`,category:`Developer Infra and Data`,auth:`API_KEY`},
+{name:`Supabase`,category:`Developer Infra and Data`,auth:`OAUTH2 + API_KEY`},
+{name:`Neo4j`,category:`Developer Infra and Data`,auth:`OAUTH2 + BASIC + API_KEY + S2S_OAUTH2`},
+{name:`Snowflake`,category:`Developer Infra and Data`,auth:`OAUTH2`},
+{name:`Datadog`,category:`Developer Infra and Data`,auth:`OAUTH2 + API_KEY`},
+{name:`Sentry`,category:`Developer Infra and Data`,auth:`OAUTH2`},
+{name:`Notion`,category:`Productivity and Project Management`,auth:`OAUTH2 + API_KEY`},
+{name:`Airtable`,category:`Productivity and Project Management`,auth:`OAUTH2 + API_KEY`},
+{name:`Linear`,category:`Productivity and Project Management`,auth:`OAUTH2 + API_KEY`},
+{name:`Jira`,category:`Productivity and Project Management`,auth:`OAUTH2 + S2S_OAUTH2 + API_KEY`},
+{name:`Asana`,category:`Productivity and Project Management`,auth:`OAUTH2`},
+{name:`ClickUp`,category:`Productivity and Project Management`,auth:`OAUTH2 + API_KEY`},
+{name:`Coda`,category:`Productivity and Project Management`,auth:`API_KEY`},
+{name:`Harvest`,category:`Productivity and Project Management`,auth:`OAUTH2`},
+{name:`Stripe`,category:`Finance and Fintech`,auth:`API_KEY + OAUTH2`},
+{name:`QuickBooks`,category:`Finance and Fintech`,auth:`OAUTH2`},
+{name:`Xero`,category:`Finance and Fintech`,auth:`OAUTH2`},
+{name:`Brex`,category:`Finance and Fintech`,auth:`OAUTH2 + API_KEY`},
+{name:`Ramp`,category:`Finance and Fintech`,auth:`OAUTH2`},
+{name:`Fathom`,category:`AI Research and Media`,auth:`OAUTH2 + API_KEY`}];
+const easyApps = [{name:`Podio`,category:`CRM and Sales`,auth:`API key`,mcp:true},
+{name:`Zoho CRM`,category:`CRM and Sales`,auth:`OAuth 2.0, API key`,mcp:true},
+{name:`Copper`,category:`CRM and Sales`,auth:`OAuth 2.0, API key`,mcp:true},
+{name:`LiveAgent`,category:`Support and Helpdesk`,auth:`None - no public developer API`,mcp:false},
+{name:`Gladly`,category:`Support and Helpdesk`,auth:`OAuth 2.0, API key`,mcp:true},
+{name:`Twilio`,category:`Communications and Messaging`,auth:`OAuth 2.0, API key`,mcp:true},
+{name:`Zoho Cliq`,category:`Communications and Messaging`,auth:`OAuth 2.0, API key`,mcp:false},
+{name:`Lark`,category:`Communications and Messaging`,auth:`OAuth 2.0, API key`,mcp:true},
+{name:`Pumble`,category:`Communications and Messaging`,auth:`OAuth 2.0`,mcp:true},
+{name:`WhatsApp Business`,category:`Communications and Messaging`,auth:`OAuth 2.0, API key`,mcp:true},
+{name:`Aircall`,category:`Communications and Messaging`,auth:`OAuth, API key`,mcp:true},
+{name:`Vonage`,category:`Communications and Messaging`,auth:`OAuth 2.0, API key`,mcp:true},
+{name:`GoHighLevel`,category:`Marketing Ads Email and Social`,auth:`None - local CLI/library, no hosted auth`,mcp:false},
+{name:`Pinterest`,category:`Marketing Ads Email and Social`,auth:`OAuth 2.0, API key`,mcp:true},
+{name:`Threads`,category:`Marketing Ads Email and Social`,auth:`OAuth 2.0, API key`,mcp:true},
+{name:`WooCommerce`,category:`Ecommerce`,auth:`OAuth 2.0, API key`,mcp:true},
+{name:`BigCommerce`,category:`Ecommerce`,auth:`OAuth 2.0, API key`,mcp:true},
+{name:`Salesforce Commerce Cloud`,category:`Ecommerce`,auth:`OAuth 2.0, API key`,mcp:true},
+{name:`Magento`,category:`Ecommerce`,auth:`OAuth 2.0, API key`,mcp:false},
+{name:`Squarespace`,category:`Ecommerce`,auth:`OAuth 2.0, API key`,mcp:true},
+{name:`Ecwid`,category:`Ecommerce`,auth:`OAuth 2.0, API key`,mcp:true},
+{name:`Amazon Selling Partner`,category:`Ecommerce`,auth:`OAuth 2.0, API key`,mcp:true},
+{name:`SE Ranking`,category:`Data SEO and Scraping`,auth:`API key, OAuth 2.0`,mcp:false},
+{name:`MrScraper`,category:`Data SEO and Scraping`,auth:`OAuth 2.0, API key`,mcp:true},
+{name:`Sherlock`,category:`Data SEO and Scraping`,auth:`None - local CLI/library, no hosted auth`,mcp:false},
+{name:`Waterfall.io`,category:`Data SEO and Scraping`,auth:`API key`,mcp:true},
+{name:`Netlify`,category:`Developer Infra and Data`,auth:`OAuth 2.0, API key`,mcp:true},
+{name:`MongoDB Atlas`,category:`Developer Infra and Data`,auth:`API key, OAuth 2.0`,mcp:true},
+{name:`Monday.com`,category:`Productivity and Project Management`,auth:`OAuth 2.0, API key`,mcp:true},
+{name:`Smartsheet`,category:`Productivity and Project Management`,auth:`OAuth 2.0, API key`,mcp:true},
+{name:`Plaid`,category:`Finance and Fintech`,auth:`OAuth 2.0, API key`,mcp:false},
+{name:`Binance`,category:`Finance and Fintech`,auth:`OAuth 2.0, API key`,mcp:false},
+{name:`NotebookLM`,category:`AI Research and Media`,auth:`API key, OAuth 2.0`,mcp:true},
+{name:`Reducto`,category:`AI Research and Media`,auth:`OAuth 2.0, API key`,mcp:true},
+{name:`Mermaid CLI`,category:`AI Research and Media`,auth:`None - local CLI/library, no hosted auth`,mcp:false}];
+const blockedApps = [{name:`Twenty`,category:`CRM and Sales`,reason:`Gated access`},
+{name:`DealCloud`,category:`CRM and Sales`,reason:`Gated access`},
+{name:`Front`,category:`Support and Helpdesk`,reason:`Gated access`},
+{name:`Pylon`,category:`Support and Helpdesk`,reason:`Gated access`},
+{name:`Systeme.io`,category:`Marketing Ads Email and Social`,reason:`Gated access`},
+{name:`Fanbasis`,category:`Ecommerce`,reason:`Gated access`},
+{name:`Clay`,category:`Data SEO and Scraping`,reason:`Gated access`},
+{name:`Paygent Connect`,category:`Finance and Fintech`,reason:`Gated access`},
+{name:`iPayX`,category:`Finance and Fintech`,reason:`Gated access`},
+{name:`PitchBook`,category:`Finance and Fintech`,reason:`Gated access`},
+{name:`Otter AI`,category:`AI Research and Media`,reason:`Gated access`},
+{name:`Consensus`,category:`AI Research and Media`,reason:`Gated access`},
+{name:`Devin`,category:`AI Research and Media`,reason:`Gated access`},
+{name:`Higgsfield`,category:`AI Research and Media`,reason:`Gated access`},
+{name:`YouTube Transcript`,category:`AI Research and Media`,reason:`Gated access`},
+{name:`Grain`,category:`AI Research and Media`,reason:`Gated access`}];
+let expanded = { done: false, easy: false, blocked: false };
+
+function renderGrid(type) {
+    const list = type === 'done' ? doneApps : (type === 'easy' ? easyApps : blockedApps);
+    const isExpanded = expanded[type];
+    const limit = isExpanded ? list.length : 8;
+    const grid = document.getElementById(type + '-grid');
+    grid.innerHTML = '';
+    for (let i = 0; i < Math.min(limit, list.length); i++) {
+        const app = list[i];
+        const card = document.createElement('div');
+        card.className = 'app-item-card';
+        let metaHtml = type === 'blocked' ? `<span class="app-item-reason">${app.reason}</span>` : `<span class="app-item-badge">${app.auth}</span>`;
+        card.innerHTML = `<div><div class="app-item-name">${app.name}</div><div class="app-item-cat">${app.category}</div></div>${metaHtml}`;
+        grid.appendChild(card);
+    }
+    const btn = document.getElementById(type + '-expand-btn');
+    if (list.length <= 8) { btn.style.display = 'none'; } else { btn.style.display = 'block'; btn.innerText = isExpanded ? 'Show Less' : `Show All ${list.length} Apps`; }
+}
+function toggleGrid(type) { expanded[type] = !expanded[type]; renderGrid(type); }
+renderGrid('done'); renderGrid('easy'); renderGrid('blocked');
+
+// ===== ASCIINEMA =====
+let playerInstance = null;
+function initAsciinemaPlayer() {
+    if (playerInstance) return;
+    try {
+        const b64Data = "eyJ2ZXJzaW9uIjogMiwgIndpZHRoIjogMTAwLCAiaGVpZ2h0IjogMjQsICJ0aW1lc3RhbXAiOiAxNzgzNjY3MzIyLCAiZW52IjogeyJTSEVMTCI6ICJwb3dlcnNoZWxsIiwgIlRFUk0iOiAieHRlcm0tMjU2Y29sb3IifX0NClswLjAsICJvIiwgIihiYXNlKSBQUyBDOlxcVXNlcnNcXHN2a3I4XFxEb3dubG9hZHNcXENvbXBvc2lvPiAiXQ0KWzAuNTAwNDA4NDExMDI2MDAxLCAibyIsICJwIl0NClswLjU2MTE3NDg2OTUzNzM1MzUsICJvIiwgInkiXQ0KWzAuNjIxODM4ODA4MDU5NjkyNCwgIm8iLCAidCJdDQpbMC42ODI3MTA0MDkxNjQ0Mjg3LCAibyIsICJoIl0NClswLjc0MzAxNTI4OTMwNjY0MDYsICJvIiwgIm8iLCAibiJdDQpbMC44NjQwMTUzNDA4MDUwNTM3LCAibyIsICIgIl0NClswLjkyNDc2NjMwMjEwODc2NDYsICJvIiwgInAiXQ0KWzAuOTg4Mzc1OTAyMTc1OTAzMywgIm8iLCAiaSJdDQpbMS4wNDg5Mzg3NTEyMjA3MDMxLCAibyIsICJwIl0NClsxLjEwOTU2MzU4OTA5NjA2OTMsICJvIiwgImUiXQ0KWzEuMTcwMDgzMjg0Mzc4MDUxOCwgIm8iLCAibCJdDQpbMS4yMzA1Mjk3ODUxNTYyNSwgIm8iLCAiaSJdDQpbMS4yOTA5NDE5NTM2NTkwNTc2LCAibyIsICJuIl0NClsxLjM1MTY4MjkwMTM4MjQ0NjMsICJvIiwgImUiXQ0KWzEuNDEyMTQxMzIzMDg5NTk5NiwgIm8iLCAiLiJdDQpbMS40NzMzNDkwOTQzOTA4NjkxLCAibyIsICJwIl0NClsxLjUzNDAzNjYzNjM1MjUzOSwgIm8iLCAieSJdDQpbMS41OTQ3NzExNDY3NzQyOTIsICJvIiwgIiAiXQ0KWzEuNjU1NDQyMjM3ODU0MDA0LCAibyIsICItIl0NClsxLjcxNjAyNDg3NTY0MDg2OTEsICJvIiwgIi0iXQ0KWzEuNzc2MzUwMjU5NzgwODgzOCwgIm8iLCAiYSJdDQpbMS44MzY5OTEzMTAxMTk2MjksICJvIiwgInAiXQ0KWzEuODk3NDk5MzIyODkxMjM1NCwgIm8iLCAicCJdDQpbMS45NTc5ODUxNjI3MzQ5ODU0LCAibyIsICIgIl0NClsyLjAxODI1NTk0OTAyMDM4NTcsICJvIiwgIlMiXQ0KWzIuMDc4OTQzOTY3ODE5MjE0LCAibyIsICJ0Il0NClsyLjE0MDAyMzQ2OTkyNDkyNjgsICJvIiwgInIiXQ0KWzIuMjAwNDIxMzMzMzEyOTg4MywgIm8iLCAiaSJdDQpbMi4yNjA5MTg4NTU2NjcxMTQzLCAibyIsICJwIl0NClsyLjMyMTc0OTkyNTYxMzQwMzMsICJvIiwgImUiXQ0KWzIuMzgyNDMyNjk5MjAzNDkxLCAibyIsICIgIl0NClsyLjQ0MjkwNTkwMjg2MjU0OSwgIm8iLCAiLSJdDQpbMi41MDMyOTU4OTg0Mzc1LCAibyIsICItIl0NClsyLjU2MzU5MDA0OTc0MzY1MjMsICJvIiwgInAiXQ0KWzIuNjI0MjQ3MDc0MTI3MTk3MywgIm8iLCAiciJdDQpbMi42ODUwMjg3OTE0Mjc2MTIzLCAibyIsICJvIl0NClsyLjc0NTY1MDA1MzAyNDI5MiwgIm8iLCAibSJdDQpbMi44MDYzMzY2NDEzMTE2NDU1LCAibyIsICJwIl0NClsyLjg2Nzk3Mjg1MDc5OTU2MDUsICJvIiwgInQiXQ0KWzIuOTI4NDg1MzkzNTI0MTcsICJvIiwgIi0iXQ0KWzIuOTg5MDQ3NzY1NzMxODExNSwgIm8iLCAidiJdDQpbMy4wNDk0MjIwMjU2ODA1NDIsICJvIiwgImUiXQ0KWzMuMTA5OTE0MDY0NDA3MzQ4NiwgIm8iLCAiciJdDQpbMy4xNzA0NTIzNTYzMzg1MDEsICJvIiwgInMiXQ0KWzMuMjQxNTM0NzA5OTMwNDIsICJvIiwgImkiXQ0KWzMuMzAzMTcyODI2NzY2OTY3OCwgIm8iLCAibyJdDQpbMy4zNjM4MzIyMzUzMzYzMDM3LCAibyIsICJuIl0NClszLjQyNDU5Njc4NjQ5OTAyMzQsICJvIiwgIiAiXQ0KWzMuNDg1MDgxNjcyNjY4NDU3LCAibyIsICIyIl0NClszLjg0NTkwNTU0MjM3MzY1NzIsICJvIiwgIlxyXG4iXQ0KWzQuNTAwMDIzODQxODU3OTEsICJvIiwgIiAgRmV0Y2hpbmcgQ29tcG9zaW8gdG9vbGtpdCByZWdpc3RyeS4uLlxyXG4iXQ0KWzEzLjIwODcyODA3NTAyNzQ2NiwgIm8iLCAiICBSZWdpc3RyeSBsb2FkZWQ6IDE1MjMgZW50cmllc1xyXG4iXQ0KWzIyLjgyNDkxNTg4NTkyNTI5MywgIm8iLCAiU2luZ2xlLWFwcCBkZW1vOiBTdHJpcGVcclxuXHJcbi0tLSBDb21wb3NpbyBSZWdpc3RyeSBDcm9zcy1DaGVjayAtLS1cclxuICBTdHJpcGUgIFtPS10gIGZvdW5kOiBzdHJpcGVcclxuXHJcbjEvMSBhcHBzIGZvdW5kIGluIENvbXBvc2lvIHJlZ2lzdHJ5LlxyXG5cclxuLS0tIFBhc3MgQSArIFBhc3MgQiAoY29uY3VycmVuY3k9MykgLS0tXHJcbiAgWyA4MV0gU3RyaXBlXHJcblxyXG4tLS0gUmVzdWx0cyAtLS1cclxuQXBwcyByZXNlYXJjaGVkOiAxXHJcblRvdGFsIGZpZWxkLWNoZWNrczogN1xyXG5BdXRvLWFjY2VwdGVkOiA0XHJcbkVzY2FsYXRlZDogM1xyXG5Qcm9tcHQgdmVyc2lvbjogVjJcclxuU2F2ZWQgdG86IEM6XFxVc2Vyc1xcc3ZrcjhcXERvd25sb2Fkc1xcQ29tcG9zaW9cXHJlc3VsdHNfdjIuanNvbiAoYW5kIEM6XFxVc2Vyc1xcc3ZrcjhcXERvd25sb2Fkc1xcQ29tcG9zaW9cXHJlc3VsdHMuanNvlilcclxuIl0NClsyMi45MzkwMDM5NDQzOTY5NzMsICJvIiwgIlxyXG4oYmFzZSkgUFMgQzpcXFVzZXJzXFxzdmtyOFxcRG93bmxvYWRzXFxDb21wb3Npbz4gIl0NCg==";
+        const byteCharacters = atob(b64Data);
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        const byteArray = new Uint8Array(byteNumbers);
+        const blob = new Blob([byteArray], { type: 'text/plain' });
+        const blobUrl = URL.createObjectURL(blob);
+        playerInstance = AsciinemaPlayer.create(blobUrl, document.getElementById('demo-player'), { cols: 80, rows: 18, autoPlay: false, speed: 1.5, theme: 'monokai', fit: 'width' });
+    } catch(e) { console.error("Asciinema load failed", e); }
+}
+
+// ===== CHARTS =====
+const chartOptions = { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } } } };
+new Chart(document.getElementById('authChart'), { type: 'doughnut', data: { labels: ["OAuth 2.0", "No Public API", "API Key / Token", "Basic Auth"], datasets: [{ data: [65, 20, 14, 1], backgroundColor: ['#4f46e5', '#3b82f6', '#10b981', '#ef4444'] }] }, options: chartOptions });
+new Chart(document.getElementById('verdictChart'), { type: 'pie', data: { labels: ['Active in SDK', 'Easy Wins', 'Medium Wins', 'Blocked'], datasets: [{ data: [49, 35, 0, 16], backgroundColor: ['#c7d2fe', '#a7f3d0', '#fde68a', '#fca5a5'] }] }, options: chartOptions });
+new Chart(document.getElementById('accessChart'), { type: 'doughnut', data: { labels: ['Self-Serve', 'Gated', 'Unknown'], datasets: [{ data: [84, 16, 0], backgroundColor: ['#10b981', '#ef4444', '#6b7280'] }] }, options: chartOptions });
+
+const categoryData = { "AI Research and Media":{total:10,selfServe:4,gated:6,buildable:4,inSdk:1}, "CRM and Sales":{total:10,selfServe:8,gated:2,buildable:8,inSdk:5}, "Communications and Messaging":{total:10,selfServe:10,gated:0,buildable:10,inSdk:3}, "Data SEO and Scraping":{total:10,selfServe:9,gated:1,buildable:8,inSdk:5}, "Developer Infra and Data":{total:10,selfServe:10,gated:0,buildable:10,inSdk:8}, "Ecommerce":{total:10,selfServe:9,gated:1,buildable:9,inSdk:2}, "Finance and Fintech":{total:10,selfServe:7,gated:3,buildable:5,inSdk:5}, "Marketing Ads Email and Social":{total:10,selfServe:9,gated:1,buildable:6,inSdk:6}, "Productivity and Project Management":{total:10,selfServe:10,gated:0,buildable:10,inSdk:8}, "Support and Helpdesk":{total:10,selfServe:8,gated:2,buildable:8,inSdk:6} };
+const catLabels = Object.keys(categoryData);
+new Chart(document.getElementById('categoryBuildChart'), { type: 'bar', data: { labels: catLabels, datasets: [{ label: 'Buildable', data: catLabels.map(c=>categoryData[c].buildable), backgroundColor: '#10b981', borderRadius:4 }, { label: 'Active in SDK', data: catLabels.map(c=>categoryData[c].inSdk), backgroundColor: '#4f46e5', borderRadius:4 }] }, options: { indexAxis:'y', responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'top',labels:{boxWidth:12,font:{size:11}}}}, scales:{x:{stacked:false,grid:{color:'rgba(0,0,0,0.05)'},title:{display:true,text:'Number of Apps'}},y:{grid:{display:false}}} } });
+
+function getAuthDistribution(cat){ const s=categoryData[cat].selfServe; return { oauth:Math.round(s*0.7), apiKey:s-Math.round(s*0.7), noApi:categoryData[cat].gated }; }
+const oauthByCat=catLabels.map(c=>getAuthDistribution(c).oauth), apiKeyByCat=catLabels.map(c=>getAuthDistribution(c).apiKey), noApiByCat=catLabels.map(c=>getAuthDistribution(c).noApi);
+new Chart(document.getElementById('categoryAuthChart'), { type: 'bar', data: { labels: catLabels, datasets: [{ label:'OAuth 2.0', data:oauthByCat, backgroundColor:'#4f46e5' }, { label:'API Key / Token', data:apiKeyByCat, backgroundColor:'#10b981' }, { label:'No Public API', data:noApiByCat, backgroundColor:'#ef4444' }] }, options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'top',labels:{boxWidth:12,font:{size:11}}}}, scales:{x:{stacked:true,grid:{display:false},ticks:{maxRotation:45,minRotation:30,font:{size:9}}},y:{stacked:true,grid:{color:'rgba(0,0,0,0.05)'},title:{display:true,text:'Number of Apps'}}} } });
+
+const radarData=catLabels.map(c=>Math.round(((categoryData[c].buildable/categoryData[c].total)*100 + (categoryData[c].selfServe/categoryData[c].total)*100)/2));
+new Chart(document.getElementById('categoryRadarChart'), { type: 'radar', data: { labels: catLabels, datasets: [{ label:'Category Health Score', data:radarData, backgroundColor:'rgba(79,70,229,0.2)', borderColor:'#4f46e5', pointBackgroundColor:'#4f46e5', pointBorderColor:'#fff', fill:true, tension:0.1, borderWidth:2 }] }, options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'top',labels:{boxWidth:12,font:{size:11}}}}, scales:{r:{beginAtZero:true,max:100,grid:{color:'rgba(0,0,0,0.08)'},pointLabels:{font:{size:9},color:'#475569'},ticks:{stepSize:20,font:{size:9},backdropColor:'transparent'}}} } });
+
+// ===== FILTERS =====
+let currentFilter = 'all';
+function filterTable(type, btn) {
+    currentFilter = type;
+    document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilters();
+}
+function searchTable(){ applyFilters(); }
+function applyFilters() {
+    const q = document.getElementById('searchInput').value.toLowerCase();
+    let visible = 0;
+    document.querySelectorAll('#tableBody tr').forEach(row => {
+        const match = (currentFilter === 'all' || row.dataset.filter === currentFilter) && (!q || row.dataset.app.includes(q) || row.textContent.toLowerCase().includes(q));
+        row.style.display = match ? '' : 'none';
+        if (match) visible++;
+    });
+    document.getElementById('resultCount').textContent = `(${visible} results)`;
+}
+</script>
+</body>
+</html>

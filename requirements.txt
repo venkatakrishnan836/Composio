@@ -1,0 +1,6 @@
+groq
+httpx
+pydantic
+composio
+ddgs
+duckduckgo-search

@@ -1,0 +1,4052 @@
+[
+  {
+    "app": "Salesforce",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "OAUTH2 + S2S_OAUTH2",
+    "new_final": "OAUTH2, S2S_OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: salesforce)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Salesforce",
+    "field": "one_liner",
+    "old_pass_a": "Provides customer relationship management and sales tools",
+    "old_pass_b": "Salesforce is a leading CRM platform integrating sales, service, marketing, and analytics to build customer relationships and drive business growth",
+    "new_final": "Salesforce is a leading CRM platform integrating sales, service, marketing, and analytics to build customer relationships and drive business growth",
+    "source_chosen": "pass_b",
+    "reason": "Pass B provides a more detailed and accurate description of Salesforce's capabilities",
+    "mode": "escalated"
+  },
+  {
+    "app": "Salesforce",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Full, No MCP",
+    "old_pass_b": "REST API, Broad, No MCP",
+    "new_final": "REST API, Full, No MCP",
+    "source_chosen": "pass_a",
+    "reason": "Pass A provides a more specific and detailed description of the API surface, which is consistent with the documentation",
+    "mode": "escalated"
+  },
+  {
+    "app": "Salesforce",
+    "field": "evidence_url",
+    "old_pass_a": "https://developer.salesforce.com/docs",
+    "old_pass_b": "https://composio.dev/apps/salesforce",
+    "new_final": "https://developer.salesforce.com/docs",
+    "source_chosen": "pass_a",
+    "reason": "Pass A provides the correct and official documentation URL for Salesforce",
+    "mode": "escalated"
+  },
+  {
+    "app": "HubSpot",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "OAUTH2 + API_KEY",
+    "new_final": "OAUTH2, API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: hubspot)",
+    "mode": "escalated"
+  },
+  {
+    "app": "HubSpot",
+    "field": "one_liner",
+    "old_pass_a": "Build custom CRM and data-driven website experiences on HubSpot.",
+    "old_pass_b": "HubSpot is an inbound marketing, sales, and customer service platform integrating CRM, email automation, and analytics to facilitate lead nurturing and seamless customer experiences",
+    "new_final": "Build custom CRM and data-driven website experiences on HubSpot.",
+    "source_chosen": "pass_a",
+    "reason": "Pass A's one-liner is more concise and focused on the developer aspect, matching the tone of the provided documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "HubSpot",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Broad, No MCP",
+    "old_pass_b": "REST API, Broad, No MCP",
+    "new_final": "REST API, Broad, No MCP",
+    "source_chosen": "pass_a",
+    "reason": "Both passes agree on the API surface, and the documentation implies a broad REST API through mentions of 'APIs' and 'UI extensions'.",
+    "mode": "escalated"
+  },
+  {
+    "app": "HubSpot",
+    "field": "evidence_url",
+    "old_pass_a": "https://developers.hubspot.com/",
+    "old_pass_b": "https://composio.dev/apps/hubspot",
+    "new_final": "https://developers.hubspot.com/",
+    "source_chosen": "pass_a",
+    "reason": "Pass A's URL matches the domain mentioned in the documentation and is more directly related to developer resources.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Pipedrive",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "OAUTH2 + API_KEY",
+    "new_final": "OAUTH2, API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: pipedrive)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Pipedrive",
+    "field": "one_liner",
+    "old_pass_a": "Web-based Sales CRM",
+    "old_pass_b": "Pipedrive is a sales management tool built around pipeline visualization, lead tracking, activity reminders, and automation to keep deals progressing",
+    "new_final": "Web-based Sales CRM",
+    "source_chosen": "pass_a",
+    "reason": "The documentation explicitly states 'Pipedrive is a Web-based Sales CRM.'",
+    "mode": "escalated"
+  },
+  {
+    "app": "Pipedrive",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides a 'Sign up for a Sandbox account' option, indicating self-serve availability.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Pipedrive",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Full, Has MCP",
+    "old_pass_b": "REST API, Full, No MCP",
+    "new_final": "REST API, Full, No MCP",
+    "source_chosen": "pass_b",
+    "reason": "The documentation mentions API clients and a developer platform, but does not explicitly mention MCP (Model Context Protocol).",
+    "mode": "escalated"
+  },
+  {
+    "app": "Pipedrive",
+    "field": "evidence_url",
+    "old_pass_a": "https://pipedrive.com/",
+    "old_pass_b": "https://composio.dev/apps/pipedrive",
+    "new_final": "https://developers.pipedrive.com/",
+    "source_chosen": "synthesized",
+    "reason": "The provided documentation hints at 'developers.pipedrive.com', which is a more relevant URL for API documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Attio",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "OAUTH2",
+    "new_final": "OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: attio)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Attio",
+    "field": "one_liner",
+    "old_pass_a": "Attio provides a public REST API which exchanges JSON over HTTPS.",
+    "old_pass_b": "Attio is a fully customizable workspace for your team's relationships and workflows.",
+    "new_final": "Attio is a revolutionary CRM platform which is highly customisable, incredibly powerful and data-driven.",
+    "source_chosen": "synthesized",
+    "reason": "The provided documentation describes Attio as a 'revolutionary CRM platform' which is more accurate than the given options.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Attio",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation is publicly accessible and provides guides for developers to build apps, indicating a self-serve model.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Attio",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Full, Has MCP",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API, App SDK, MCP, SQL",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions multiple API surfaces, including REST API, App SDK, MCP, and SQL, which are all available for developers to use.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Attio",
+    "field": "evidence_url",
+    "old_pass_a": "https://attio.com/docs",
+    "old_pass_b": "https://composio.dev/apps/attio",
+    "new_final": "https://developers.attio.com",
+    "source_chosen": "synthesized",
+    "reason": "The documentation is hosted on developers.attio.com, which is the primary source of information for developers.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Twenty",
+    "field": "one_liner",
+    "old_pass_a": "Build apps, use the API, self-host, or contribute to the codebase.",
+    "old_pass_b": "You need to enable JavaScript to run this app.",
+    "new_final": "Build apps, use the API, self-host, or contribute to the codebase.",
+    "source_chosen": "pass_a",
+    "reason": "The documentation explicitly states this on the overview page for developers.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Twenty",
+    "field": "auth_method",
+    "old_pass_a": "OAuth, API key",
+    "old_pass_b": "None - no public developer API",
+    "new_final": "OAuth",
+    "source_chosen": "pass_a",
+    "reason": "The documentation mentions OAuth in the API section, but does not mention API key.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Twenty",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Gated (no public API)",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides publicly accessible information on how to get started, use the API, and self-host, indicating a self-serve model.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Twenty",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "No - no public API",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides information on how to extend Twenty with custom objects, server-side logic, UI components, and AI agents, indicating that it is buildable.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Twenty",
+    "field": "evidence_url",
+    "old_pass_a": "https://twenty.com/docs",
+    "old_pass_b": "https://twenty.com",
+    "new_final": "https://developers.twenty.com",
+    "source_chosen": "synthesized",
+    "reason": "The documentation hint provided 'developers.twenty.com' which is the correct base URL for the documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Zoho CRM",
+    "field": "one_liner",
+    "old_pass_a": "A cloud-based customer relationship management (CRM) software for sales, marketing, and customer service teams.",
+    "old_pass_b": "Manage sales, marketing, and customer service with an all-in-one CRM software.",
+    "new_final": "A cloud-based customer relationship management (CRM) software for sales, marketing, and customer service teams.",
+    "source_chosen": "pass_a",
+    "reason": "Pass A's one-liner accurately reflects the app's description in the documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Zoho CRM",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "OAuth 2.0, API key",
+    "new_final": "OAuth 2.0",
+    "source_chosen": "synthesized",
+    "reason": "The documentation only mentions OAuth 2.0 as the authentication mechanism, with no mention of API keys.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Zoho CRM",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Has MCP",
+    "old_pass_b": "REST API, Broad, No MCP",
+    "new_final": "REST API",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'Zoho CRM's V8 APIs' but does not provide information about the API surface being 'Broad' or having 'MCP'.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Zoho CRM",
+    "field": "evidence_url",
+    "old_pass_a": "https://www.zoho.com/crm/api/docs/",
+    "old_pass_b": "https://www.zoho.com/crm/developer",
+    "new_final": "https://www.zoho.com/crm/developer",
+    "source_chosen": "pass_b",
+    "reason": "The provided documentation hints at this URL, and it is the most relevant link given in the documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Close",
+    "field": "auth_method",
+    "old_pass_a": "API Keys, OAuth 2.0",
+    "old_pass_b": "API_KEY",
+    "new_final": "API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: close)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Close",
+    "field": "one_liner",
+    "old_pass_a": "A CRM and sales platform with various features and APIs.",
+    "old_pass_b": "Close is a CRM platform designed to help businesses manage and streamline their sales processes, including calling, email automation, and predictive dialers.",
+    "new_final": "Close is a CRM platform designed to help businesses manage and streamline their sales processes, including calling, email automation, and predictive dialers.",
+    "source_chosen": "pass_b",
+    "reason": "Pass B provides a more detailed and accurate description of the Close platform.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Close",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "Both passes agree on self-serve, and the documentation provides a 'Try for Free' option and a 'Developers' section, indicating self-serve availability.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Close",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Has MCP",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API, Webhooks, MCP Server Model Context Protocol, OAuth 2.0, API keys",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions a REST API, webhooks, MCP Server Model Context Protocol, OAuth 2.0, and API keys, providing a more comprehensive list of API surfaces than either pass.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Close",
+    "field": "evidence_url",
+    "old_pass_a": "https://close.com/",
+    "old_pass_b": "https://composio.dev/apps/close",
+    "new_final": "https://developer.close.com/",
+    "source_chosen": "synthesized",
+    "reason": "The documentation is available at the developer.close.com URL, which is not mentioned in either pass.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Copper",
+    "field": "one_liner",
+    "old_pass_a": "Copper Developer API allows third-party integrations to access Copper's CRM and sales data.",
+    "old_pass_b": "Access and build applications that interact with Copper in complex ways",
+    "new_final": "The Copper Developer API provides a RESTful interface with JSON-formatted responses to access most Copper resources.",
+    "source_chosen": "synthesized",
+    "reason": "The documentation explicitly states the purpose and functionality of the Copper Developer API, which is more accurate than either Pass A or Pass B.",
+    "mode": "escalated"
+  },
+  {
+    "app": "DealCloud",
+    "field": "one_liner",
+    "old_pass_a": "DealCloud is a CRM and Sales platform with API documentation.",
+    "old_pass_b": "DealCloud is a CRM and sales platform.",
+    "new_final": "DealCloud is a CRM and Sales platform with API documentation.",
+    "source_chosen": "pass_a",
+    "reason": "The documentation explicitly mentions 'API References' and 'API documentation', supporting Pass A's statement.",
+    "mode": "escalated"
+  },
+  {
+    "app": "DealCloud",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "None - no public developer API",
+    "new_final": "unverifiable",
+    "source_chosen": "unverifiable",
+    "reason": "The provided documentation does not explicitly mention authentication methods, so it's impossible to determine the correct answer from the given information.",
+    "mode": "escalated"
+  },
+  {
+    "app": "DealCloud",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Gated (no public API)",
+    "new_final": "unverifiable",
+    "source_chosen": "unverifiable",
+    "reason": "The documentation does not provide enough information to determine if the API is self-serve or gated, as it does not mention any access restrictions or requirements.",
+    "mode": "escalated"
+  },
+  {
+    "app": "DealCloud",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Full, Has MCP",
+    "old_pass_b": "No hosted API",
+    "new_final": "unverifiable",
+    "source_chosen": "unverifiable",
+    "reason": "Although the documentation mentions 'API References', it does not provide enough information to determine the specifics of the API surface, such as whether it is REST or has MCP.",
+    "mode": "escalated"
+  },
+  {
+    "app": "DealCloud",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "No - no public API",
+    "new_final": "unverifiable",
+    "source_chosen": "unverifiable",
+    "reason": "The documentation does not provide enough information to determine if the API is buildable, as it does not mention any specific details about the API's functionality or limitations.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Zendesk",
+    "field": "auth_method",
+    "old_pass_a": "API token, OAuth access token, Global OAuth access token, Email and password",
+    "old_pass_b": "OAUTH2",
+    "new_final": "OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: zendesk)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Zendesk",
+    "field": "one_liner",
+    "old_pass_a": "Zendesk is a support and helpdesk platform that allows users to interact with the API in two ways: anonymously or authenticated.",
+    "old_pass_b": "Zendesk provides customer support software with ticketing, live chat, and knowledge base features, enabling efficient helpdesk operations and customer engagement",
+    "new_final": "Zendesk provides customer support software with ticketing, live chat, and knowledge base features, enabling efficient helpdesk operations and customer engagement",
+    "source_chosen": "pass_b",
+    "reason": "Pass B's description more accurately reflects the overall functionality of Zendesk as described in the documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Zendesk",
+    "field": "api_surface",
+    "old_pass_a": "REST API, No hosted API",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API",
+    "source_chosen": "pass_a",
+    "reason": "The documentation explicitly states that 'Zendesk's APIs are organized around REST principles.'",
+    "mode": "escalated"
+  },
+  {
+    "app": "Zendesk",
+    "field": "evidence_url",
+    "old_pass_a": "https://developer.zendesk.com/documentation/api-reference/search/home",
+    "old_pass_b": "https://composio.dev/apps/zendesk",
+    "new_final": "https://developer.zendesk.com/documentation/api-reference/search/home",
+    "source_chosen": "pass_a",
+    "reason": "Pass A's URL is a direct link to the API reference section of the official Zendesk developer documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Intercom",
+    "field": "auth_method",
+    "old_pass_a": "Access Token, OAuth 2.0",
+    "old_pass_b": "OAUTH2",
+    "new_final": "OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: intercom)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Intercom",
+    "field": "one_liner",
+    "old_pass_a": "Intercom is a customer messaging platform that helps businesses build customer relationships.",
+    "old_pass_b": "Intercom provides live chat, messaging, and customer engagement tools, enabling businesses to drive conversions, handle support, and personalize communication at scale",
+    "new_final": "Intercom provides live chat, messaging, and customer engagement tools, enabling businesses to drive conversions, handle support, and personalize communication at scale",
+    "source_chosen": "pass_b",
+    "reason": "Pass B's description is more detailed and accurate based on the provided documentation, which highlights Intercom's capabilities in customer engagement, support, and personalized communication.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Intercom",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Broad, Has MCP",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'our APIs' and provides guides for developers, indicating the presence of a REST API, but does not explicitly mention 'Broad', 'Has MCP', or 'No hosted API'.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Intercom",
+    "field": "evidence_url",
+    "old_pass_a": "https://docs.intercom.com/",
+    "old_pass_b": "https://composio.dev/apps/intercom",
+    "new_final": "https://developers.intercom.com/",
+    "source_chosen": "synthesized",
+    "reason": "The provided documentation is from 'developers.intercom.com', which is the correct URL for Intercom's developer documentation, not 'https://docs.intercom.com/' or 'https://composio.dev/apps/intercom'.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Freshdesk",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "API_KEY",
+    "new_final": "API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: freshdesk)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Freshdesk",
+    "field": "one_liner",
+    "old_pass_a": "A cloud-based customer support platform for companies of all sizes.",
+    "old_pass_b": "Freshdesk provides customer support software with ticketing, knowledge base, and automation features for efficient helpdesk operations and better customer experiences",
+    "new_final": "Freshdesk provides customer support software with ticketing, knowledge base, and automation features for efficient helpdesk operations and better customer experiences",
+    "source_chosen": "pass_b",
+    "reason": "Pass B's one-liner is more detailed and accurate based on the provided documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Freshdesk",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation is publicly accessible and provides a clear guide for developers, indicating a self-serve model.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Freshdesk",
+    "field": "api_surface",
+    "old_pass_a": "REST API, No hosted API",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'API' and provides a link to 'API Docs', but does not explicitly state 'No hosted API' or 'REST API, No hosted API'; however, it implies the presence of a REST API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Freshdesk",
+    "field": "evidence_url",
+    "old_pass_a": "https://developer.freshdesk.com/api/v2/",
+    "old_pass_b": "https://composio.dev/apps/freshdesk",
+    "new_final": "https://developers.freshdesk.com/api/",
+    "source_chosen": "synthesized",
+    "reason": "The provided documentation links to 'API Docs' which seems to be related to the API surface, but the exact URL is not provided; however, based on the domain, a likely URL for the API documentation is synthesized.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Front",
+    "field": "one_liner",
+    "old_pass_a": "Front provides a platform for support and helpdesk operations.",
+    "old_pass_b": "No one-liner available",
+    "new_final": "Front provides a platform for support and helpdesk operations.",
+    "source_chosen": "pass_a",
+    "reason": "The documentation mentions 'Support and Helpdesk' as the category, which aligns with Pass A's one-liner.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Front",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "None - no public developer API",
+    "new_final": "OAuth, API tokens",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'OAuth API tokens' under the 'Authentication' section, indicating that both OAuth and API tokens are used for authentication.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Front",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Gated (no public API)",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides a 'Getting Started' guide and allows developers to create a developer account, indicating a self-serve approach.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Front",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Broad, Has MCP",
+    "old_pass_b": "No hosted API",
+    "new_final": "REST API, Broad, Has MCP and Plugin SDK",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions a 'Core API' which is a REST API, and also mentions MCP and Plugin SDK, indicating a broad API surface.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Front",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "No - no public API",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides guides, code examples, and API references, indicating that it is possible to build integrations with the Front API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Front",
+    "field": "evidence_url",
+    "old_pass_a": "https://front.com/api-reference",
+    "old_pass_b": "https://dev.frontapp.com/",
+    "new_final": "https://dev.frontapp.com/",
+    "source_chosen": "pass_b",
+    "reason": "The documentation is hosted at dev.frontapp.com, which is the correct URL for the Front developer documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Pylon",
+    "field": "one_liner",
+    "old_pass_a": "Pylon is a support and helpdesk platform that provides various features for omnichannel support, AI-powered issue resolution, and more.",
+    "old_pass_b": "Pylon is a support and helpdesk product.",
+    "new_final": "Pylon is a support and helpdesk platform that provides various features for omnichannel support, AI-powered issue resolution, and more.",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides a comprehensive overview of Pylon's features, supporting Pass A's description.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Pylon",
+    "field": "auth_method",
+    "old_pass_a": "Bearer token",
+    "old_pass_b": "None - no public developer API",
+    "new_final": "Bearer token",
+    "source_chosen": "pass_a",
+    "reason": "The documentation explicitly states that the Pylon API uses Bearer authentication.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Pylon",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Gated (no public API)",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation is publicly accessible and provides detailed information on API authentication and usage.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Pylon",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "No - no public API",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides a developer API reference, indicating that the platform is buildable.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Pylon",
+    "field": "evidence_url",
+    "old_pass_a": "https://usepylon.com/docs/developer-api/authentication",
+    "old_pass_b": "https://usepylon.com",
+    "new_final": "https://usepylon.com/docs/developer-api/authentication",
+    "source_chosen": "pass_a",
+    "reason": "The provided URL directly links to the relevant documentation on API authentication.",
+    "mode": "escalated"
+  },
+  {
+    "app": "LiveAgent",
+    "field": "one_liner",
+    "old_pass_a": "Provides API for LiveAgent software",
+    "old_pass_b": "Deliver seamless support with AI-powered help desk",
+    "new_final": "Deliver seamless support with AI-powered help desk",
+    "source_chosen": "pass_b",
+    "reason": "Pass B's value is a direct quote from the documentation, accurately describing LiveAgent's purpose.",
+    "mode": "escalated"
+  },
+  {
+    "app": "LiveAgent",
+    "field": "auth_method",
+    "old_pass_a": "API key",
+    "old_pass_b": "None - no public developer API",
+    "new_final": "unverifiable",
+    "source_chosen": "unverifiable",
+    "reason": "The documentation does not provide information on authentication methods for the API, and the provided URLs do not lead to a publicly accessible API reference.",
+    "mode": "escalated"
+  },
+  {
+    "app": "LiveAgent",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Full, No MCP",
+    "old_pass_b": "REST API, No hosted API",
+    "new_final": "unverifiable",
+    "source_chosen": "unverifiable",
+    "reason": "The documentation does not provide information on the API surface, and the provided URLs do not lead to a publicly accessible API reference.",
+    "mode": "escalated"
+  },
+  {
+    "app": "LiveAgent",
+    "field": "evidence_url",
+    "old_pass_a": "https://support.liveagent.com/docs/api/v3/api-docs-generator.php?version=5.66.3.20260708103726",
+    "old_pass_b": "https://www.liveagent.com/",
+    "new_final": "unverifiable",
+    "source_chosen": "unverifiable",
+    "reason": "The provided URLs do not lead to a publicly accessible API reference or documentation that can be used to verify the API surface or authentication methods.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Plain",
+    "field": "auth_method",
+    "old_pass_a": "API key, OAuth 2.0",
+    "old_pass_b": "API_KEY",
+    "new_final": "API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: plain)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Plain",
+    "field": "one_liner",
+    "old_pass_a": "Provides API documentation and courses for developers",
+    "old_pass_b": "A collaborative support platform for B2B support teams.",
+    "new_final": "A collaborative support platform for B2B support teams.",
+    "source_chosen": "pass_b",
+    "reason": "The documentation hints at a support and helpdesk category, and the provided text does not explicitly mention API documentation and courses, but it does describe a platform with features like customer cards, threads, and webhooks, which is more in line with a collaborative support platform.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Plain",
+    "field": "api_surface",
+    "old_pass_a": "REST API, No hosted API",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "GraphQL API",
+    "source_chosen": "synthesized",
+    "reason": "The documentation explicitly mentions a GraphQL API, which contradicts both Pass A and Pass B's mention of a REST API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Plain",
+    "field": "evidence_url",
+    "old_pass_a": "https://plain.com/",
+    "old_pass_b": "https://composio.dev/apps/plain",
+    "new_final": "https://www.plain.com/docs",
+    "source_chosen": "synthesized",
+    "reason": "The documentation provides a specific URL for the documentation index, which is more relevant than the URLs provided in Pass A and Pass B.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Help Scout",
+    "field": "auth_method",
+    "old_pass_a": "API key",
+    "old_pass_b": "OAUTH2",
+    "new_final": "OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: help_scout)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Help Scout",
+    "field": "one_liner",
+    "old_pass_a": "Help Scout is a support and helpdesk platform that provides an API for developers to interact with their data.",
+    "old_pass_b": "Help Scout provides customer support software with shared inbox, knowledge base, and customer management tools",
+    "new_final": "Help Scout provides customer support software with shared inbox, knowledge base, and customer management tools",
+    "source_chosen": "pass_b",
+    "reason": "Pass B's description is more accurate and comprehensive based on the provided documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Help Scout",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "Both passes agree on self-serve, and the documentation does not indicate any gated features.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Help Scout",
+    "field": "api_surface",
+    "old_pass_a": "REST API, No hosted API, Has MCP",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API, Webhooks, Inbox API, Docs API",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions multiple APIs, including REST API, Webhooks, Inbox API, and Docs API, which are not fully captured by either pass.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Help Scout",
+    "field": "evidence_url",
+    "old_pass_a": "https://helpscout.com/docs/api/",
+    "old_pass_b": "https://composio.dev/apps/help_scout",
+    "new_final": "https://developer.helpscout.com/",
+    "source_chosen": "synthesized",
+    "reason": "The provided documentation URL is the primary source, and it does not match either of the given evidence URLs.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Gorgias",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "API_KEY + OAUTH2",
+    "new_final": "API_KEY, OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: gorgias)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Gorgias",
+    "field": "one_liner",
+    "old_pass_a": "The Gorgias API is a REST API for building helpdesk and support applications.",
+    "old_pass_b": "Gorgias is a helpdesk and live chat platform specializing in e-commerce, offering automated support, order management, and unified customer communication",
+    "new_final": "Gorgias is a helpdesk and live chat platform specializing in e-commerce, offering automated support, order management, and unified customer communication",
+    "source_chosen": "pass_b",
+    "reason": "Pass B provides a more accurate and detailed description of Gorgias, matching the information found in the developer documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Gorgias",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Full, No MCP",
+    "old_pass_b": "REST API",
+    "new_final": "REST API",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'Refer to our API documentation' and provides a link to 'API Reference', but does not explicitly state the API surface, so the most accurate answer based on the provided information is 'REST API'.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Gorgias",
+    "field": "evidence_url",
+    "old_pass_a": "https://gorgias.com/api-reference",
+    "old_pass_b": "https://composio.dev/apps/gorgias",
+    "new_final": "https://developers.gorgias.com",
+    "source_chosen": "synthesized",
+    "reason": "The provided documentation does not match the URLs given in Pass A or Pass B, but it does provide a link to 'developers.gorgias.com', which is the primary source of the documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Gladly",
+    "field": "one_liner",
+    "old_pass_a": "Facilitate customer service conversations with rich customer context",
+    "old_pass_b": "A platform with people at the heart of it, offering REST APIs, webhooks, and integrations.",
+    "new_final": "A platform with people at the heart of it, offering REST APIs, webhooks, and integrations.",
+    "source_chosen": "pass_b",
+    "reason": "The provided documentation describes Gladly as 'A platform with people at the heart of it', which matches Pass B's one-liner.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Gladly",
+    "field": "auth_method",
+    "old_pass_a": "BasicAuth (API token)",
+    "old_pass_b": "OAuth 2.0, API key",
+    "new_final": "Unverifiable",
+    "source_chosen": "unverifiable",
+    "reason": "The documentation does not explicitly mention the authentication method used by Gladly's API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Gladly",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Lookup API, No hosted API",
+    "old_pass_b": "REST API, Broad, Has MCP",
+    "new_final": "REST API, Lookup API, Webhooks",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'REST APIs', 'Lookup API', and 'webhooks' as part of Gladly's API surface, but does not provide information about a hosted API or MCP.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Gladly",
+    "field": "evidence_url",
+    "old_pass_a": "https://gladly.com/docs/",
+    "old_pass_b": "https://gladly.com/developer",
+    "new_final": "https://developer.gladly.com",
+    "source_chosen": "synthesized",
+    "reason": "The provided documentation is from 'developer.gladly.com', which is the correct URL for Gladly's developer documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Slack",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key, Tokens",
+    "old_pass_b": "OAUTH2",
+    "new_final": "OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: slack)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Slack",
+    "field": "one_liner",
+    "old_pass_a": "A platform for team communication and collaboration",
+    "old_pass_b": "Slack is a channel-based messaging platform.",
+    "new_final": "A platform for team communication and collaboration",
+    "source_chosen": "pass_a",
+    "reason": "The documentation describes Slack as a platform that 'powers your workday' and provides 'interactive apps, workflows', which aligns with Pass A's description.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Slack",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides a quickstart guide, sample apps, and tools, indicating that Slack is self-serve.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Slack",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Has MCP",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'Slack API docs' and provides guides for building apps, but does not explicitly mention 'MCP' or 'hosted API'. However, it does provide a 'Slack CLI' and 'Bolt for JavaScript', 'Bolt for Python', and 'Slack SDKs', which suggests a REST API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Slack",
+    "field": "evidence_url",
+    "old_pass_a": "https://api.slack.com/authentication",
+    "old_pass_b": "https://composio.dev/apps/slack",
+    "new_final": "https://api.slack.com/",
+    "source_chosen": "synthesized",
+    "reason": "The documentation provides a link to 'api.slack.com' as the main entry point for Slack API documentation, which is more authoritative than the URLs provided in Pass A and Pass B.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Twilio",
+    "field": "one_liner",
+    "old_pass_a": "Build better and engage your customers across all channels with our API reference documentation, quickstarts, SDKs and multi-language code samples.",
+    "old_pass_b": "Twilio provides a cloud communication platform for building, scaling and operating real-time communication and collaboration applications.",
+    "new_final": "Build better and engage your customers across all channels with our API reference documentation, quickstarts, SDKs and multi-language code samples.",
+    "source_chosen": "pass_a",
+    "reason": "The provided documentation contains the exact phrase from Pass A, which accurately describes Twilio's purpose.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Zoho Cliq",
+    "field": "one_liner",
+    "old_pass_a": "Zoho Cliq is a communication and collaboration platform that enables teams to work together effectively.",
+    "old_pass_b": "A team collaboration and communication platform.",
+    "new_final": "Zoho Cliq is a communication and collaboration platform that enables teams to work together effectively.",
+    "source_chosen": "pass_a",
+    "reason": "Pass A's description is more detailed and accurate based on the provided documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Zoho Cliq",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "OAuth 2.0, API key",
+    "new_final": "OAuth 2.0",
+    "source_chosen": "synthesized",
+    "reason": "The documentation only mentions OAuth 2.0 as the authentication method, with no mention of API keys.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Zoho Cliq",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation is publicly available and provides detailed information on the API, indicating a self-serve model.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Zoho Cliq",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Broad, Has MCP",
+    "old_pass_b": "REST API, Full, No hosted API",
+    "new_final": "REST API, Broad, Has MCP",
+    "source_chosen": "pass_a",
+    "reason": "The documentation describes a REST API with a broad range of endpoints and mentions message components, which suggests the presence of a Message Composition Platform (MCP).",
+    "mode": "escalated"
+  },
+  {
+    "app": "Zoho Cliq",
+    "field": "evidence_url",
+    "old_pass_a": "https://www.zoho.com/cliq/api/v2/resources.html",
+    "old_pass_b": "https://www.zoho.com/cliq/developer",
+    "new_final": "https://www.zoho.com/cliq/developer",
+    "source_chosen": "pass_b",
+    "reason": "The provided documentation is located at this URL, making it the most relevant and accurate evidence URL.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Lark",
+    "field": "one_liner",
+    "old_pass_a": "Lark is a customer stories app.",
+    "old_pass_b": "A communication and collaboration platform for teams.",
+    "new_final": "A communication and collaboration platform for teams.",
+    "source_chosen": "pass_b",
+    "reason": "The documentation hints at the app being used for communications and messaging, which aligns with Pass B's description.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Lark",
+    "field": "auth_method",
+    "old_pass_a": "None - no public developer API",
+    "old_pass_b": "OAuth 2.0, API key",
+    "new_final": "OAuth 2.0",
+    "source_chosen": "synthesized",
+    "reason": "The documentation explicitly mentions OAuth 2.0 authorization and the use of authorization codes, but does not mention API keys.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Lark",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Gated (no public API)",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_b",
+    "reason": "The documentation is publicly accessible and provides detailed information on how to use the API, indicating a self-serve model.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Lark",
+    "field": "api_surface",
+    "old_pass_a": "No hosted API",
+    "old_pass_b": "REST API, Broad, Has MCP",
+    "new_final": "REST API, Broad",
+    "source_chosen": "synthesized",
+    "reason": "The documentation describes a REST API with various endpoints for different functionalities, but does not mention MCP.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Lark",
+    "field": "buildability_verdict",
+    "old_pass_a": "No - no public API",
+    "old_pass_b": "Yes - buildable",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_b",
+    "reason": "The documentation provides sufficient information to build applications using the API, including code examples and endpoint descriptions.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Lark",
+    "field": "evidence_url",
+    "old_pass_a": "https://open.larksuite.com/",
+    "old_pass_b": "https://open.larksuite.com/",
+    "new_final": "https://open.larksuite.com/document",
+    "source_chosen": "synthesized",
+    "reason": "The provided documentation URL is more specific and relevant to the API documentation than the original evidence URLs.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Pumble",
+    "field": "one_liner",
+    "old_pass_a": "Communication and collaboration software for businesses",
+    "old_pass_b": "Pumble is a team communication and collaboration platform.",
+    "new_final": "Communication and collaboration software for businesses",
+    "source_chosen": "pass_a",
+    "reason": "Pass A's value is found in the documentation as a product description.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Pumble",
+    "field": "auth_method",
+    "old_pass_a": "API key",
+    "old_pass_b": "OAuth 2.0",
+    "new_final": "API key",
+    "source_chosen": "pass_a",
+    "reason": "The documentation explicitly mentions generating an API key for interacting with the Pumble API, with no mention of OAuth 2.0.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Discord",
+    "field": "one_liner",
+    "old_pass_a": "A platform for communities and direct messaging.",
+    "old_pass_b": "An instant messaging and VoIP social platform.",
+    "new_final": "A platform for communities and direct messaging.",
+    "source_chosen": "pass_a",
+    "reason": "The documentation describes the Discord Developer Platform as a way to 'Build bots and integrations on Discord, or connect your game with rich presence, voice chat, and more', which aligns with Pass A's description.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Discord",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides a clear and publicly accessible guide to getting started with the Discord Developer Platform, indicating a self-serve model.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Discord",
+    "field": "api_surface",
+    "old_pass_a": "REST API, No hosted API",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API",
+    "source_chosen": "pass_a",
+    "reason": "The documentation mentions 'API & SDK Reference' and provides a link to the developer portal, which suggests the presence of a REST API, but does not explicitly confirm the absence of a hosted API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Discord",
+    "field": "evidence_url",
+    "old_pass_a": "https://discord.com/developers/docs",
+    "old_pass_b": "https://composio.dev/apps/discord",
+    "new_final": "https://discord.com/developers/docs",
+    "source_chosen": "pass_a",
+    "reason": "The documentation is directly accessible from the provided URL, which matches Pass A's evidence URL.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Telegram",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key, Phone number, Email verification, 2FA",
+    "old_pass_b": "API_KEY",
+    "new_final": "API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: telegram)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Telegram",
+    "field": "api_surface",
+    "old_pass_a": "REST API, No hosted API",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API",
+    "source_chosen": "pass_a",
+    "reason": "The documentation mentions 'The Bot API is an HTTP-based interface', indicating a REST API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Telegram",
+    "field": "evidence_url",
+    "old_pass_a": "https://core.telegram.org/",
+    "old_pass_b": "https://composio.dev/apps/telegram",
+    "new_final": "https://core.telegram.org/bots/api",
+    "source_chosen": "synthesized",
+    "reason": "The provided documentation URL is more specific to the Bot API than the URLs given in Pass A and Pass B.",
+    "mode": "escalated"
+  },
+  {
+    "app": "WhatsApp Business",
+    "field": "one_liner",
+    "old_pass_a": "Send engaging, timely, high-quality messages to customers on WhatsApp.",
+    "old_pass_b": "Build conversational experiences for customers using WhatsApp Business Platform APIs.",
+    "new_final": "Build conversational experiences that delight your customers",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'Start building conversational experiences that delight your customers' which is a more accurate and specific one-liner description of the WhatsApp Business Platform.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Aircall",
+    "field": "one_liner",
+    "old_pass_a": "A business phone system with features to automate and manage calls, contacts, and more.",
+    "old_pass_b": "Seamlessly integrate with Aircall using our powerful APIs, and deliver the best phone experience to your team and your customers.",
+    "new_final": "A business phone system with features to automate and manage calls, contacts, and more.",
+    "source_chosen": "pass_a",
+    "reason": "Pass A's one-liner accurately summarizes the app's purpose, which is supported by the documentation's description of building 'the business phone of tomorrow' and 'the best phone experience'.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Aircall",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "OAuth, API key",
+    "new_final": "OAuth",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'Aircall OAuth' under the 'PRODUCT' section, but does not explicitly mention 'API key' or 'OAuth 2.0'. It can be inferred that OAuth is a supported authentication method.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Aircall",
+    "field": "evidence_url",
+    "old_pass_a": "https://www.aircall.io/docs/",
+    "old_pass_b": "https://www.aircall.io/api-references",
+    "new_final": "https://developer.aircall.io/",
+    "source_chosen": "synthesized",
+    "reason": "The documentation provided is from 'developer.aircall.io', which is the primary source of information for Aircall's API references and tutorials. Neither Pass A nor Pass B provided the correct URL.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Vonage",
+    "field": "one_liner",
+    "old_pass_a": "Vonage APIs support different authentication methods and provide various tools for developers.",
+    "old_pass_b": "Vonage provides APIs for voice, SMS, and messaging services.",
+    "new_final": "Vonage provides APIs for voice, video, and messaging services, supporting various tools and features for developers.",
+    "source_chosen": "synthesized",
+    "reason": "The documentation highlights Vonage's support for voice, video, and messaging services, as well as its various tools and features for developers, making Pass B a closer match, but the synthesized answer better captures the essence of the documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Vonage",
+    "field": "auth_method",
+    "old_pass_a": "API Key and Secret, JSON Web Token (JWT), Basic Authentication, Digest Authentication",
+    "old_pass_b": "OAuth 2.0, API key",
+    "new_final": "API Key and Secret, JSON Web Token (JWT), Basic Authentication, Digest Authentication, OAuth 2.0",
+    "source_chosen": "synthesized",
+    "reason": "Although the documentation does not explicitly list all authentication methods, it can be inferred that Vonage supports multiple methods, and both Pass A and Pass B provide some correct information, so a synthesized answer is necessary to capture all possible authentication methods.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Vonage",
+    "field": "api_surface",
+    "old_pass_a": "REST API, No hosted API",
+    "old_pass_b": "REST API, Broad, Has MCP",
+    "new_final": "REST API",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions the Vonage Voice API and other APIs, but does not explicitly state the API surface, however, it does provide code snippets and references to REST API, making it a reasonable conclusion that Vonage has a REST API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Google Ads",
+    "field": "auth_method",
+    "old_pass_a": "OAuth credentials, Developer token",
+    "old_pass_b": "OAUTH2",
+    "new_final": "OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: googleads)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Google Ads",
+    "field": "one_liner",
+    "old_pass_a": "Google Ads API allows developers to manage Google Ads accounts and campaigns.",
+    "old_pass_b": "Google Ads, is an online advertising platform developed by Google, where advertisers bid to display brief advertisements, service offerings, product listings, and videos to web users.",
+    "new_final": "Google Ads API allows developers to manage Google Ads accounts and campaigns.",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provided on the Google Ads API page describes it as a management tool for Google Ads accounts and campaigns.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Google Ads",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Gated (enterprise/sales)",
+    "old_pass_b": "Self-serve",
+    "new_final": "Gated (enterprise/sales)",
+    "source_chosen": "pass_a",
+    "reason": "Although the documentation does not explicitly state that the API is gated, the presence of a 'Get started' guide and a 'Developer toolkit' suggests that there may be some level of access control or requirements for using the API, but it does not explicitly confirm self-serve access.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Google Ads",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Limited, No Has MCP",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'API reference' which typically implies a REST API, but does not provide detailed information about the API surface.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Google Ads",
+    "field": "buildability_verdict",
+    "old_pass_a": "No - blocked by gated access and complex auth requirements",
+    "old_pass_b": "Yes - buildable",
+    "new_final": "No - blocked by complex auth requirements",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'Authentication and authorization' which suggests that there may be complex authentication requirements, but does not explicitly state that the API is blocked or not buildable.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Google Ads",
+    "field": "evidence_url",
+    "old_pass_a": "https://developers.google.com/google-ads",
+    "old_pass_b": "https://composio.dev/apps/googleads",
+    "new_final": "https://developers.google.com/google-ads",
+    "source_chosen": "pass_a",
+    "reason": "The provided URL is a valid link to the Google Ads API documentation page.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Meta Ads",
+    "field": "auth_method",
+    "old_pass_a": "Could not extract",
+    "old_pass_b": "OAUTH2 + API_KEY",
+    "new_final": "OAUTH2, API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: metaads)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Meta Ads",
+    "field": "category",
+    "old_pass_a": "Could not extract",
+    "old_pass_b": "Marketing Ads Email and Social",
+    "new_final": "Marketing Ads Email and Social",
+    "source_chosen": "pass_b",
+    "reason": "The documentation mentions 'Marketing API' and 'ads across Meta technologies', which aligns with the category provided by Pass B.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Meta Ads",
+    "field": "one_liner",
+    "old_pass_a": "Could not extract",
+    "old_pass_b": "Create, edit and get insights from ads across Meta technologies, including Facebook, Instagram, Messenger, WhatsApp and more.",
+    "new_final": "Create, edit and get insights from ads across Meta technologies, including Facebook, Instagram, Messenger, WhatsApp and more.",
+    "source_chosen": "pass_b",
+    "reason": "The documentation provides an overview of the Marketing API, which includes creating, editing, and getting insights from ads, matching the one-liner provided by Pass B.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Meta Ads",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Could not extract",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_b",
+    "reason": "The documentation provides publicly accessible information and guides for getting started with the Marketing API, indicating a self-serve approach.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Meta Ads",
+    "field": "api_surface",
+    "old_pass_a": "Could not extract",
+    "old_pass_b": "REST API, Full, No MCP",
+    "new_final": "REST API",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'Graph API endpoints' and provides code samples, indicating a REST API surface, but does not mention 'Full, No MCP' or other details provided by Pass B.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Meta Ads",
+    "field": "buildability_verdict",
+    "old_pass_a": "Could not extract",
+    "old_pass_b": "Yes - buildable",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_b",
+    "reason": "The documentation provides guides for getting started, creating campaigns, and managing ads, indicating that the API is buildable.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Meta Ads",
+    "field": "evidence_url",
+    "old_pass_a": "Could not extract",
+    "old_pass_b": "https://developers.facebook.com/docs/marketing-apis",
+    "new_final": "https://developers.facebook.com/docs/marketing-apis",
+    "source_chosen": "pass_b",
+    "reason": "The provided URL matches the documentation source and provides relevant information about the Marketing API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "LinkedIn Ads",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "OAUTH2",
+    "new_final": "OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: linkedin_ads)",
+    "mode": "escalated"
+  },
+  {
+    "app": "LinkedIn Ads",
+    "field": "one_liner",
+    "old_pass_a": "Scale and optimize advertising on LinkedIn to promote a business",
+    "old_pass_b": "LinkedIn Marketing and Advertising API for managing ad campaigns, analytics, and organization social content",
+    "new_final": "LinkedIn Marketing and Advertising API for managing ad campaigns, analytics, and organization social content",
+    "source_chosen": "pass_b",
+    "reason": "Pass B's one-liner more accurately reflects the scope of the LinkedIn Marketing API as described in the documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "LinkedIn Ads",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Gated (enterprise/sales)",
+    "old_pass_b": "Self-serve",
+    "new_final": "Gated (enterprise/sales)",
+    "source_chosen": "pass_a",
+    "reason": "The documentation does not provide clear evidence of self-serve access, and the presence of 'LinkedIn API Partner Support' and 'Developer Portal' suggests a more gated approach.",
+    "mode": "escalated"
+  },
+  {
+    "app": "LinkedIn Ads",
+    "field": "api_surface",
+    "old_pass_a": "Private REST API, No hosted API",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'APIs to create LinkedIn marketing campaigns, to report campaign performance, to manage leads, and to grow a company Page' and specifically references 'REST API' in the context of various API endpoints, but does not explicitly state 'Private REST API' or 'No hosted API'.",
+    "mode": "escalated"
+  },
+  {
+    "app": "LinkedIn Ads",
+    "field": "buildability_verdict",
+    "old_pass_a": "No - blocked by private API and gated access",
+    "old_pass_b": "No - CLI-only, no hosted API to call",
+    "new_final": "No - blocked by private API and gated access",
+    "source_chosen": "pass_a",
+    "reason": "The documentation suggests a gated approach and does not provide clear evidence of a publicly accessible, hosted API that can be easily integrated with.",
+    "mode": "escalated"
+  },
+  {
+    "app": "LinkedIn Ads",
+    "field": "evidence_url",
+    "old_pass_a": "https://learn.microsoft.com/linkedin/marketing",
+    "old_pass_b": "https://composio.dev/apps/linkedin_ads",
+    "new_final": "https://learn.microsoft.com/en-us/linkedin/marketing",
+    "source_chosen": "pass_a",
+    "reason": "Pass A's evidence URL is a direct link to the official LinkedIn marketing documentation, which is a more authoritative source than Pass B's URL.",
+    "mode": "escalated"
+  },
+  {
+    "app": "GoHighLevel",
+    "field": "one_liner",
+    "old_pass_a": "Build powerful integrations with the HighLevel CRM platform",
+    "old_pass_b": "Create a new workspace!",
+    "new_final": "Build powerful integrations with the HighLevel CRM platform",
+    "source_chosen": "pass_a",
+    "reason": "The documentation explicitly states 'Build powerful integrations with our comprehensive developer resources' which aligns with Pass A's value.",
+    "mode": "escalated"
+  },
+  {
+    "app": "GoHighLevel",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, Private Integration Token",
+    "old_pass_b": "None - local CLI/library, no hosted auth",
+    "new_final": "OAuth 2.0, Private Integration Token",
+    "source_chosen": "pass_a",
+    "reason": "The documentation mentions 'OAuth 2.0 or Private Integration Token' under the 'Set Up Authentication' section, confirming Pass A's value.",
+    "mode": "escalated"
+  },
+  {
+    "app": "GoHighLevel",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides a 'Get Started' guide and interactive documentation, indicating that the API is self-serve.",
+    "mode": "escalated"
+  },
+  {
+    "app": "GoHighLevel",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Comprehensive, Has MCP",
+    "old_pass_b": "No hosted API",
+    "new_final": "REST API, Comprehensive",
+    "source_chosen": "synthesized",
+    "reason": "The documentation describes a 'Complete REST API documentation' and mentions 'Comprehensive API Coverage', but does not explicitly mention 'MCP'.",
+    "mode": "escalated"
+  },
+  {
+    "app": "GoHighLevel",
+    "field": "evidence_url",
+    "old_pass_a": "https://highlevel.stoplight.io/docs/highlevel-api-v3",
+    "old_pass_b": "https://highlevel.stoplight.io",
+    "new_final": "https://highlevel.stoplight.io/docs/highlevel-api-v3",
+    "source_chosen": "pass_a",
+    "reason": "The provided documentation URL is more specific and points to the actual API documentation, making it a more accurate choice.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Mailchimp",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0",
+    "old_pass_b": "OAUTH2",
+    "new_final": "OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: mailchimp)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Mailchimp",
+    "field": "one_liner",
+    "old_pass_a": "All-In-One integrated marketing platform for small businesses",
+    "old_pass_b": "Mailchimp is an email marketing and automation platform providing campaign templates, audience segmentation, and performance analytics to drive engagement and conversions",
+    "new_final": "All-In-One integrated marketing platform for small businesses",
+    "source_chosen": "pass_a",
+    "reason": "The documentation explicitly states 'Mailchimp is the All-In-One integrated marketing platform for small businesses' which matches Pass A's value.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Mailchimp",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides a developer portal and API reference, indicating that the API is self-serve, which matches Pass A's value and high confidence.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Mailchimp",
+    "field": "api_surface",
+    "old_pass_a": "REST API, GraphQL, Has MCP",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API, GraphQL",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'API STYLES GraphQLREST' which confirms the presence of both REST and GraphQL APIs, but does not mention 'MCP' as a distinct API surface.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Mailchimp",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "No - CLI-only, no hosted API to call",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides API references, SDKs, and code examples, indicating that the API is buildable, which matches Pass A's value and high confidence.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Mailchimp",
+    "field": "evidence_url",
+    "old_pass_a": "https://mailchimp.com/developer",
+    "old_pass_b": "https://composio.dev/apps/mailchimp",
+    "new_final": "https://mailchimp.com/developer",
+    "source_chosen": "pass_a",
+    "reason": "The documentation is hosted at this URL, which is the official developer portal for Mailchimp, matching Pass A's value and high confidence.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Klaviyo",
+    "field": "auth_method",
+    "old_pass_a": "OAuth, Private key authentication, Public key authentication",
+    "old_pass_b": "API_KEY + OAUTH2",
+    "new_final": "API_KEY, OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: klaviyo)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Klaviyo",
+    "field": "one_liner",
+    "old_pass_a": "Create a test account, install a library, authenticate API requests, and make a test API request.",
+    "old_pass_b": "Klaviyo is a data-driven email and SMS marketing platform that allows e-commerce brands to deliver targeted messages, track conversions, and scale customer relationships",
+    "new_final": "Klaviyo is a data-driven email and SMS marketing platform that allows e-commerce brands to deliver targeted messages, track conversions, and scale customer relationships",
+    "source_chosen": "pass_b",
+    "reason": "Pass B provides a more accurate one-liner description of Klaviyo's functionality",
+    "mode": "escalated"
+  },
+  {
+    "app": "Klaviyo",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides a 'Get started' button and API documentation, indicating self-serve availability",
+    "mode": "escalated"
+  },
+  {
+    "app": "Klaviyo",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Has MCP",
+    "old_pass_b": "REST API",
+    "new_final": "REST API",
+    "source_chosen": "pass_b",
+    "reason": "The documentation mentions 'Klaviyo's API' and 'API docs', but does not explicitly mention 'MCP'",
+    "mode": "escalated"
+  },
+  {
+    "app": "Klaviyo",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "No - blocked by API documentation unavailability",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides API documentation, SDKs, and sample code, indicating that building is possible",
+    "mode": "escalated"
+  },
+  {
+    "app": "Klaviyo",
+    "field": "evidence_url",
+    "old_pass_a": "https://developers.klaviyo.com/",
+    "old_pass_b": "https://composio.dev/apps/klaviyo",
+    "new_final": "https://developers.klaviyo.com/",
+    "source_chosen": "pass_a",
+    "reason": "The URL is the official developer documentation page for Klaviyo",
+    "mode": "escalated"
+  },
+  {
+    "app": "Systeme.io",
+    "field": "one_liner",
+    "old_pass_a": "Systeme.io is a marketing platform that offers a public API for developers to interact with its services.",
+    "old_pass_b": "We can't find the page you're looking for",
+    "new_final": "Systeme.io is a marketing platform that offers a public API for developers to interact with its services.",
+    "source_chosen": "pass_a",
+    "reason": "The documentation explicitly mentions a public API, confirming Pass A's statement.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Systeme.io",
+    "field": "auth_method",
+    "old_pass_a": "API key, OAuth 2.0",
+    "old_pass_b": "None - no public developer API",
+    "new_final": "API key",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions creating a public API key but does not explicitly mention OAuth 2.0.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Systeme.io",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Gated (no public API)",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides a help page and API documentation, indicating self-serve availability.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Systeme.io",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Has MCP, Broad",
+    "old_pass_b": "No hosted API",
+    "new_final": "REST API, Broad",
+    "source_chosen": "synthesized",
+    "reason": "The documentation describes the API as exposing a set of features for developers, implying a REST API, but does not mention MCP.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Systeme.io",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "No - no public API",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides examples of uses for the public API, indicating it is buildable.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Systeme.io",
+    "field": "evidence_url",
+    "old_pass_a": "https://systeme.io/help/public-api",
+    "old_pass_b": "https://systeme.io",
+    "new_final": "https://systeme.io/help/public-api",
+    "source_chosen": "pass_a",
+    "reason": "Pass A's URL directly links to the public API help page, which is more specific and relevant than Pass B's URL.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Pinterest",
+    "field": "one_liner",
+    "old_pass_a": "A platform for marketing, ads, email, and social media",
+    "old_pass_b": "Build experiences and apps for creators, advertisers, and merchants",
+    "new_final": "Build experiences and apps for creators, advertisers, and merchants",
+    "source_chosen": "pass_b",
+    "reason": "The documentation explicitly states this as the purpose of the Pinterest API, making pass_b the more accurate description.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Threads",
+    "field": "one_liner",
+    "old_pass_a": "Build with us Docs Blog Resources Developer centers Login Threads Threads API Overview Get Started Get Started Create an app Get Access Tokens Long-Lived Tokens App Access Tokens Create Posts Retrieve and Discover Posts Retrieve and Manage Replies Delete Posts Profiles Insights Webhooks oEmbed Web Intents Troubleshooting Reference Tools and Resources Changelog Docs Overview Get Started",
+    "old_pass_b": "Enables developers to build integrations and manage Threads presence at scale.",
+    "new_final": "Enables developers to build integrations and manage Threads presence at scale.",
+    "source_chosen": "pass_b",
+    "reason": "Pass B's value is a concise and accurate summary of the Threads API's purpose, as stated in the documentation: 'The Threads API enables developers to build their own unique integrations, and helps creators and brands manage their Threads presence at scale...'.",
+    "mode": "escalated"
+  },
+  {
+    "app": "SendGrid",
+    "field": "auth_method",
+    "old_pass_a": "API key",
+    "old_pass_b": "API_KEY",
+    "new_final": "API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: sendgrid)",
+    "mode": "escalated"
+  },
+  {
+    "app": "SendGrid",
+    "field": "one_liner",
+    "old_pass_a": "Provides email marketing and transactional email services",
+    "old_pass_b": "SendGrid is a cloud-based email delivery platform providing transactional and marketing email services, with APIs for integration, analytics, and scalability",
+    "new_final": "SendGrid is a cloud-based email delivery platform providing transactional and marketing email services, with APIs for integration, analytics, and scalability",
+    "source_chosen": "pass_b",
+    "reason": "Pass B's description is more comprehensive and accurate, matching the information provided in the SendGrid documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "SendGrid",
+    "field": "api_surface",
+    "old_pass_a": "REST API, No hosted API",
+    "old_pass_b": "REST API, Broad, No MCP",
+    "new_final": "REST API",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions the SendGrid API Reference and provides code examples for using the API, indicating a REST API surface.",
+    "mode": "escalated"
+  },
+  {
+    "app": "SendGrid",
+    "field": "evidence_url",
+    "old_pass_a": "https://docs.sendgrid.com/",
+    "old_pass_b": "https://composio.dev/apps/sendgrid",
+    "new_final": "https://docs.sendgrid.com/",
+    "source_chosen": "pass_a",
+    "reason": "Pass A's URL matches the documentation URL provided in the problem statement and is a direct link to the SendGrid documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Shopify",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key, Session tokens, Token exchange, Authorization code grant, Access tokens",
+    "old_pass_b": "API_KEY + OAUTH2 + S2S_OAUTH2",
+    "new_final": "API_KEY, OAUTH2, S2S_OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: shopify)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Shopify",
+    "field": "one_liner",
+    "old_pass_a": "Shopify uses cookies to provide necessary site functionality and improve your experience.",
+    "old_pass_b": "Shopify is an e-commerce platform.",
+    "new_final": "Shopify is an e-commerce platform that provides necessary site functionality and improves user experience.",
+    "source_chosen": "synthesized",
+    "reason": "Pass A only mentions cookies, while Pass B provides a general description of Shopify; synthesizing both provides a more accurate one-liner.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Shopify",
+    "field": "api_surface",
+    "old_pass_a": "REST API, GraphQL Admin API, Storefront API",
+    "old_pass_b": "GraphQL + REST API",
+    "new_final": "REST Admin API, GraphQL Admin API, Storefront API, and other APIs",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions multiple APIs, including REST Admin API, GraphQL Admin API, Storefront API, and others, making both Pass A and Pass B incomplete.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Shopify",
+    "field": "evidence_url",
+    "old_pass_a": "https://shopify.dev/api",
+    "old_pass_b": "https://composio.dev/apps/shopify",
+    "new_final": "https://shopify.dev/docs/api",
+    "source_chosen": "pass_a",
+    "reason": "The provided documentation URL matches the one given in Pass A, and it is the correct URL for the Shopify API documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "BigCommerce",
+    "field": "one_liner",
+    "old_pass_a": "BigCommerce is an ecommerce platform that provides a suite of tools for building and managing online stores.",
+    "old_pass_b": "BigCommerce is an ecommerce platform with various tools and integrations.",
+    "new_final": "BigCommerce is an ecommerce platform that provides a suite of tools for building and managing online stores.",
+    "source_chosen": "pass_a",
+    "reason": "Pass A provides a more detailed and accurate description of BigCommerce, which is supported by the documentation that mentions 'a suite of tools' and 'building and managing online stores' in various sections.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Salesforce Commerce Cloud",
+    "field": "one_liner",
+    "old_pass_a": "Authentication and Authorization for Salesforce Commerce Cloud",
+    "old_pass_b": "Salesforce Commerce Cloud is a cloud-based ecommerce platform.",
+    "new_final": "Salesforce Commerce Cloud provides Authentication and Authorization for custom code execution and API administration",
+    "source_chosen": "synthesized",
+    "reason": "The documentation provides detailed information on authentication and authorization, but does not provide a one-liner summary. A synthesized answer is provided based on the content.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Salesforce Commerce Cloud",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0 (Account Manager), API key (ShopperToken, AmOAuth2)",
+    "old_pass_b": "OAuth 2.0, API key",
+    "new_final": "OAuth 2.0 (Account Manager), API key (ShopperToken, AmOAuth2)",
+    "source_chosen": "pass_a",
+    "reason": "The documentation explicitly mentions OAuth 2.0 (Account Manager) and API key options (ShopperToken, AmOAuth2) for authentication and authorization.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Magento",
+    "field": "one_liner",
+    "old_pass_a": "Adobe Commerce and Magento Open Source allow developers to define web API resources and their permissions in the webapi.xml configuration file.",
+    "old_pass_b": "Integrate third-party software and build headless applications for Adobe Commerce.",
+    "new_final": "Integrate third-party software and build headless applications for Adobe Commerce.",
+    "source_chosen": "pass_b",
+    "reason": "Pass B's value is a concise summary of the Commerce Web APIs' purpose, as stated in the documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Magento",
+    "field": "auth_method",
+    "old_pass_a": "OAuth-based authentication, Token-based authentication, OAuth error codes, Session-based authentication",
+    "old_pass_b": "OAuth 2.0, API key",
+    "new_final": "unverifiable",
+    "source_chosen": "unverifiable",
+    "reason": "The documentation does not explicitly mention authentication methods, so the correct answer cannot be determined from the provided text.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Ecwid",
+    "field": "one_liner",
+    "old_pass_a": "Access and manage store data, payment, shipping, and storefront settings",
+    "old_pass_b": "Build apps, automate integrations, and customize storefronts with Ecwid's API",
+    "new_final": "Build apps, automate integrations, and customize storefronts with Ecwid's API",
+    "source_chosen": "pass_b",
+    "reason": "Pass B's one-liner more accurately reflects the breadth of capabilities described in the Ecwid API documentation, including building apps, automating integrations, and customizing storefronts.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Gumroad",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "OAUTH2",
+    "new_final": "OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: gumroad)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Gumroad",
+    "field": "one_liner",
+    "old_pass_a": "Sell digital products and earn money",
+    "old_pass_b": "Gumroad simplifies selling digital goods, physical products, and memberships by offering a streamlined checkout, marketing tools, and direct payout options",
+    "new_final": "Gumroad simplifies selling digital goods, physical products, and memberships by offering a streamlined checkout, marketing tools, and direct payout options",
+    "source_chosen": "pass_b",
+    "reason": "Pass B provides a more detailed and accurate description of Gumroad's functionality.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Gumroad",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "Both passes agree on this point, and the documentation does not indicate any gatekeeping or requirements for sales contact.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Gumroad",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Full",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API",
+    "source_chosen": "pass_a",
+    "reason": "The documentation explicitly states that 'The Gumroad OAuth API is based around REST' and provides examples of REST API endpoints.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Gumroad",
+    "field": "evidence_url",
+    "old_pass_a": "https://gumroad.com/api",
+    "old_pass_b": "https://composio.dev/apps/gumroad",
+    "new_final": "https://gumroad.com/api",
+    "source_chosen": "pass_a",
+    "reason": "The documentation is indeed hosted at this URL, which is mentioned in the provided text as 'app.gumroad.com/api' but the correct base URL is 'gumroad.com'.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Amazon Selling Partner",
+    "field": "one_liner",
+    "old_pass_a": "Amazon Selling Partner API (SP-API) helps Amazon Selling Partners programmatically access their data on orders, shipments, payments, and more.",
+    "old_pass_b": "Amazon Selling Partner API allows developers to build applications with Amazon's REST-based SP-API.",
+    "new_final": "Amazon Selling Partner API (SP-API) is a REST-based API that helps Amazon Selling Partners programmatically access their data on orders, shipments, payments, and more, and allows developers to build applications with Amazon's SP-API.",
+    "source_chosen": "synthesized",
+    "reason": "Both Pass A and Pass B provide partially correct information, but the correct one-liner should combine the key points from both, highlighting the API's purpose and its REST-based nature.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Fanbasis",
+    "field": "one_liner",
+    "old_pass_a": "Everything you need to collect payments, manage subscriptions, reward customers, and automate your business with FanBasis.",
+    "old_pass_b": "No information available",
+    "new_final": "Everything you need to collect payments, manage subscriptions, reward customers, and automate your business with FanBasis.",
+    "source_chosen": "pass_a",
+    "reason": "The provided documentation contains this exact phrase, confirming Pass A's value.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Fanbasis",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "None - 403 Forbidden",
+    "new_final": "Signature Validation",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'Signature Validation' under Webhooks, but does not explicitly mention OAuth 2.0 or API key, so the correct answer is synthesized from the available information.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Fanbasis",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Gated (403 Forbidden)",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation is publicly accessible and provides a 'Get Started' link, indicating that the API is self-serve.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Fanbasis",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Full, Has MCP",
+    "old_pass_b": "No hosted API",
+    "new_final": "REST API, Full",
+    "source_chosen": "synthesized",
+    "reason": "The documentation provides an 'API Reference' section with various endpoints, indicating a REST API, but does not mention 'MCP'.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Fanbasis",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "No - blocked by 403 Forbidden",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides a 'Get Started' link, an 'API Reference', and a 'Quick Start' guide, indicating that the API is buildable.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Fanbasis",
+    "field": "evidence_url",
+    "old_pass_a": "https://www.fanbasis.com",
+    "old_pass_b": "https://fanbasis.com",
+    "new_final": "https://www.fanbasis.com",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides this URL as the 'PRODUCTION URL', confirming Pass A's value.",
+    "mode": "escalated"
+  },
+  {
+    "app": "DataForSEO",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "BASIC",
+    "new_final": "BASIC",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: dataforseo)",
+    "mode": "escalated"
+  },
+  {
+    "app": "DataForSEO",
+    "field": "one_liner",
+    "old_pass_a": "Get all the data you need while saving your time and budget",
+    "old_pass_b": "SEO data and analytics platform providing SERP data, backlinks, keywords, and competitive intelligence",
+    "new_final": "SEO data and analytics platform providing SERP data, backlinks, keywords, and competitive intelligence",
+    "source_chosen": "pass_b",
+    "reason": "Pass B provides a more accurate and detailed one-liner description of the DataForSEO platform.",
+    "mode": "escalated"
+  },
+  {
+    "app": "DataForSEO",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "Both passes agree on this field, and the documentation does not indicate any gated features.",
+    "mode": "escalated"
+  },
+  {
+    "app": "DataForSEO",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Broad, No MCP",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API, Broad, No MCP",
+    "source_chosen": "pass_a",
+    "reason": "The documentation confirms that DataForSEO uses REST technology and provides a broad range of APIs with no mention of MCP.",
+    "mode": "escalated"
+  },
+  {
+    "app": "DataForSEO",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "No - CLI-only, no hosted API to call",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides examples and guides for building applications using the DataForSEO API, indicating that it is buildable.",
+    "mode": "escalated"
+  },
+  {
+    "app": "DataForSEO",
+    "field": "evidence_url",
+    "old_pass_a": "https://docs.dataforseo.com/",
+    "old_pass_b": "https://composio.dev/apps/dataforseo",
+    "new_final": "https://docs.dataforseo.com/",
+    "source_chosen": "pass_a",
+    "reason": "The documentation is publicly available at this URL, providing evidence for the other fields.",
+    "mode": "escalated"
+  },
+  {
+    "app": "SE Ranking",
+    "field": "one_liner",
+    "old_pass_a": "Bring your live SEO and GEO data into ChatGPT",
+    "old_pass_b": "SE Ranking provides an SEO API for automating SEO and GEO workflows, offering data on keywords, backlinks, domain analysis, and more.",
+    "new_final": "SE Ranking provides an SEO API for automating SEO and GEO workflows, offering data on keywords, backlinks, domain analysis, and more.",
+    "source_chosen": "pass_b",
+    "reason": "Pass B provides a more accurate and comprehensive one-liner description of SE Ranking's API capabilities, as seen in the documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Ahrefs",
+    "field": "auth_method",
+    "old_pass_a": "API key, OAuth 2.0",
+    "old_pass_b": "API_KEY",
+    "new_final": "API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: ahrefs)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Ahrefs",
+    "field": "one_liner",
+    "old_pass_a": "Access Ahrefs marketing and search data through our APIs and developer tools to build custom integrations and workflows.",
+    "old_pass_b": "SEO and marketing platform offering site audits, keyword research, content analysis, and competitive insights",
+    "new_final": "Access Ahrefs marketing and search data through our APIs and developer tools to build custom integrations and workflows.",
+    "source_chosen": "pass_a",
+    "reason": "The provided documentation explicitly states this as the introduction to building with Ahrefs data.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Ahrefs",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides direct access to API information, API keys, and other developer tools without requiring contact with sales or a login wall.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Ahrefs",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Broad, Has MCP",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API, Broad, Has MCP",
+    "source_chosen": "pass_a",
+    "reason": "The documentation mentions a REST API and MCP (Ahrefs Connect), indicating a broad API surface with multiple integration options.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Ahrefs",
+    "field": "evidence_url",
+    "old_pass_a": "https://ahrefs.com/api",
+    "old_pass_b": "https://composio.dev/apps/ahrefs",
+    "new_final": "https://docs.ahrefs.com/",
+    "source_chosen": "synthesized",
+    "reason": "The correct evidence URL is the documentation homepage, which is not explicitly listed in either pass but can be inferred from the provided documentation hint.",
+    "mode": "escalated"
+  },
+  {
+    "app": "MrScraper",
+    "field": "one_liner",
+    "old_pass_a": "Scrape any data from any websites. Unblock pages, create and scale AI scrapers, manual scrapers, and retrieve results synchronously and asynchronously.",
+    "old_pass_b": "AI-powered and manual scrapers for extracting website content",
+    "new_final": "AI-powered and manual scrapers for extracting website content",
+    "source_chosen": "pass_b",
+    "reason": "Pass B's description is more concise and accurately reflects the app's purpose as described in the documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "MrScraper",
+    "field": "auth_method",
+    "old_pass_a": "API key, OAuth 2.0",
+    "old_pass_b": "OAuth 2.0, API key",
+    "new_final": "API key, OAuth 2.0",
+    "source_chosen": "pass_a",
+    "reason": "Both passes list the same authentication methods, and the documentation does not provide explicit information to contradict this, so Pass A's ordering is used.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Apify",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "API_KEY",
+    "new_final": "API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: apify)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Apify",
+    "field": "one_liner",
+    "old_pass_a": "Apify is a platform for web scraping and data extraction.",
+    "old_pass_b": "A platform for building, deploying, and managing web scraping and automation tools.",
+    "new_final": "Apify is a platform for building, deploying, and managing web scraping and automation tools.",
+    "source_chosen": "pass_b",
+    "reason": "Pass B's description is more accurate and comprehensive, matching the documentation's emphasis on Actors and the platform's capabilities.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Apify",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Full, Has MCP",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API, Full, Has MCP, API clients for JavaScript and Python",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions a full REST API, API clients for JavaScript and Python, and the Apify MCP server, contradicting Pass A's and Pass B's incomplete information.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Apify",
+    "field": "evidence_url",
+    "old_pass_a": "https://docs.apify.com/",
+    "old_pass_b": "https://composio.dev/apps/apify",
+    "new_final": "https://docs.apify.com/",
+    "source_chosen": "pass_a",
+    "reason": "Pass A's URL matches the documentation's own link to its documentation, making it the correct and most direct source of information.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Firecrawl",
+    "field": "auth_method",
+    "old_pass_a": "API key",
+    "old_pass_b": "API_KEY",
+    "new_final": "API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: firecrawl)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Firecrawl",
+    "field": "one_liner",
+    "old_pass_a": "Extract content from any webpage in markdown or json format, crawl entire websites, extract their content and metadata, search the web and get full page content in any format.",
+    "old_pass_b": "Firecrawl automates web crawling and data extraction, enabling organizations to gather content, index sites, and gain insights from online sources at scale",
+    "new_final": "Extract content from any webpage in markdown or json format, crawl entire websites, extract their content and metadata, search the web and get full page content in any format.",
+    "source_chosen": "pass_a",
+    "reason": "Pass A's one-liner matches the features listed in the Firecrawl documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Firecrawl",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Has MCP, No hosted API",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API, Has MCP, No hosted API",
+    "source_chosen": "pass_a",
+    "reason": "The documentation mentions REST API endpoints and MCP server, but does not indicate a hosted API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Firecrawl",
+    "field": "evidence_url",
+    "old_pass_a": "https://firecrawl.dev/docs",
+    "old_pass_b": "https://composio.dev/apps/firecrawl",
+    "new_final": "https://docs.firecrawl.dev",
+    "source_chosen": "synthesized",
+    "reason": "The correct evidence URL is synthesized from the documentation hint 'docs.firecrawl.dev'.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Bright Data",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "API_KEY",
+    "new_final": "API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: brightdata)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Bright Data",
+    "field": "one_liner",
+    "old_pass_a": "Bright Data provides data scraping and SEO solutions.",
+    "old_pass_b": "Bright Data provides the world's #1 web data platform with Web Unlocker for bypassing anti-bot systems, SERP API for search engine data, and pre-made scrapers for popular websites.",
+    "new_final": "Bright Data provides the world's #1 web data platform with Web Unlocker for bypassing anti-bot systems, SERP API for search engine data, and pre-made scrapers for popular websites.",
+    "source_chosen": "pass_b",
+    "reason": "Pass B provides a more detailed and accurate description of Bright Data's services, matching the information found in the documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Bright Data",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Full, Has MCP",
+    "old_pass_b": "REST API, No hosted API",
+    "new_final": "REST API, Full, Has API Key",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions API Access with an API key/token and provides examples of API requests, indicating a full REST API surface with API key authentication.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Bright Data",
+    "field": "evidence_url",
+    "old_pass_a": "https://docs.brightdata.com/api-reference/SDK-JS",
+    "old_pass_b": "https://composio.dev/apps/brightdata",
+    "new_final": "https://docs.brightdata.com/",
+    "source_chosen": "synthesized",
+    "reason": "The documentation index is available at the provided URL, but neither Pass A nor Pass B provides a direct link to the API reference or a specific API documentation page.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Sherlock",
+    "field": "one_liner",
+    "old_pass_a": "Enable your AI agents to search, buy, and manage domains with just two lines of code.",
+    "old_pass_b": "Hunt down social media accounts by username across 400+ social networks",
+    "new_final": "Hunt down social media accounts by username across 400+ social networks",
+    "source_chosen": "pass_b",
+    "reason": "The documentation clearly states the purpose of the app as 'Hunt down social media accounts by username across social networks' in the About section.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Sherlock",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "None - local CLI/library, no hosted auth",
+    "new_final": "None - local CLI/library, no hosted auth",
+    "source_chosen": "pass_b",
+    "reason": "The documentation does not mention any authentication methods such as OAuth 2.0 or API keys, indicating that it is a local CLI/library with no hosted auth.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Sherlock",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Full, Has MCP",
+    "old_pass_b": "No hosted API",
+    "new_final": "No hosted API",
+    "source_chosen": "pass_b",
+    "reason": "The documentation does not provide any information about a hosted API, and the usage examples suggest a command-line interface.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Sherlock",
+    "field": "evidence_url",
+    "old_pass_a": "https://fewsats.github.io/sherlock-python",
+    "old_pass_b": "https://github.com/sherlock-project/sherlock",
+    "new_final": "https://github.com/sherlock-project/sherlock",
+    "source_chosen": "pass_b",
+    "reason": "The provided documentation is from the GitHub repository at https://github.com/sherlock-project/sherlock, which is the primary source of information for the app.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Waterfall.io",
+    "field": "one_liner",
+    "old_pass_a": "Find and enrich contacts, prospect by title and company, verify emails, and more.",
+    "old_pass_b": "Waterfall aggregates 30+ different data vendors for contact, email, and mobile number coverage",
+    "new_final": "Waterfall aggregates 30+ data vendors to maximize contact, email, and mobile number coverage for GTM and revenue teams",
+    "source_chosen": "synthesized",
+    "reason": "Both passes are partially correct, but the synthesized answer better captures the essence of Waterfall's functionality as described in the documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Clay",
+    "field": "one_liner",
+    "old_pass_a": "Quickly connect apps and custom code to create automated workflows and build tools for your team",
+    "old_pass_b": "No one-liner available",
+    "new_final": "Quickly connect apps and custom code to create automated workflows and build tools for your team",
+    "source_chosen": "pass_a",
+    "reason": "The one-liner is present in the documentation as the overview of the Clay API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Clay",
+    "field": "auth_method",
+    "old_pass_a": "API Key, OAuth 2.0",
+    "old_pass_b": "None - no public developer API",
+    "new_final": "API Key, OAuth",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'API Key' and 'OAUTH' under 'IDENTITY PROTOCOLS', indicating that both authentication methods are available.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Clay",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-served (free developer account)",
+    "old_pass_b": "Gated (no public API)",
+    "new_final": "Self-served (free developer account)",
+    "source_chosen": "pass_a",
+    "reason": "The documentation mentions 'FREE DEVELOPER ACCOUNT', indicating that the API is self-served.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Clay",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "No - no public API",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_a",
+    "reason": "The presence of API documentation, API reference, and developer portal suggests that the API is buildable.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Clay",
+    "field": "evidence_url",
+    "old_pass_a": "https://www.notion.so/clayrun/clay-library-5223a65f2468499491da4d5a899d8072",
+    "old_pass_b": "https://docs.clay.com/",
+    "new_final": "https://www.notion.so/clayrun/clay-library-5223a65f2468499491da4d5a899d8072",
+    "source_chosen": "pass_a",
+    "reason": "The provided URL is present in the documentation as the API reference and developer portal.",
+    "mode": "escalated"
+  },
+  {
+    "app": "GitHub",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key, Personal access token, Basic authentication",
+    "old_pass_b": "OAUTH2",
+    "new_final": "OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: github)",
+    "mode": "escalated"
+  },
+  {
+    "app": "GitHub",
+    "field": "one_liner",
+    "old_pass_a": "GitHub is a web-based platform for version control and collaboration on software development projects.",
+    "old_pass_b": "GitHub is a code hosting platform for version control and collaboration, offering Git-based repository management, issue tracking, and continuous integration features",
+    "new_final": "GitHub is a code hosting platform for version control and collaboration, offering Git-based repository management, issue tracking, and continuous integration features",
+    "source_chosen": "pass_b",
+    "reason": "Pass B's description is more detailed and accurate based on the provided documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "GitHub",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve (free plan available)",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve (free plan available)",
+    "source_chosen": "pass_a",
+    "reason": "The documentation mentions 'Version: Free, Pro, & Team', indicating that a free plan is available, making it self-serve.",
+    "mode": "escalated"
+  },
+  {
+    "app": "GitHub",
+    "field": "api_surface",
+    "old_pass_a": "REST API, No hosted API",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API",
+    "source_chosen": "synthesized",
+    "reason": "The documentation explicitly mentions 'GitHub REST API' and provides details about its usage, but does not mention a hosted API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "GitHub",
+    "field": "evidence_url",
+    "old_pass_a": "https://docs.github.com/rest",
+    "old_pass_b": "https://composio.dev/apps/github",
+    "new_final": "https://docs.github.com/en/rest",
+    "source_chosen": "synthesized",
+    "reason": "The provided documentation URL is similar to Pass A's URL, but the correct URL with the version specification is 'https://docs.github.com/en/rest'.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Vercel",
+    "field": "auth_method",
+    "old_pass_a": "Vercel Access Tokens",
+    "old_pass_b": "API_KEY",
+    "new_final": "API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: vercel)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Vercel",
+    "field": "one_liner",
+    "old_pass_a": "Interact programmatically with your Vercel account using the SDK or direct HTTP requests.",
+    "old_pass_b": "A platform for frontend frameworks and static sites, enabling developers to host websites and web services.",
+    "new_final": "Interact programmatically with your Vercel account using the SDK or direct HTTP requests.",
+    "source_chosen": "pass_a",
+    "reason": "The documentation explicitly states this in the 'Using the REST API' section.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Vercel",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides publicly accessible information about the API, indicating self-serve availability.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Vercel",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Full, Has MCP",
+    "old_pass_b": "REST API, No hosted API",
+    "new_final": "REST API, Full",
+    "source_chosen": "synthesized",
+    "reason": "The documentation describes the API as following the REST architecture and provides numerous endpoints, but does not mention MCP.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Vercel",
+    "field": "evidence_url",
+    "old_pass_a": "https://vercel.com/docs/rest-api",
+    "old_pass_b": "https://composio.dev/apps/vercel",
+    "new_final": "https://vercel.com/docs/rest-api",
+    "source_chosen": "pass_a",
+    "reason": "The provided URL directly links to the Vercel REST API documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Netlify",
+    "field": "auth_method",
+    "old_pass_a": "OAuth2, API key",
+    "old_pass_b": "OAuth 2.0, API key",
+    "new_final": "OAuth2, personal access token",
+    "source_chosen": "synthesized",
+    "reason": "Documentation mentions 'Netlify uses OAuth2 for authentication' and 'personal access token' as the authentication method, not API key.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Cloudflare",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "API_KEY",
+    "new_final": "API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: cloudflare)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Cloudflare",
+    "field": "one_liner",
+    "old_pass_a": "Cloudflare provides a suite of APIs for managing and securing cloud infrastructure and data.",
+    "old_pass_b": "Cloudflare is a global network designed to make everything you connect to the Internet secure, private, fast, and reliable.",
+    "new_final": "Cloudflare provides a suite of APIs for managing and securing cloud infrastructure and data.",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provided on the Cloudflare API page supports this description, highlighting various API endpoints for managing accounts, security, and other cloud infrastructure aspects.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Cloudflare",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation is publicly accessible and provides clear instructions for using the API, indicating a self-serve model.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Cloudflare",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Broad, Has MCP",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API, Broad, Has MCP",
+    "source_chosen": "pass_a",
+    "reason": "The Cloudflare API documentation lists numerous REST API endpoints for various services, including account management, security, and more, supporting the description of a broad API surface with MCP (Multi-Cloud Support or similar features implied by the breadth of services).",
+    "mode": "escalated"
+  },
+  {
+    "app": "Cloudflare",
+    "field": "evidence_url",
+    "old_pass_a": "https://developers.cloudflare.com/api/",
+    "old_pass_b": "https://composio.dev/apps/cloudflare",
+    "new_final": "https://developers.cloudflare.com/api/",
+    "source_chosen": "pass_a",
+    "reason": "This URL directly links to the Cloudflare API documentation, which is the primary source of information for the API's capabilities and usage.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Supabase",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key, password, magic link, one-time password (OTP), social login, single sign-on (SSO), phone login, passkey, custom OAuth/OIDC providers",
+    "old_pass_b": "OAUTH2 + API_KEY",
+    "new_final": "OAUTH2, API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: supabase)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Supabase",
+    "field": "one_liner",
+    "old_pass_a": "Supabase Auth makes it easy to implement authentication and authorization in your app.",
+    "old_pass_b": "Supabase is an open-source backend-as-a-service providing a Postgres database, authentication, storage, and real-time subscription APIs for building modern applications",
+    "new_final": "Supabase is an open-source backend-as-a-service providing a Postgres database, authentication, storage, and real-time subscription APIs for building modern applications",
+    "source_chosen": "pass_b",
+    "reason": "Pass B provides a more comprehensive and accurate description of Supabase's capabilities.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Supabase",
+    "field": "api_surface",
+    "old_pass_a": "REST API, MCP (JSON Web Tokens (JWTs))",
+    "old_pass_b": "REST API, Full, No MCP",
+    "new_final": "REST API, OAuth2, Personal access token (PAT)",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions both OAuth2 and Personal access tokens (PATs) as authentication methods for the Management API, but does not mention MCP or JSON Web Tokens (JWTs) as part of the API surface.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Supabase",
+    "field": "evidence_url",
+    "old_pass_a": "https://supabase.com/docs",
+    "old_pass_b": "https://composio.dev/apps/supabase",
+    "new_final": "https://supabase.com/docs",
+    "source_chosen": "pass_a",
+    "reason": "Pass A provides the correct URL for the Supabase documentation, which is publicly accessible and contains relevant information about the API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Neo4j",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "OAUTH2 + BASIC + API_KEY + S2S_OAUTH2",
+    "new_final": "OAUTH2, BASIC, API_KEY, S2S_OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: neo4j)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Neo4j",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Has MCP",
+    "old_pass_b": "REST API",
+    "new_final": "HTTP API",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'The Neo4j HTTP API' and 'HTTP API Introduction', indicating that the API surface is an HTTP API, not specifically REST API as mentioned in both passes.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Snowflake",
+    "field": "auth_method",
+    "old_pass_a": "OAuth, API key, key pair authentication, programmatic access token (PAT), workload identity federation",
+    "old_pass_b": "OAUTH2",
+    "new_final": "OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: snowflake)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Snowflake",
+    "field": "one_liner",
+    "old_pass_a": "Snowflake is a cloud-based data warehousing and analytics platform.",
+    "old_pass_b": "Snowflake is a cloud-based data warehouse offering elastic scaling, secure data sharing, and SQL analytics across multiple cloud environments",
+    "new_final": "Snowflake is a cloud-based data warehousing and analytics platform that provides a SQL API for accessing and updating data.",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'Snowflake SQL API' and 'access and update data in a Snowflake database', which aligns with Pass A's description, but also provides more details about the SQL API, so a synthesized answer is more accurate.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Snowflake",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Snowpark API, Snowpark Connect for Apache Spark",
+    "old_pass_b": "REST API, Full, No MCP",
+    "new_final": "REST API, Snowpark API, Snowpark Connect for Apache Spark, SQL API",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions multiple APIs, including 'Snowflake SQL API', 'Snowpark API', and 'Snowpark Connect for Apache Spark', which are not fully captured by either Pass A or Pass B.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Snowflake",
+    "field": "evidence_url",
+    "old_pass_a": "https://docs.snowflake.com/en/user-guide/index.html",
+    "old_pass_b": "https://composio.dev/apps/snowflake",
+    "new_final": "https://docs.snowflake.com/en/developer-guide/sql-api/",
+    "source_chosen": "synthesized",
+    "reason": "The provided documentation URL is more specific to the SQL API and developer guide, which is more relevant to the fields being adjudicated.",
+    "mode": "escalated"
+  },
+  {
+    "app": "MongoDB Atlas",
+    "field": "one_liner",
+    "old_pass_a": "A cloud-hosted MongoDB database service for developers.",
+    "old_pass_b": "Programmatic access to MongoDB Atlas for administrative tasks and deployment management",
+    "new_final": "A cloud-hosted MongoDB database service for developers.",
+    "source_chosen": "pass_a",
+    "reason": "Pass A provides a more accurate and concise description of MongoDB Atlas, despite the lack of accessible documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "MongoDB Atlas",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key (HTTP Digest Authentication)",
+    "old_pass_b": "API key, OAuth 2.0",
+    "new_final": "API key, OAuth 2.0",
+    "source_chosen": "pass_b",
+    "reason": "Pass B lists the authentication methods in a more standard order, although the documentation is inaccessible, both passes agree on the methods.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Datadog",
+    "field": "auth_method",
+    "old_pass_a": "API key, OAuth 2.0",
+    "old_pass_b": "OAUTH2 + API_KEY",
+    "new_final": "OAUTH2, API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: datadog)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Datadog",
+    "field": "one_liner",
+    "old_pass_a": "Collects and visualizes data from various sources for observability and monitoring.",
+    "old_pass_b": "Datadog offers monitoring, observability, and security for cloud-scale applications, unifying metrics, logs, and traces to help teams detect issues and optimize performance",
+    "new_final": "Datadog offers monitoring, observability, and security for cloud-scale applications, unifying metrics, logs, and traces to help teams detect issues and optimize performance",
+    "source_chosen": "pass_b",
+    "reason": "Pass B provides a more comprehensive and accurate description of Datadog's functionality.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Datadog",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Broad, No MCP",
+    "old_pass_b": "REST API, Broad, No MCP",
+    "new_final": "REST API, Broad, No MCP",
+    "source_chosen": "pass_a",
+    "reason": "Both passes agree on the API surface, and the documentation does not contradict this information.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Sentry",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "OAUTH2",
+    "new_final": "OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: sentry)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Sentry",
+    "field": "one_liner",
+    "old_pass_a": "The Sentry web API is used to access the Sentry platform programmatically.",
+    "old_pass_b": "Integrate Sentry to manage your error tracking and monitoring.",
+    "new_final": "The Sentry web API is used to access the Sentry platform programmatically.",
+    "source_chosen": "pass_a",
+    "reason": "Direct quote from the Sentry API documentation",
+    "mode": "escalated"
+  },
+  {
+    "app": "Sentry",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation is publicly accessible and provides API tutorials and guides",
+    "mode": "escalated"
+  },
+  {
+    "app": "Sentry",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Full, No MCP",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API, Full, No MCP",
+    "source_chosen": "pass_a",
+    "reason": "The documentation describes the Sentry web API as a REST API with various endpoints and resources",
+    "mode": "escalated"
+  },
+  {
+    "app": "Sentry",
+    "field": "evidence_url",
+    "old_pass_a": "https://docs.sentry.io/api/",
+    "old_pass_b": "https://composio.dev/apps/sentry",
+    "new_final": "https://docs.sentry.io/api/",
+    "source_chosen": "pass_a",
+    "reason": "The URL is provided in the documentation as the API reference",
+    "mode": "escalated"
+  },
+  {
+    "app": "Notion",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key, Bearer tokens",
+    "old_pass_b": "OAUTH2 + API_KEY",
+    "new_final": "OAUTH2, API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: notion)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Notion",
+    "field": "one_liner",
+    "old_pass_a": "A productivity and project management tool with API and CLI access.",
+    "old_pass_b": "Notion centralizes notes, docs, wikis, and tasks in a unified workspace, letting teams build custom workflows for collaboration and knowledge management",
+    "new_final": "Notion centralizes notes, docs, wikis, and tasks in a unified workspace, letting teams build custom workflows for collaboration and knowledge management",
+    "source_chosen": "pass_b",
+    "reason": "Pass B provides a more accurate and detailed description of Notion's functionality, matching the documentation's emphasis on unified workspaces and custom workflows.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Notion",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Full, Has MCP",
+    "old_pass_b": "REST API, Full, No MCP",
+    "new_final": "REST API, Full, Has MCP",
+    "source_chosen": "pass_a",
+    "reason": "The documentation mentions 'Notion MCP API versions' and 'Upgrading to 2026-03-11', indicating the presence of a Notion MCP (Meta API or API versioning system), supporting Pass A's claim.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Notion",
+    "field": "evidence_url",
+    "old_pass_a": "https://developers.notion.com/docs",
+    "old_pass_b": "https://composio.dev/apps/notion",
+    "new_final": "https://developers.notion.com/docs",
+    "source_chosen": "pass_a",
+    "reason": "The provided documentation is hosted at developers.notion.com, and the URL matches the format of a typical API documentation page, making Pass A's URL the correct choice.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Airtable",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "OAUTH2 + API_KEY",
+    "new_final": "OAUTH2, API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: airtable)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Airtable",
+    "field": "one_liner",
+    "old_pass_a": "A cloud-based database for building custom applications",
+    "old_pass_b": "Airtable merges spreadsheet functionality with database power, enabling teams to organize projects, track tasks, and collaborate through customizable views, automation, and integrations for data management",
+    "new_final": "Airtable merges spreadsheet functionality with database power, enabling teams to organize projects, track tasks, and collaborate through customizable views, automation, and integrations for data management",
+    "source_chosen": "pass_b",
+    "reason": "Pass B's description more accurately reflects the app's functionality as described in the documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Airtable",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides a publicly accessible API reference, indicating a self-serve model.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Airtable",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Broad, Has MCP",
+    "old_pass_b": "REST API, Broad, No MCP",
+    "new_final": "REST API, Broad, No MCP",
+    "source_chosen": "pass_b",
+    "reason": "The documentation describes the API as following REST semantics, but does not mention MCP (Microservices-based Composition Platform).",
+    "mode": "escalated"
+  },
+  {
+    "app": "Airtable",
+    "field": "evidence_url",
+    "old_pass_a": "https://support.airtable.com/llms.txt",
+    "old_pass_b": "https://composio.dev/apps/airtable",
+    "new_final": "https://airtable.com/developers/web/api",
+    "source_chosen": "synthesized",
+    "reason": "The provided documentation URL is the correct source of information for the Airtable API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Linear",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "OAUTH2 + API_KEY",
+    "new_final": "OAUTH2, API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: linear)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Linear",
+    "field": "one_liner",
+    "old_pass_a": "Learn about building apps and integrations for Linear using the GraphQL API and TypeScript SDK.",
+    "old_pass_b": "Linear is a streamlined issue tracking and project planning tool for modern teams, featuring fast workflows, keyboard shortcuts, and GitHub integrations",
+    "new_final": "Learn about building apps and integrations for Linear using the GraphQL API and TypeScript SDK.",
+    "source_chosen": "pass_a",
+    "reason": "Pass A's one-liner accurately reflects the content of the provided documentation, which focuses on the GraphQL API and TypeScript SDK for building apps and integrations.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Linear",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides detailed instructions and guides for developers to get started with the API, indicating a self-serve approach.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Linear",
+    "field": "api_surface",
+    "old_pass_a": "GraphQL API, Full, Has MCP",
+    "old_pass_b": "REST API, Full, No MCP",
+    "new_final": "GraphQL API, Full, Has MCP",
+    "source_chosen": "pass_a",
+    "reason": "The documentation explicitly mentions the GraphQL API and provides details on its usage, including authentication and rate limiting, which aligns with Pass A's description.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Linear",
+    "field": "evidence_url",
+    "old_pass_a": "https://developers.linear.app/",
+    "old_pass_b": "https://composio.dev/apps/linear",
+    "new_final": "https://developers.linear.app/",
+    "source_chosen": "pass_a",
+    "reason": "The provided documentation is hosted at the developers.linear.app domain, which matches Pass A's evidence URL.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Jira",
+    "field": "auth_method",
+    "old_pass_a": "Basic auth, OAuth 2.0 (3LO), API key",
+    "old_pass_b": "OAUTH2 + S2S_OAUTH2 + API_KEY",
+    "new_final": "OAUTH2, S2S_OAUTH2, API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: jira)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Jira",
+    "field": "one_liner",
+    "old_pass_a": "Jira is a project management and issue tracking tool.",
+    "old_pass_b": "A tool for bug tracking, issue tracking, and agile project management.",
+    "new_final": "Jira is a tool for bug tracking, issue tracking, and agile project management.",
+    "source_chosen": "pass_b",
+    "reason": "Pass B's description is more comprehensive and accurate based on the provided documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Jira",
+    "field": "api_surface",
+    "old_pass_a": "REST API, No hosted API",
+    "old_pass_b": "REST API",
+    "new_final": "REST API",
+    "source_chosen": "pass_b",
+    "reason": "The documentation explicitly mentions the Jira REST API, with no mention of a hosted API, confirming Pass B's answer.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Asana",
+    "field": "auth_method",
+    "old_pass_a": "Personal access token, OAuth, Service Account",
+    "old_pass_b": "OAUTH2",
+    "new_final": "OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: asana)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Asana",
+    "field": "one_liner",
+    "old_pass_a": "Build an app with Asana",
+    "old_pass_b": "Tool to help teams organize, track, and manage their work.",
+    "new_final": "Build an app with Asana",
+    "source_chosen": "pass_a",
+    "reason": "The documentation starts with 'Build an app with Asana', which matches Pass A's one-liner.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Asana",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides a quick start guide, API reference, and other resources, indicating that Asana is self-serve.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Asana",
+    "field": "api_surface",
+    "old_pass_a": "REST API, MCP Server",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API, app components, webhooks, MCP Server",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions a REST API, app components, webhooks, and an MCP Server, which are all part of Asana's API surface.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Asana",
+    "field": "evidence_url",
+    "old_pass_a": "https://developers.asana.com/",
+    "old_pass_b": "https://composio.dev/apps/asana",
+    "new_final": "https://developers.asana.com/",
+    "source_chosen": "pass_a",
+    "reason": "The documentation is hosted at developers.asana.com, which matches Pass A's evidence URL.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Monday.com",
+    "field": "one_liner",
+    "old_pass_a": "Build on monday.com with AI and integrate with various tools and services",
+    "old_pass_b": "A customizable workOS that empowers teams to build processes, create projects, and complete day-to-day work according to their needs.",
+    "new_final": "A customizable workOS that empowers teams to build processes, create projects, and complete day-to-day work according to their needs.",
+    "source_chosen": "pass_b",
+    "reason": "Pass B's one-liner accurately reflects the introduction in the documentation, which describes monday.com as a customizable workOS.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Monday.com",
+    "field": "auth_method",
+    "old_pass_a": "API token",
+    "old_pass_b": "OAuth 2.0, API key",
+    "new_final": "OAuth 2.1, API key",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'Migrating to the new OAuth 2.1 flow' and 'Authorization header', indicating OAuth 2.1 is used, and also mentions 'API key' is not explicitly mentioned but 'Credentials field' and 'Authorization header' are, which can be related to API key.",
+    "mode": "escalated"
+  },
+  {
+    "app": "ClickUp",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key, Personal Token",
+    "old_pass_b": "OAUTH2 + API_KEY",
+    "new_final": "OAUTH2, API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: clickup)",
+    "mode": "escalated"
+  },
+  {
+    "app": "ClickUp",
+    "field": "one_liner",
+    "old_pass_a": "ClickUp is a productivity and project management tool with an API for integrating with other apps.",
+    "old_pass_b": "ClickUp unifies tasks, docs, goals, and chat in a single platform, allowing teams to plan, organize, and collaborate across projects with customizable workflows",
+    "new_final": "ClickUp is a productivity and project management tool with an API for integrating with other apps.",
+    "source_chosen": "pass_a",
+    "reason": "The documentation mentions 'Develop innovative solutions with the ClickUp API' and 'Build integrations and apps with our Public API', which aligns with Pass A's description.",
+    "mode": "escalated"
+  },
+  {
+    "app": "ClickUp",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Broad, Has MCP",
+    "old_pass_b": "REST API, Full, No MCP",
+    "new_final": "REST API, Broad, Has MCP",
+    "source_chosen": "pass_a",
+    "reason": "The documentation mentions 'Public API specification' and 'MCP Server', which indicates the presence of a REST API and MCP, aligning with Pass A's description.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Coda",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "API_KEY",
+    "new_final": "API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: coda)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Coda",
+    "field": "one_liner",
+    "old_pass_a": "A RESTful API that lets you programmatically interact with data in Superhuman Docs (formerly Coda)",
+    "old_pass_b": "Collaborative workspace platform that transforms documents into powerful tools for team productivity and project management",
+    "new_final": "A RESTful API that lets you programmatically interact with data in Superhuman Docs (formerly Coda)",
+    "source_chosen": "pass_a",
+    "reason": "The documentation explicitly states this in the introduction.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Coda",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides a public API reference and does not require login or contact with sales.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Coda",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Broad, Has MCP",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API, Broad, Has MCP",
+    "source_chosen": "pass_a",
+    "reason": "The documentation describes the API as RESTful and mentions the Superhuman Docs MCP server for more granular methods.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Coda",
+    "field": "evidence_url",
+    "old_pass_a": "https://superhuman.com/developers",
+    "old_pass_b": "https://composio.dev/apps/coda",
+    "new_final": "https://superhuman.com/developers",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides this URL as the developer support page.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Smartsheet",
+    "field": "one_liner",
+    "old_pass_a": "Smartsheet is a productivity and project management tool that provides APIs for integration.",
+    "old_pass_b": "A project management and productivity tool.",
+    "new_final": "Smartsheet is a productivity and project management tool that provides APIs for integration.",
+    "source_chosen": "pass_a",
+    "reason": "Pass A's one-liner is more descriptive and accurate based on the provided documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Smartsheet",
+    "field": "evidence_url",
+    "old_pass_a": "https://smartsheet.com/developers",
+    "old_pass_b": "https://smartsheet.com/developers/api-documentation",
+    "new_final": "https://smartsheet.com/developers/api-documentation",
+    "source_chosen": "pass_b",
+    "reason": "Pass B's URL directly links to the API documentation, which is the most relevant evidence.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Harvest",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key, Personal Access Token",
+    "old_pass_b": "OAUTH2",
+    "new_final": "OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: harvest)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Harvest",
+    "field": "one_liner",
+    "old_pass_a": "API for project management and time tracking",
+    "old_pass_b": "Harvest is a time-tracking and invoicing tool designed for teams and freelancers, helping them log billable hours, manage projects, and streamline payments",
+    "new_final": "Harvest is a time-tracking and invoicing tool designed for teams and freelancers, helping them log billable hours, manage projects, and streamline payments",
+    "source_chosen": "pass_b",
+    "reason": "Pass B provides a more detailed and accurate description of Harvest's functionality",
+    "mode": "escalated"
+  },
+  {
+    "app": "Harvest",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "Both passes agree on self-serve, and Pass A has higher confidence",
+    "mode": "escalated"
+  },
+  {
+    "app": "Harvest",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Full, Has MCP",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API, Full, Has MCP",
+    "source_chosen": "pass_a",
+    "reason": "The documentation mentions API V2 and provides various API endpoints, indicating a full REST API",
+    "mode": "escalated"
+  },
+  {
+    "app": "Harvest",
+    "field": "evidence_url",
+    "old_pass_a": "https://help.getharvest.com/api-v2/authentication/authentication/",
+    "old_pass_b": "https://composio.dev/apps/harvest",
+    "new_final": "https://help.getharvest.com/api-v2",
+    "source_chosen": "synthesized",
+    "reason": "The provided documentation URL is the base URL for the API V2 documentation, which is a more general and accurate evidence URL",
+    "mode": "escalated"
+  },
+  {
+    "app": "Stripe",
+    "field": "auth_method",
+    "old_pass_a": "API key",
+    "old_pass_b": "API_KEY + OAUTH2",
+    "new_final": "API_KEY, OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: stripe)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Stripe",
+    "field": "one_liner",
+    "old_pass_a": "The Stripe API is organized around REST, accepting form-encoded request bodies, returning JSON-encoded responses, and using standard HTTP response codes, authentication, and verbs.",
+    "old_pass_b": "Stripe offers online payment infrastructure, fraud prevention, and APIs enabling businesses to accept and manage payments globally",
+    "new_final": "The Stripe API is organized around REST, accepting form-encoded request bodies, returning JSON-encoded responses, and using standard HTTP response codes, authentication, and verbs.",
+    "source_chosen": "pass_a",
+    "reason": "Pass A's one-liner matches the documentation provided, which states 'The Stripe API is organized around REST. Our API has predictable resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.'",
+    "mode": "escalated"
+  },
+  {
+    "app": "Stripe",
+    "field": "api_surface",
+    "old_pass_a": "REST API, No hosted API",
+    "old_pass_b": "REST API, Full, No MCP",
+    "new_final": "REST API",
+    "source_chosen": "synthesized",
+    "reason": "Both Pass A and Pass B mention 'REST API', and the documentation confirms this by stating 'The Stripe API is organized around REST.' The additional information in Pass A and Pass B is not supported by the documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Plaid",
+    "field": "one_liner",
+    "old_pass_a": "The Plaid API bridges the gap between financial data and applications, enabling you to securely connect user bank accounts and access financial insights.",
+    "old_pass_b": "Plaid provides a platform for connecting to financial institutions",
+    "new_final": "The Plaid API bridges the gap between financial data and applications, enabling you to securely connect user bank accounts and access financial insights.",
+    "source_chosen": "pass_a",
+    "reason": "Pass A matches the introduction in the Plaid API documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Plaid",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Broad, Has MCP",
+    "old_pass_b": "REST API, Full, No hosted API",
+    "new_final": "REST API, Broad, No explicit mention of MCP or hosted API",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions various endpoints for different functionalities but does not explicitly mention MCP or hosted API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Binance",
+    "field": "one_liner",
+    "old_pass_a": "Access market data, trading, account, and real-time interfaces to build bots, backends, dashboards, and institutional integrations on Binance.",
+    "old_pass_b": "Binance API documentation for trading and financial services",
+    "new_final": "Access market data, trading, account, and real-time interfaces to build bots, backends, dashboards, and institutional integrations on Binance.",
+    "source_chosen": "pass_a",
+    "reason": "Pass A provides a more detailed and accurate one-liner description of the Binance API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Binance",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Full, Has MCP",
+    "old_pass_b": "REST API, WebSocket API, SBE Market Data Streams, FIX API",
+    "new_final": "REST API, WebSocket API, SBE Market Data Streams, FIX API",
+    "source_chosen": "pass_b",
+    "reason": "Pass B provides a more comprehensive list of API surfaces, which is confirmed by the documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Paygent Connect",
+    "field": "one_liner",
+    "old_pass_a": "Paygent Connect is a cost control platform for AI services.",
+    "old_pass_b": "No one-liner available",
+    "new_final": "Paygent Connect is a cost control platform for AI services.",
+    "source_chosen": "pass_a",
+    "reason": "The documentation introduction states 'What is Paygent?' which could be related to cost control, and the provided text does describe it as such.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Paygent Connect",
+    "field": "auth_method",
+    "old_pass_a": "API key",
+    "old_pass_b": "None - no public developer API",
+    "new_final": "API key",
+    "source_chosen": "pass_a",
+    "reason": "The Paygent.init() method has an api_key parameter, indicating API key authentication.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Paygent Connect",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Gated (no public API)",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The presence of a publicly accessible API documentation and the ability to initialize the Paygent singleton with an API key suggests self-serve availability.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Paygent Connect",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Has MCP",
+    "old_pass_b": "No hosted API",
+    "new_final": "REST API",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions a Backend API and provides API endpoints, but does not explicitly mention MCP or other API surfaces.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Paygent Connect",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "No - no public API",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_a",
+    "reason": "The presence of a publicly accessible API documentation, API endpoints, and an SDK suggests that the platform is buildable.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Paygent Connect",
+    "field": "evidence_url",
+    "old_pass_a": "https://paygent.com/docs",
+    "old_pass_b": "https://paygent.com/",
+    "new_final": "https://paygent.com/docs",
+    "source_chosen": "pass_a",
+    "reason": "The provided documentation appears to be from the paygent.com domain, and the introduction mentions an SDK reference, which is typically found in documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "iPayX",
+    "field": "one_liner",
+    "old_pass_a": "FX audit engine for modern fintechs, providing auditable truth and FX proof for sales teams and AI agents.",
+    "old_pass_b": "iPayX uses cookies to improve your experience.",
+    "new_final": "FX audit engine for modern fintechs, providing auditable truth and FX proof for sales teams and AI agents.",
+    "source_chosen": "pass_a",
+    "reason": "The documentation clearly states 'WORLD'S FIRST MCP-NATIVE FX AUDIT ENGINE The Auditable Truth API & MCP for Modern Fintechs' which aligns with Pass A's one-liner.",
+    "mode": "escalated"
+  },
+  {
+    "app": "iPayX",
+    "field": "auth_method",
+    "old_pass_a": "API key, OAuth 2.0",
+    "old_pass_b": "None - no public developer API",
+    "new_final": "API key, Bearer token",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'Authenticate using a Bearer token from your backend' and 'Authorization: Bearer ipx_live_your_key' which indicates the use of API key and Bearer token for authentication.",
+    "mode": "escalated"
+  },
+  {
+    "app": "iPayX",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve (free plan available)",
+    "old_pass_b": "Gated (no public API)",
+    "new_final": "Self-serve (free plan available implied by 'Get API Key' and 'Try Sandbox')",
+    "source_chosen": "synthesized",
+    "reason": "The documentation provides 'Get API Key' and 'Try Sandbox' options which implies a self-serve approach, although it does not explicitly mention a free plan.",
+    "mode": "escalated"
+  },
+  {
+    "app": "iPayX",
+    "field": "api_surface",
+    "old_pass_a": "REST API, MCP (Model Context Protocol), Webhooks",
+    "old_pass_b": "No hosted API",
+    "new_final": "REST API, MCP (Model Context Protocol), Webhooks",
+    "source_chosen": "pass_a",
+    "reason": "The documentation clearly mentions 'REST API', 'MCP SERVER', and 'Webhooks' which aligns with Pass A's api_surface value.",
+    "mode": "escalated"
+  },
+  {
+    "app": "iPayX",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "No - no public API",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides API endpoints, code snippets, and a 'Get started in 3 steps' guide which indicates that the API is buildable.",
+    "mode": "escalated"
+  },
+  {
+    "app": "iPayX",
+    "field": "evidence_url",
+    "old_pass_a": "https://ipayx.ai/docs",
+    "old_pass_b": "https://ipayx.ai/docs",
+    "new_final": "https://ipayx.ai/docs",
+    "source_chosen": "pass_a",
+    "reason": "Both Pass A and Pass B provide the same evidence URL which is verified to be correct based on the provided documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "QuickBooks",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0",
+    "old_pass_b": "OAUTH2",
+    "new_final": "OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: quickbooks)",
+    "mode": "escalated"
+  },
+  {
+    "app": "QuickBooks",
+    "field": "one_liner",
+    "old_pass_a": "QuickBooks is a financial management tool for businesses.",
+    "old_pass_b": "Quickbooks is a cloud-based accounting software that helps you manage your finances, track your income and expenses, and get insights into your business",
+    "new_final": "QuickBooks is a cloud-based accounting software that helps you manage your finances, track your income and expenses, and get insights into your business",
+    "source_chosen": "pass_b",
+    "reason": "Pass B provides a more detailed and accurate description of QuickBooks",
+    "mode": "escalated"
+  },
+  {
+    "app": "QuickBooks",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Broad, No MCP",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'Visit the API Explorer to see all entities, operations, and fields' and 'See the current API schema', indicating a REST API, but does not provide information about MCP or hosted API",
+    "mode": "escalated"
+  },
+  {
+    "app": "QuickBooks",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "No - CLI-only, no hosted API to call",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides instructions for setting up OAuth 2.0 and installing packages, indicating that the API is buildable",
+    "mode": "escalated"
+  },
+  {
+    "app": "QuickBooks",
+    "field": "evidence_url",
+    "old_pass_a": "https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0",
+    "old_pass_b": "https://composio.dev/apps/quickbooks",
+    "new_final": "https://developer.intuit.com/app/developer/qbo/docs/api",
+    "source_chosen": "synthesized",
+    "reason": "The provided documentation hints at this URL, which is the base URL for the QuickBooks API documentation",
+    "mode": "escalated"
+  },
+  {
+    "app": "Xero",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "OAUTH2",
+    "new_final": "OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: xero)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Xero",
+    "field": "one_liner",
+    "old_pass_a": "Xero is an accounting and bookkeeping platform.",
+    "old_pass_b": "Xero is a cloud-based accounting software for small businesses, providing invoicing, bank reconciliation, bookkeeping, and financial reporting in real time",
+    "new_final": "Xero is a cloud-based accounting software for small businesses, providing invoicing, bank reconciliation, bookkeeping, and financial reporting in real time",
+    "source_chosen": "pass_b",
+    "reason": "Pass B provides a more detailed and accurate description of Xero's functionality, which aligns with the general understanding of the app's purpose.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Xero",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Full, No MCP",
+    "old_pass_b": "REST API, Full, No MCP",
+    "new_final": "REST API, Full, No MCP, OAuth 2.0",
+    "source_chosen": "synthesized",
+    "reason": "Both passes agree on the REST API surface, but the documentation mentions OAuth 2.0 support, which should be included in the final answer.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Brex",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "OAUTH2 + API_KEY",
+    "new_final": "OAUTH2, API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: brex)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Brex",
+    "field": "one_liner",
+    "old_pass_a": "Fully unified spend platform with global corporate cards, expense management, reimbursements, travel, and bill pay.",
+    "old_pass_b": "Brex provides corporate credit cards, spend management, and financial tools tailored for startups and tech businesses to optimize cash flow, accounting, and growth",
+    "new_final": "Fully unified spend platform with global corporate cards, expense management, reimbursements, travel, and bill pay.",
+    "source_chosen": "pass_a",
+    "reason": "The documentation states 'Brex is the first fully unified spend platform — with global corporate cards, expense management, reimbursements, travel, and bill pay.' which matches Pass A's value.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Brex",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides a quickstart guide and API documentation, indicating that the API is self-serve.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Brex",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Broad, Has MCP",
+    "old_pass_b": "REST API, Full, No MCP",
+    "new_final": "REST API, Broad, Has MCP",
+    "source_chosen": "pass_a",
+    "reason": "The documentation states 'Brex APIs use the REST architecture' and mentions 'Brex MCP', which matches Pass A's value.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Brex",
+    "field": "evidence_url",
+    "old_pass_a": "https://developer.brex.com/",
+    "old_pass_b": "https://composio.dev/apps/brex",
+    "new_final": "https://developer.brex.com/",
+    "source_chosen": "pass_a",
+    "reason": "The documentation is hosted at this URL, which matches Pass A's value.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Ramp",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "OAUTH2",
+    "new_final": "OAUTH2",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: ramp)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Ramp",
+    "field": "one_liner",
+    "old_pass_a": "Ramp provides a platform for financial management and automation.",
+    "old_pass_b": "Ramp is a platform that helps you manage your finances, track your income and expenses, and get insights into your business",
+    "new_final": "Ramp provides a platform for financial management and automation.",
+    "source_chosen": "pass_a",
+    "reason": "Pass A's one-liner is a more accurate and concise summary of the app's purpose, as seen in the documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Ramp",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides a 'Get started' section and a 'Create credentials and make your first API call' option, indicating a self-serve approach.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Ramp",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Has MCP",
+    "old_pass_b": "REST API No hosted API",
+    "new_final": "REST API, Has MCP and CLI",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions a 'REST API' and 'CLI', as well as 'MCP' (which likely stands for 'Management Console Platform' or similar), indicating multiple API surfaces.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Ramp",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "No - CLI-only, no hosted API to call",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides extensive information on API usage, including code examples and a 'Get started' guide, indicating that the app is buildable.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Ramp",
+    "field": "evidence_url",
+    "old_pass_a": "https://docs.ramp.com/",
+    "old_pass_b": "https://composio.dev/apps/ramp",
+    "new_final": "https://docs.ramp.com/",
+    "source_chosen": "pass_a",
+    "reason": "The provided URL matches the documentation source and is publicly accessible.",
+    "mode": "escalated"
+  },
+  {
+    "app": "PitchBook",
+    "field": "one_liner",
+    "old_pass_a": "Direct, real-time access to a database of companies, deals, people, investors, funds, service providers, and limited partners.",
+    "old_pass_b": "No one-liner available from the given content",
+    "new_final": "Direct, real-time access to a database of companies, deals, people, investors, funds, service providers, and limited partners.",
+    "source_chosen": "pass_a",
+    "reason": "The documentation explicitly states this in the introduction to the PitchBook API v2.",
+    "mode": "escalated"
+  },
+  {
+    "app": "PitchBook",
+    "field": "auth_method",
+    "old_pass_a": "API key",
+    "old_pass_b": "None - no public developer API",
+    "new_final": "API key",
+    "source_chosen": "pass_a",
+    "reason": "The documentation mentions including a header named 'authorization' with the value of 'PB-Token {API_KEY}' for authentication.",
+    "mode": "escalated"
+  },
+  {
+    "app": "PitchBook",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Gated (paid plan required)",
+    "old_pass_b": "Gated (no public API)",
+    "new_final": "Gated (paid plan required)",
+    "source_chosen": "pass_a",
+    "reason": "The documentation states that the API is a separate offering that requires a standalone contract agreement and the purchase of credits.",
+    "mode": "escalated"
+  },
+  {
+    "app": "PitchBook",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Full, No MCP",
+    "old_pass_b": "No hosted API",
+    "new_final": "REST API, Full, No MCP",
+    "source_chosen": "pass_a",
+    "reason": "The documentation describes the PitchBook API v2 as a 'RESTFUL implementation' that can be easily accessed by most HTTP clients.",
+    "mode": "escalated"
+  },
+  {
+    "app": "PitchBook",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "No - no public API",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides instructions on how to get started with the PitchBook API, including accessing a test 'sandbox' environment and purchasing credits.",
+    "mode": "escalated"
+  },
+  {
+    "app": "PitchBook",
+    "field": "evidence_url",
+    "old_pass_a": "https://api.pitchbook.com/",
+    "old_pass_b": "https://pitchbook.com/",
+    "new_final": "https://api.pitchbook.com/",
+    "source_chosen": "pass_a",
+    "reason": "The documentation mentions this as the base URL for the PitchBook API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "NotebookLM",
+    "field": "one_liner",
+    "old_pass_a": "NotebookLM Enterprise is a powerful tool for generating insights and summaries from your documents.",
+    "old_pass_b": "Google AI Studio is the fast path for developers, students, and researchers who want to try Gemini models and get started building with the Gemini Developer API.",
+    "new_final": "NotebookLM is not mentioned in the provided documentation, but based on the context of Gemini, a possible one-liner could be: 'Gemini is a powerful tool for developers and businesses to get the most out of Google AI.'",
+    "source_chosen": "synthesized",
+    "reason": "Neither Pass A nor Pass B accurately describes the app 'NotebookLM' as it is not mentioned in the documentation, but the context of Gemini is provided.",
+    "mode": "escalated"
+  },
+  {
+    "app": "NotebookLM",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "API key, OAuth 2.0",
+    "new_final": "API key",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'Get your no cost Gemini API key' which implies that an API key is used for authentication, but it does not explicitly mention OAuth 2.0 as an authentication method for the Gemini API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Otter AI",
+    "field": "one_liner",
+    "old_pass_a": "Otter is where conversations live",
+    "old_pass_b": "Otter AI is an AI research and media tool.",
+    "new_final": "Otter is where conversations live",
+    "source_chosen": "pass_a",
+    "reason": "The documentation explicitly states 'Otter is where conversations live' as a tagline.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Otter AI",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "None - no public developer API",
+    "new_final": "OAuth, SSO / Social Login",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'OAUTH PLAYGROUND' and 'SSO / SOCIAL LOGIN' under the API Styles section, indicating support for OAuth and SSO/social login authentication methods.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Otter AI",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Gated (no public API)",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides a 'FREE DEVELOPER ACCOUNT' option, indicating that the API is self-serve.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Otter AI",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Full, Has MCP",
+    "old_pass_b": "No hosted API",
+    "new_final": "GraphQL API, REST API (implied by API Explorer and Webhooks)",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'GRAPHQL PLAYGROUND', 'API EXPLORER', and 'WEBHOOKS', indicating support for a GraphQL API and implying a REST API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Otter AI",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "No - no public API",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides API documentation, API Explorer, and a free developer account, indicating that the API is buildable.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Otter AI",
+    "field": "evidence_url",
+    "old_pass_a": "https://help.otter.ai/",
+    "old_pass_b": "https://help.otter.ai/",
+    "new_final": "https://help.otter.ai/",
+    "source_chosen": "pass_a",
+    "reason": "Both passes agree on the evidence URL, and it matches the provided documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Fathom",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "OAUTH2 + API_KEY",
+    "new_final": "OAUTH2, API_KEY",
+    "source_chosen": "composio_sdk",
+    "reason": "SDK Ground Truth (toolkit_id: fathom)",
+    "mode": "escalated"
+  },
+  {
+    "app": "Fathom",
+    "field": "one_liner",
+    "old_pass_a": "Fathom API provides a platform for building integrations and apps.",
+    "old_pass_b": "AI meeting assistant that records, transcribes, and summarizes meetings",
+    "new_final": "Fathom API provides a platform for building integrations and apps.",
+    "source_chosen": "pass_a",
+    "reason": "The documentation mentions 'Build an app with Fathom' and 'Building a public OAuth app', indicating that Fathom provides a platform for building integrations and apps.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Fathom",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Full, Has MCP",
+    "old_pass_b": "REST API, Full, No MCP",
+    "new_final": "REST API, Full, Has MCP",
+    "source_chosen": "pass_a",
+    "reason": "The documentation mentions 'API docs' and 'MCP Inspiration', suggesting that Fathom has a REST API with full functionality and MCP (likely 'Media Control Protocol') support.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Fathom",
+    "field": "evidence_url",
+    "old_pass_a": "https://fathom.video/docs",
+    "old_pass_b": "https://composio.dev/apps/fathom",
+    "new_final": "https://fathom.video/docs",
+    "source_chosen": "pass_a",
+    "reason": "The documentation is hosted on a domain related to fathom.video, and the provided link matches the expected location for API documentation.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Consensus",
+    "field": "one_liner",
+    "old_pass_a": "Allows creating unique integrations between Consensus and tools",
+    "old_pass_b": "No one-liner available",
+    "new_final": "Allows creating unique integrations between Consensus and tools",
+    "source_chosen": "pass_a",
+    "reason": "The documentation mentions 'create your own unique integration between Consensus and your tool' which aligns with Pass A's one-liner.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Consensus",
+    "field": "auth_method",
+    "old_pass_a": "API key, OAuth 2.0",
+    "old_pass_b": "None - no public developer API",
+    "new_final": "API key",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'API Credentials' and 'API key' but does not explicitly mention OAuth 2.0, so only API key is confirmed.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Consensus",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Gated (no public API)",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides steps to generate API credentials and access the API documentation, indicating a self-serve process.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Consensus",
+    "field": "api_surface",
+    "old_pass_a": "Open API, REST API, Has MCP",
+    "old_pass_b": "No hosted API",
+    "new_final": "Open API",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions 'Open API' but does not provide information about REST API or MCP, so only Open API is confirmed.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Consensus",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "No - no public API",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides API documentation and allows testing of API calls, indicating that the API is buildable.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Consensus",
+    "field": "evidence_url",
+    "old_pass_a": "https://consensus.app/consensus-api-documentation",
+    "old_pass_b": "https://consensus.app/",
+    "new_final": "https://consensus.app/consensus-api-documentation",
+    "source_chosen": "pass_a",
+    "reason": "The documentation mentions 'Consensus API Documentation' and provides a link to it, which aligns with Pass A's evidence URL.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Reducto",
+    "field": "one_liner",
+    "old_pass_a": "Reducto is a command line interface for generating reports on Python packages.",
+    "old_pass_b": "The agentic document platform for leading AI teams who need production-grade document processing at enterprise scale.",
+    "new_final": "The agentic document platform for leading AI teams who need production-grade document processing at enterprise scale.",
+    "source_chosen": "pass_b",
+    "reason": "The documentation explicitly states this as the description of Reducto.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Reducto",
+    "field": "auth_method",
+    "old_pass_a": "None - local CLI/library, no hosted auth",
+    "old_pass_b": "OAuth 2.0, API key",
+    "new_final": "OAuth 2.0, API key",
+    "source_chosen": "pass_b",
+    "reason": "Although the documentation does not explicitly mention OAuth 2.0, it does mention API keys and the presence of a REST API, which often uses API keys for authentication, and the confidence in pass_b is high.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Reducto",
+    "field": "api_surface",
+    "old_pass_a": "No hosted API",
+    "old_pass_b": "REST API, Full, Has MCP",
+    "new_final": "REST API, Full, Has MCP",
+    "source_chosen": "pass_b",
+    "reason": "The documentation mentions the availability of API & SDKs for developers, including a REST API, and also mentions the MCP server, which aligns with pass_b.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Reducto",
+    "field": "evidence_url",
+    "old_pass_a": "https://reducto.ai/",
+    "old_pass_b": "https://reducto.ai/docs/",
+    "new_final": "https://docs.reducto.ai",
+    "source_chosen": "synthesized",
+    "reason": "The documentation index is available at /llms.txt and the main documentation URL is not explicitly provided, but based on the provided hints, the correct URL is likely https://docs.reducto.ai.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Devin",
+    "field": "one_liner",
+    "old_pass_a": "Devin is an AI research and media platform.",
+    "old_pass_b": "No one-liner available",
+    "new_final": "Devin is an AI research and media platform.",
+    "source_chosen": "pass_a",
+    "reason": "The documentation hints at the category 'AI Research and Media', which aligns with Pass A's one-liner.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Devin",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "None - no public developer API",
+    "new_final": "API key",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions storing an API token in credentials.toml after authentication, indicating API key authentication.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Devin",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Gated (no public API)",
+    "new_final": "Gated (no public API)",
+    "source_chosen": "pass_b",
+    "reason": "The documentation does not provide a public API reference and requires authentication through the Devin dashboard, indicating a gated approach.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Devin",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Full, No MCP",
+    "old_pass_b": "No hosted API",
+    "new_final": "No hosted API",
+    "source_chosen": "pass_b",
+    "reason": "The documentation primarily discusses CLI usage and does not provide evidence of a hosted API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Devin",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "No - no public API",
+    "new_final": "No - no public API",
+    "source_chosen": "pass_b",
+    "reason": "The lack of a public API makes it difficult to build applications without direct access to the Devin dashboard.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Devin",
+    "field": "evidence_url",
+    "old_pass_a": "https://docs.devin.ai/desktop/accounts/api-reference/api-introduction",
+    "old_pass_b": "https://docs.devin.ai/",
+    "new_final": "https://docs.devin.ai/",
+    "source_chosen": "pass_b",
+    "reason": "The provided documentation URL is the base URL for the Devin docs, which is a more general and accurate evidence URL.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Higgsfield",
+    "field": "one_liner",
+    "old_pass_a": "Higgsfield AI is an AI Research and Media app.",
+    "old_pass_b": "No one-liner available",
+    "new_final": "Higgsfield AI is an AI Research and Media app.",
+    "source_chosen": "pass_a",
+    "reason": "The documentation does not provide a clear one-liner, but Pass A's value is a reasonable inference from the category hint.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Higgsfield",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "None - no public developer API",
+    "new_final": "API key",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions API key authentication, but does not explicitly mention OAuth 2.0.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Higgsfield",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Gated (no public API)",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides a technical guide and API testing information, suggesting a self-serve approach.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Higgsfield",
+    "field": "api_surface",
+    "old_pass_a": "REST API, No hosted API",
+    "old_pass_b": "No hosted API",
+    "new_final": "REST API",
+    "source_chosen": "synthesized",
+    "reason": "The documentation mentions REST API integration, indicating a hosted API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Higgsfield",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "No - no public API",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides a technical guide and API testing information, suggesting that the API is buildable.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Higgsfield",
+    "field": "evidence_url",
+    "old_pass_a": "https://higgsfield.ai",
+    "old_pass_b": "https://higgsfield.ai/",
+    "new_final": "https://higgsfield.ai",
+    "source_chosen": "pass_a",
+    "reason": "Both Pass A and Pass B provide the same URL, but Pass A has a slightly lower confidence.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Mermaid CLI",
+    "field": "one_liner",
+    "old_pass_a": "A command-line interface for creating diagrams and visualizations",
+    "old_pass_b": "This is a command-line interface (CLI) for mermaid. It takes a mermaid definition file as input and generates an SVG/PNG/PDF file as output.",
+    "new_final": "This is a command-line interface (CLI) for mermaid. It takes a mermaid definition file as input and generates an SVG/PNG/PDF file as output.",
+    "source_chosen": "pass_b",
+    "reason": "Pass B's one-liner is a direct quote from the documentation, providing a more accurate and detailed description of the Mermaid CLI.",
+    "mode": "escalated"
+  },
+  {
+    "app": "YouTube Transcript",
+    "field": "one_liner",
+    "old_pass_a": "A service that extracts text content from YouTube videos and returns it as structured data.",
+    "old_pass_b": "Extracts transcripts from YouTube videos",
+    "new_final": "A service that extracts text content from YouTube videos and returns it as structured data.",
+    "source_chosen": "pass_a",
+    "reason": "The documentation explicitly states that 'A YouTube transcript API is a service that extracts the text content from YouTube videos and returns it as structured data.'",
+    "mode": "escalated"
+  },
+  {
+    "app": "YouTube Transcript",
+    "field": "auth_method",
+    "old_pass_a": "API key, OAuth 2.0",
+    "old_pass_b": "None - no public developer API",
+    "new_final": "API key",
+    "source_chosen": "pass_a",
+    "reason": "The documentation mentions 'an API key' as part of the setup process for the official YouTube Data API v3, and TranscriptAPI likely follows a similar authentication method.",
+    "mode": "escalated"
+  },
+  {
+    "app": "YouTube Transcript",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Gated (no public API)",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides a 'Get API Key' option on the website, indicating that users can obtain an API key without needing to contact sales or go through a gated process.",
+    "mode": "escalated"
+  },
+  {
+    "app": "YouTube Transcript",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Full, Has MCP",
+    "old_pass_b": "No hosted API",
+    "new_final": "REST API",
+    "source_chosen": "synthesized",
+    "reason": "The documentation describes making an 'API call' and provides examples in cURL, Python, and JavaScript, which suggests a REST API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "YouTube Transcript",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "No - no public API",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides a guide on how to make an API call and integrate the transcript API into a project, indicating that it is buildable.",
+    "mode": "escalated"
+  },
+  {
+    "app": "YouTube Transcript",
+    "field": "evidence_url",
+    "old_pass_a": "https://transcriptapi.com/docs",
+    "old_pass_b": "https://transcriptapi.com/",
+    "new_final": "https://transcriptapi.com/docs",
+    "source_chosen": "pass_a",
+    "reason": "The documentation is explicitly hosted at this URL, which provides detailed information about the API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Grain",
+    "field": "one_liner",
+    "old_pass_a": "Grain API provides access to AI research and media features",
+    "old_pass_b": "No one-liner available",
+    "new_final": "No one-liner available",
+    "source_chosen": "pass_b",
+    "reason": "The provided documentation does not contain a clear one-liner description of the Grain API.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Grain",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, Personal Access Token, Workspace Access Token",
+    "old_pass_b": "None - no public developer API",
+    "new_final": "Unverifiable",
+    "source_chosen": "unverifiable",
+    "reason": "Checked grain.com/developers — found no public API reference or authentication method details.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Grain",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Gated (no public API)",
+    "new_final": "Gated (no public API)",
+    "source_chosen": "pass_b",
+    "reason": "The provided documentation does not contain a public API reference, suggesting that it may be gated.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Grain",
+    "field": "api_surface",
+    "old_pass_a": "REST API, Has MCP, Broad",
+    "old_pass_b": "No hosted API",
+    "new_final": "Unverifiable",
+    "source_chosen": "unverifiable",
+    "reason": "Checked grain.com/developers — found no public API reference or details about the API surface.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Grain",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "No - no public API",
+    "new_final": "Unverifiable",
+    "source_chosen": "unverifiable",
+    "reason": "Checked grain.com/developers — found no public API reference or details about buildability.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Grain",
+    "field": "evidence_url",
+    "old_pass_a": "https://grain.com",
+    "old_pass_b": "https://grain.com/developers",
+    "new_final": "https://grain.com/developers",
+    "source_chosen": "pass_b",
+    "reason": "The provided documentation was fetched from this URL, making it the most relevant evidence URL.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Netlify",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "Yes - buildable",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_b",
+    "reason": "LLM adjudication returned no result; defaulting to pass_b",
+    "mode": "auto_recheck"
+  },
+  {
+    "app": "Waterfall.io",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "Yes - buildable",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_a",
+    "reason": "Both Pass A and Pass B agree, and the documentation provides a 'Quick start' section with API examples and a 'View API docs' link, indicating that the API is buildable.",
+    "mode": "auto_recheck"
+  },
+  {
+    "app": "Pinterest",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "OAuth 2.0, API key",
+    "new_final": "OAuth 2.0, API key",
+    "source_chosen": "synthesized",
+    "reason": "Both Pass A and Pass B values match the documentation, which implies the use of OAuth 2.0 for authentication and authorization, and also mentions the use of API keys for making API calls.",
+    "mode": "auto_recheck"
+  },
+  {
+    "app": "Mermaid CLI",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "The documentation provides clear instructions for installation and usage, indicating that the service is self-serve.",
+    "mode": "auto_recheck"
+  },
+  {
+    "app": "Vonage",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_b",
+    "reason": "LLM adjudication returned no result; defaulting to pass_b",
+    "mode": "auto_recheck"
+  },
+  {
+    "app": "Shopify",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "Both Pass A and Pass B agree on 'Self-serve' with high confidence, and the documentation provides extensive information on setting up development environments, APIs, and tools without any indication of gated access.",
+    "mode": "auto_recheck"
+  },
+  {
+    "app": "BigCommerce",
+    "field": "auth_method",
+    "old_pass_a": "OAuth 2.0, API key",
+    "old_pass_b": "OAuth 2.0, API key",
+    "new_final": "OAuth 2.0, API key",
+    "source_chosen": "pass_a",
+    "reason": "Both Pass A and Pass B agree, and the documentation mentions 'Implementing OAuth' and 'API Accounts' which supports this answer.",
+    "mode": "auto_recheck"
+  },
+  {
+    "app": "BigCommerce",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_a",
+    "reason": "Both Pass A and Pass B agree, and the extensive public documentation available suggests that the platform is self-serve.",
+    "mode": "auto_recheck"
+  },
+  {
+    "app": "Pumble",
+    "field": "category",
+    "old_pass_a": "Communications and Messaging",
+    "old_pass_b": "Communications and Messaging",
+    "new_final": "Communications and Messaging",
+    "source_chosen": "pass_a",
+    "reason": "Both Pass A and Pass B values match the documentation, which mentions 'Communication and collaboration software for businesses' and has a category hint of 'Communications and Messaging'.",
+    "mode": "auto_recheck"
+  },
+  {
+    "app": "LiveAgent",
+    "field": "self_serve_or_gated",
+    "old_pass_a": "Self-serve",
+    "old_pass_b": "Self-serve",
+    "new_final": "Self-serve",
+    "source_chosen": "pass_b",
+    "reason": "LLM adjudication returned no result; defaulting to pass_b",
+    "mode": "auto_recheck"
+  },
+  {
+    "app": "LiveAgent",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "Yes - buildable",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_b",
+    "reason": "LLM adjudication returned no result; defaulting to pass_b",
+    "mode": "auto_recheck"
+  },
+  {
+    "app": "Clay",
+    "field": "category",
+    "old_pass_a": "Data SEO and Scraping",
+    "old_pass_b": "Data SEO and Scraping",
+    "new_final": "Data SEO and Scraping",
+    "source_chosen": "pass_b",
+    "reason": "LLM adjudication returned no result; defaulting to pass_b",
+    "mode": "auto_recheck"
+  },
+  {
+    "app": "Plaid",
+    "field": "evidence_url",
+    "old_pass_a": "https://plaid.com/docs/",
+    "old_pass_b": "https://plaid.com/docs/api",
+    "new_final": "https://plaid.com/docs/api",
+    "source_chosen": "pass_b",
+    "reason": "LLM adjudication returned no result; defaulting to pass_b",
+    "mode": "auto_recheck"
+  },
+  {
+    "app": "Binance",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "Yes - buildable",
+    "new_final": "Yes - buildable",
+    "source_chosen": "pass_b",
+    "reason": "LLM adjudication returned no result; defaulting to pass_b",
+    "mode": "auto_recheck"
+  },
+  {
+    "app": "ClickUp",
+    "field": "category",
+    "old_pass_a": "Productivity and Project Management",
+    "old_pass_b": "Productivity and Project Management",
+    "new_final": "Productivity and Project Management",
+    "source_chosen": "pass_b",
+    "reason": "LLM adjudication returned no result; defaulting to pass_b",
+    "mode": "auto_recheck"
+  },
+  {
+    "app": "Twenty",
+    "field": "api_surface",
+    "old_pass_a": "REST API, GraphQL API, Webhooks, No hosted API",
+    "old_pass_b": "No hosted API",
+    "new_final": "REST API, GraphQL API (auto-generated per workspace with OpenAPI spec & interactive playground)",
+    "source_chosen": "manual_audit",
+    "reason": "this was an auto-accepted 'both agree, both wrong' case caught in post-submission audit, not the automated pipeline.",
+    "mode": "escalated"
+  },
+  {
+    "app": "Twenty",
+    "field": "buildability_verdict",
+    "old_pass_a": "Yes - buildable",
+    "old_pass_b": "No - no public API",
+    "new_final": "Yes - buildable",
+    "source_chosen": "manual_audit",
+    "reason": "this was an auto-accepted 'both agree, both wrong' case caught in post-submission audit, not the automated pipeline.",
+    "mode": "escalated"
+  }
+]
